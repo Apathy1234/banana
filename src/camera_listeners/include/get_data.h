@@ -15,7 +15,7 @@ using namespace std;
 
 
 
-const bool SHOW_IMAGE = true;
+const bool SHOW_IMAGE = false;
 
 namespace enc = sensor_msgs::image_encodings;
 
