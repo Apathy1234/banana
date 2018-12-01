@@ -1,0 +1,8 @@
+prefix=/home/tg/my_slam/devel
+
+Name: camera_listeners
+Description: Description of camera_listeners
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/tg/my_slam/devel/lib 
+Requires: 

@@ -7,8 +7,5 @@
 # new environment variables
 
 # modified environment variables
-export CMAKE_PREFIX_PATH="/home/tg/my_slam/devel:$CMAKE_PREFIX_PATH"
-export LD_LIBRARY_PATH="/home/tg/my_slam/devel/lib:$LD_LIBRARY_PATH"
+export PATH="/opt/ros/kinetic/bin:/home/tg/bin:/home/tg/.local/bin:/home/tg/bin:/home/tg/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin"
 export PWD="/home/tg/my_slam/build"
-export ROSLISP_PACKAGE_DIRECTORIES="/home/tg/my_slam/devel/share/common-lisp"
-export ROS_PACKAGE_PATH="/home/tg/my_slam/src:$ROS_PACKAGE_PATH"

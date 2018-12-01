@@ -29,10 +29,10 @@
   <!-- Device index -->
   <arg name="dev_index" default="0" />
   <!-- Framerate -->
-  <arg name="framerate" default="10" />
+  <arg name="framerate" default="30" />
 
-  <arg name="color_mode" default="$(arg color_raw)" />
-  <arg name="depth_mode" default="$(arg depth_raw)" />
+  <arg name="color_mode" default="$(arg color_rectified)" />
+  <arg name="depth_mode" default="$(arg depth_gray)" />
   <arg name="stream_mode" default="$(arg stream_1280x480)" />
   <arg name="device_mode" default="$(arg device_all)" />
   <arg name="color_stream_format" default="$(arg stream_yuyv)" />
@@ -43,7 +43,7 @@
   <!-- Auto-white balance -->
   <arg name="state_awb" default="true" />
   <!-- IR intensity -->
-  <arg name="ir_intensity" default="4" />
+  <arg name="ir_intensity" default="0" />
 
   <!-- Process mode, e.g. imu assembly, temp_drift -->
   <arg name="proc_mode" default="$(arg proc_none)" />
