@@ -1,0 +1,7 @@
+<launch>
+
+<include file="$(find mynteye_wrapper_d)/launch/mynteye.launch"/>
+
+<node name="feature_tracker" pkg="camera_listeners" type="feature_tracker"/>
+
+</launch>
