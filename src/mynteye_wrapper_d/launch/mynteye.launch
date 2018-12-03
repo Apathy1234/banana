@@ -32,7 +32,7 @@
   <arg name="framerate" default="30" />
 
   <arg name="color_mode" default="$(arg color_rectified)" />
-  <arg name="depth_mode" default="$(arg depth_gray)" />
+  <arg name="depth_mode" default="$(arg depth_raw)" />
   <arg name="stream_mode" default="$(arg stream_1280x480)" />
   <arg name="device_mode" default="$(arg device_all)" />
   <arg name="color_stream_format" default="$(arg stream_yuyv)" />

@@ -2,6 +2,6 @@
 
 <include file="$(find mynteye_wrapper_d)/launch/mynteye.launch"/>
 
-<node name="feature_tracker" pkg="camera_listeners" type="feature_tracker"/>
+<node name="ro_vo_node" pkg="camera_listeners" type="run_vo"/>
 
 </launch>

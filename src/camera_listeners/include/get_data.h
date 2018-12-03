@@ -2,24 +2,14 @@
 #define _GET_DATA_H_
 
 
-#include "ros/ros.h"
-#include <sensor_msgs/image_encodings.h>
-#include <image_transport/image_transport.h>
+#include "my_include.h"
 
-#include <cv_bridge/cv_bridge.h>
-#include <opencv2/core/core.hpp>
-#include <opencv2/highgui/highgui.hpp>
-
-using namespace cv;
-using namespace std;
-
-
-
-const bool SHOW_IMAGE = true;
+const bool SHOW_IMAGE = false;
 
 namespace enc = sensor_msgs::image_encodings;
 
-class imageConvert
+
+class ImageConvert
 {
 private:
     ros::NodeHandle n;
@@ -31,9 +21,12 @@ private:
     bool leftImageReady = false;
     bool rightImageReady = false;
     bool depthImageReady = false;
-  
+    // uint64_t timeBegin, timeEnd;
 
 public:
+    Mat leftImage;
+    Mat rightImage;
+    Mat depthImage;
     bool Image_Fresh( void )
     {
         if ( leftImageReady == true && rightImageReady == true && depthImageReady == true)
@@ -46,15 +39,16 @@ public:
         return false;
     }
     
-    imageConvert(void):it(n)
+    ImageConvert(void):it(n)
     {
-        leftGreySub = it.subscribe("/mynteye/left/image_mono", 1, &imageConvert::LeftImageCallBack, this);
-        rightGreySub = it.subscribe("/mynteye/right/image_mono", 1, &imageConvert::RightImageCallBack, this);
-        depthGreySub = it.subscribe("/mynteye/depth/image_raw", 1, &imageConvert::DepthGreyCallBack, this);
+        leftGreySub = it.subscribe("/mynteye/left/image_mono", 1, &ImageConvert::LeftImageCallBack, this);
+        rightGreySub = it.subscribe("/mynteye/right/image_mono", 1, &ImageConvert::RightImageCallBack, this);
+        depthGreySub = it.subscribe("/mynteye/depth/image_raw", 1, &ImageConvert::DepthGreyCallBack, this);
     }
 
     void LeftImageCallBack(const sensor_msgs::ImageConstPtr& img)
     {
+        // timeBegin = ros::Time::now().toNSec();
         cv_bridge::CvImageConstPtr cvPtr;
         try 
         {
@@ -67,13 +61,15 @@ public:
         }
 
         leftImageReady = true;
+        leftImage = cvPtr->image.clone();
 
         if ( SHOW_IMAGE )
         {
             imshow("left", cvPtr->image);
             waitKey(1);
         }
-
+        // timeEnd = ros::Time::now().toNSec();
+        // ROS_INFO_STREAM("code cost time: "<<(timeEnd-timeBegin)<<" ns");
     }
 
     void RightImageCallBack(const sensor_msgs::ImageConstPtr& img)
@@ -90,6 +86,7 @@ public:
         }
 
         rightImageReady = true;
+        rightImage = cvPtr->image.clone();
 
         if ( SHOW_IMAGE )
         {
@@ -123,7 +120,7 @@ public:
         }
 
         depthImageReady = true;
-
+        depthImage = cvPtr->image.clone();
         if ( SHOW_IMAGE )
         {
             imshow("depth", cvPtr->image);

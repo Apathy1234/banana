@@ -1,0 +1,18 @@
+%YAML:1.0
+
+# camera intrinsics (for left) mm
+camera.fx: 351.24
+camera.fy: 351.96
+camera.cx: 315.28
+camera.cy: 243.18
+
+
+# VO parameters
+numberOfFeature: 1000   # the number of feature
+scaleFactor: 1.2        # scale in image pyramid
+levelOfPyramid: 8       # the level of pyramid
+matchRatio: 2.0         # ratio for selecting good matches
+maxNumLost: 10
+minInliers: 10
+keyFrameRotation: 0.1
+keyFrameTranslation: 0.1

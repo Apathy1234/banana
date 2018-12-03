@@ -166,6 +166,21 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
+camera_listeners/CMakeFiles/run_vo.dir/rule:
+	cd /home/tg/my_slam/build && $(MAKE) -f CMakeFiles/Makefile2 camera_listeners/CMakeFiles/run_vo.dir/rule
+.PHONY : camera_listeners/CMakeFiles/run_vo.dir/rule
+
+# Convenience name for target.
+run_vo: camera_listeners/CMakeFiles/run_vo.dir/rule
+
+.PHONY : run_vo
+
+# fast build rule for target.
+run_vo/fast:
+	cd /home/tg/my_slam/build && $(MAKE) -f camera_listeners/CMakeFiles/run_vo.dir/build.make camera_listeners/CMakeFiles/run_vo.dir/build
+.PHONY : run_vo/fast
+
+# Convenience name for target.
 camera_listeners/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/rule:
 	cd /home/tg/my_slam/build && $(MAKE) -f CMakeFiles/Makefile2 camera_listeners/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/rule
 .PHONY : camera_listeners/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/rule
@@ -329,21 +344,6 @@ roscpp_generate_messages_eus: camera_listeners/CMakeFiles/roscpp_generate_messag
 roscpp_generate_messages_eus/fast:
 	cd /home/tg/my_slam/build && $(MAKE) -f camera_listeners/CMakeFiles/roscpp_generate_messages_eus.dir/build.make camera_listeners/CMakeFiles/roscpp_generate_messages_eus.dir/build
 .PHONY : roscpp_generate_messages_eus/fast
-
-# Convenience name for target.
-camera_listeners/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule:
-	cd /home/tg/my_slam/build && $(MAKE) -f CMakeFiles/Makefile2 camera_listeners/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule
-.PHONY : camera_listeners/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-geometry_msgs_generate_messages_cpp: camera_listeners/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule
-
-.PHONY : geometry_msgs_generate_messages_cpp
-
-# fast build rule for target.
-geometry_msgs_generate_messages_cpp/fast:
-	cd /home/tg/my_slam/build && $(MAKE) -f camera_listeners/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build.make camera_listeners/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build
-.PHONY : geometry_msgs_generate_messages_cpp/fast
 
 # Convenience name for target.
 camera_listeners/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/rule:
@@ -554,21 +554,6 @@ geometry_msgs_generate_messages_py: camera_listeners/CMakeFiles/geometry_msgs_ge
 geometry_msgs_generate_messages_py/fast:
 	cd /home/tg/my_slam/build && $(MAKE) -f camera_listeners/CMakeFiles/geometry_msgs_generate_messages_py.dir/build.make camera_listeners/CMakeFiles/geometry_msgs_generate_messages_py.dir/build
 .PHONY : geometry_msgs_generate_messages_py/fast
-
-# Convenience name for target.
-camera_listeners/CMakeFiles/feature_tracker.dir/rule:
-	cd /home/tg/my_slam/build && $(MAKE) -f CMakeFiles/Makefile2 camera_listeners/CMakeFiles/feature_tracker.dir/rule
-.PHONY : camera_listeners/CMakeFiles/feature_tracker.dir/rule
-
-# Convenience name for target.
-feature_tracker: camera_listeners/CMakeFiles/feature_tracker.dir/rule
-
-.PHONY : feature_tracker
-
-# fast build rule for target.
-feature_tracker/fast:
-	cd /home/tg/my_slam/build && $(MAKE) -f camera_listeners/CMakeFiles/feature_tracker.dir/build.make camera_listeners/CMakeFiles/feature_tracker.dir/build
-.PHONY : feature_tracker/fast
 
 # Convenience name for target.
 camera_listeners/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/rule:
@@ -855,13 +840,97 @@ tf2_msgs_generate_messages_py/fast:
 	cd /home/tg/my_slam/build && $(MAKE) -f camera_listeners/CMakeFiles/tf2_msgs_generate_messages_py.dir/build.make camera_listeners/CMakeFiles/tf2_msgs_generate_messages_py.dir/build
 .PHONY : tf2_msgs_generate_messages_py/fast
 
+# Convenience name for target.
+camera_listeners/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule:
+	cd /home/tg/my_slam/build && $(MAKE) -f CMakeFiles/Makefile2 camera_listeners/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule
+.PHONY : camera_listeners/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule
+
+# Convenience name for target.
+geometry_msgs_generate_messages_cpp: camera_listeners/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule
+
+.PHONY : geometry_msgs_generate_messages_cpp
+
+# fast build rule for target.
+geometry_msgs_generate_messages_cpp/fast:
+	cd /home/tg/my_slam/build && $(MAKE) -f camera_listeners/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build.make camera_listeners/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build
+.PHONY : geometry_msgs_generate_messages_cpp/fast
+
+# Convenience name for target.
+camera_listeners/CMakeFiles/myslam.dir/rule:
+	cd /home/tg/my_slam/build && $(MAKE) -f CMakeFiles/Makefile2 camera_listeners/CMakeFiles/myslam.dir/rule
+.PHONY : camera_listeners/CMakeFiles/myslam.dir/rule
+
+# Convenience name for target.
+myslam: camera_listeners/CMakeFiles/myslam.dir/rule
+
+.PHONY : myslam
+
+# fast build rule for target.
+myslam/fast:
+	cd /home/tg/my_slam/build && $(MAKE) -f camera_listeners/CMakeFiles/myslam.dir/build.make camera_listeners/CMakeFiles/myslam.dir/build
+.PHONY : myslam/fast
+
+src/camera.o: src/camera.cpp.o
+
+.PHONY : src/camera.o
+
+# target to build an object file
+src/camera.cpp.o:
+	cd /home/tg/my_slam/build && $(MAKE) -f camera_listeners/CMakeFiles/myslam.dir/build.make camera_listeners/CMakeFiles/myslam.dir/src/camera.cpp.o
+.PHONY : src/camera.cpp.o
+
+src/camera.i: src/camera.cpp.i
+
+.PHONY : src/camera.i
+
+# target to preprocess a source file
+src/camera.cpp.i:
+	cd /home/tg/my_slam/build && $(MAKE) -f camera_listeners/CMakeFiles/myslam.dir/build.make camera_listeners/CMakeFiles/myslam.dir/src/camera.cpp.i
+.PHONY : src/camera.cpp.i
+
+src/camera.s: src/camera.cpp.s
+
+.PHONY : src/camera.s
+
+# target to generate assembly for a file
+src/camera.cpp.s:
+	cd /home/tg/my_slam/build && $(MAKE) -f camera_listeners/CMakeFiles/myslam.dir/build.make camera_listeners/CMakeFiles/myslam.dir/src/camera.cpp.s
+.PHONY : src/camera.cpp.s
+
+src/config.o: src/config.cpp.o
+
+.PHONY : src/config.o
+
+# target to build an object file
+src/config.cpp.o:
+	cd /home/tg/my_slam/build && $(MAKE) -f camera_listeners/CMakeFiles/myslam.dir/build.make camera_listeners/CMakeFiles/myslam.dir/src/config.cpp.o
+.PHONY : src/config.cpp.o
+
+src/config.i: src/config.cpp.i
+
+.PHONY : src/config.i
+
+# target to preprocess a source file
+src/config.cpp.i:
+	cd /home/tg/my_slam/build && $(MAKE) -f camera_listeners/CMakeFiles/myslam.dir/build.make camera_listeners/CMakeFiles/myslam.dir/src/config.cpp.i
+.PHONY : src/config.cpp.i
+
+src/config.s: src/config.cpp.s
+
+.PHONY : src/config.s
+
+# target to generate assembly for a file
+src/config.cpp.s:
+	cd /home/tg/my_slam/build && $(MAKE) -f camera_listeners/CMakeFiles/myslam.dir/build.make camera_listeners/CMakeFiles/myslam.dir/src/config.cpp.s
+.PHONY : src/config.cpp.s
+
 src/feature_tracker.o: src/feature_tracker.cpp.o
 
 .PHONY : src/feature_tracker.o
 
 # target to build an object file
 src/feature_tracker.cpp.o:
-	cd /home/tg/my_slam/build && $(MAKE) -f camera_listeners/CMakeFiles/feature_tracker.dir/build.make camera_listeners/CMakeFiles/feature_tracker.dir/src/feature_tracker.cpp.o
+	cd /home/tg/my_slam/build && $(MAKE) -f camera_listeners/CMakeFiles/myslam.dir/build.make camera_listeners/CMakeFiles/myslam.dir/src/feature_tracker.cpp.o
 .PHONY : src/feature_tracker.cpp.o
 
 src/feature_tracker.i: src/feature_tracker.cpp.i
@@ -870,7 +939,7 @@ src/feature_tracker.i: src/feature_tracker.cpp.i
 
 # target to preprocess a source file
 src/feature_tracker.cpp.i:
-	cd /home/tg/my_slam/build && $(MAKE) -f camera_listeners/CMakeFiles/feature_tracker.dir/build.make camera_listeners/CMakeFiles/feature_tracker.dir/src/feature_tracker.cpp.i
+	cd /home/tg/my_slam/build && $(MAKE) -f camera_listeners/CMakeFiles/myslam.dir/build.make camera_listeners/CMakeFiles/myslam.dir/src/feature_tracker.cpp.i
 .PHONY : src/feature_tracker.cpp.i
 
 src/feature_tracker.s: src/feature_tracker.cpp.s
@@ -879,8 +948,62 @@ src/feature_tracker.s: src/feature_tracker.cpp.s
 
 # target to generate assembly for a file
 src/feature_tracker.cpp.s:
-	cd /home/tg/my_slam/build && $(MAKE) -f camera_listeners/CMakeFiles/feature_tracker.dir/build.make camera_listeners/CMakeFiles/feature_tracker.dir/src/feature_tracker.cpp.s
+	cd /home/tg/my_slam/build && $(MAKE) -f camera_listeners/CMakeFiles/myslam.dir/build.make camera_listeners/CMakeFiles/myslam.dir/src/feature_tracker.cpp.s
 .PHONY : src/feature_tracker.cpp.s
+
+src/frame.o: src/frame.cpp.o
+
+.PHONY : src/frame.o
+
+# target to build an object file
+src/frame.cpp.o:
+	cd /home/tg/my_slam/build && $(MAKE) -f camera_listeners/CMakeFiles/myslam.dir/build.make camera_listeners/CMakeFiles/myslam.dir/src/frame.cpp.o
+.PHONY : src/frame.cpp.o
+
+src/frame.i: src/frame.cpp.i
+
+.PHONY : src/frame.i
+
+# target to preprocess a source file
+src/frame.cpp.i:
+	cd /home/tg/my_slam/build && $(MAKE) -f camera_listeners/CMakeFiles/myslam.dir/build.make camera_listeners/CMakeFiles/myslam.dir/src/frame.cpp.i
+.PHONY : src/frame.cpp.i
+
+src/frame.s: src/frame.cpp.s
+
+.PHONY : src/frame.s
+
+# target to generate assembly for a file
+src/frame.cpp.s:
+	cd /home/tg/my_slam/build && $(MAKE) -f camera_listeners/CMakeFiles/myslam.dir/build.make camera_listeners/CMakeFiles/myslam.dir/src/frame.cpp.s
+.PHONY : src/frame.cpp.s
+
+src/run_vo_node.o: src/run_vo_node.cpp.o
+
+.PHONY : src/run_vo_node.o
+
+# target to build an object file
+src/run_vo_node.cpp.o:
+	cd /home/tg/my_slam/build && $(MAKE) -f camera_listeners/CMakeFiles/run_vo.dir/build.make camera_listeners/CMakeFiles/run_vo.dir/src/run_vo_node.cpp.o
+.PHONY : src/run_vo_node.cpp.o
+
+src/run_vo_node.i: src/run_vo_node.cpp.i
+
+.PHONY : src/run_vo_node.i
+
+# target to preprocess a source file
+src/run_vo_node.cpp.i:
+	cd /home/tg/my_slam/build && $(MAKE) -f camera_listeners/CMakeFiles/run_vo.dir/build.make camera_listeners/CMakeFiles/run_vo.dir/src/run_vo_node.cpp.i
+.PHONY : src/run_vo_node.cpp.i
+
+src/run_vo_node.s: src/run_vo_node.cpp.s
+
+.PHONY : src/run_vo_node.s
+
+# target to generate assembly for a file
+src/run_vo_node.cpp.s:
+	cd /home/tg/my_slam/build && $(MAKE) -f camera_listeners/CMakeFiles/run_vo.dir/build.make camera_listeners/CMakeFiles/run_vo.dir/src/run_vo_node.cpp.s
+.PHONY : src/run_vo_node.cpp.s
 
 # Help Target
 help:
@@ -891,6 +1014,7 @@ help:
 	@echo "... edit_cache"
 	@echo "... install/local"
 	@echo "... install/strip"
+	@echo "... run_vo"
 	@echo "... sensor_msgs_generate_messages_lisp"
 	@echo "... tf2_msgs_generate_messages_lisp"
 	@echo "... sensor_msgs_generate_messages_cpp"
@@ -905,8 +1029,6 @@ help:
 	@echo "... tf_generate_messages_eus"
 	@echo "... list_install_components"
 	@echo "... roscpp_generate_messages_eus"
-	@echo "... test"
-	@echo "... geometry_msgs_generate_messages_cpp"
 	@echo "... sensor_msgs_generate_messages_nodejs"
 	@echo "... rosgraph_msgs_generate_messages_cpp"
 	@echo "... tf2_msgs_generate_messages_cpp"
@@ -921,7 +1043,6 @@ help:
 	@echo "... geometry_msgs_generate_messages_nodejs"
 	@echo "... std_msgs_generate_messages_nodejs"
 	@echo "... geometry_msgs_generate_messages_py"
-	@echo "... feature_tracker"
 	@echo "... rosgraph_msgs_generate_messages_py"
 	@echo "... tf_generate_messages_lisp"
 	@echo "... tf2_msgs_generate_messages_nodejs"
@@ -941,9 +1062,24 @@ help:
 	@echo "... tf2_msgs_generate_messages_eus"
 	@echo "... actionlib_msgs_generate_messages_nodejs"
 	@echo "... tf2_msgs_generate_messages_py"
+	@echo "... test"
+	@echo "... geometry_msgs_generate_messages_cpp"
+	@echo "... myslam"
+	@echo "... src/camera.o"
+	@echo "... src/camera.i"
+	@echo "... src/camera.s"
+	@echo "... src/config.o"
+	@echo "... src/config.i"
+	@echo "... src/config.s"
 	@echo "... src/feature_tracker.o"
 	@echo "... src/feature_tracker.i"
 	@echo "... src/feature_tracker.s"
+	@echo "... src/frame.o"
+	@echo "... src/frame.i"
+	@echo "... src/frame.s"
+	@echo "... src/run_vo_node.o"
+	@echo "... src/run_vo_node.i"
+	@echo "... src/run_vo_node.s"
 .PHONY : help
 
 

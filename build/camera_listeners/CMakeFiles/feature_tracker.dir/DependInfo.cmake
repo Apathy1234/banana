@@ -5,6 +5,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
   "/home/tg/my_slam/src/camera_listeners/src/feature_tracker.cpp" "/home/tg/my_slam/build/camera_listeners/CMakeFiles/feature_tracker.dir/src/feature_tracker.cpp.o"
+  "/home/tg/my_slam/src/camera_listeners/src/frame.cpp" "/home/tg/my_slam/build/camera_listeners/CMakeFiles/feature_tracker.dir/src/frame.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

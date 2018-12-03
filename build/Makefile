@@ -283,6 +283,19 @@ gtest_main/fast:
 .PHONY : gtest_main/fast
 
 #=============================================================================
+# Target rules for targets named run_vo
+
+# Build rule for target.
+run_vo: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 run_vo
+.PHONY : run_vo
+
+# fast build rule for target.
+run_vo/fast:
+	$(MAKE) -f camera_listeners/CMakeFiles/run_vo.dir/build.make camera_listeners/CMakeFiles/run_vo.dir/build
+.PHONY : run_vo/fast
+
+#=============================================================================
 # Target rules for targets named sensor_msgs_generate_messages_lisp
 
 # Build rule for target.
@@ -424,19 +437,6 @@ roscpp_generate_messages_eus: cmake_check_build_system
 roscpp_generate_messages_eus/fast:
 	$(MAKE) -f camera_listeners/CMakeFiles/roscpp_generate_messages_eus.dir/build.make camera_listeners/CMakeFiles/roscpp_generate_messages_eus.dir/build
 .PHONY : roscpp_generate_messages_eus/fast
-
-#=============================================================================
-# Target rules for targets named geometry_msgs_generate_messages_cpp
-
-# Build rule for target.
-geometry_msgs_generate_messages_cpp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 geometry_msgs_generate_messages_cpp
-.PHONY : geometry_msgs_generate_messages_cpp
-
-# fast build rule for target.
-geometry_msgs_generate_messages_cpp/fast:
-	$(MAKE) -f camera_listeners/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build.make camera_listeners/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build
-.PHONY : geometry_msgs_generate_messages_cpp/fast
 
 #=============================================================================
 # Target rules for targets named sensor_msgs_generate_messages_nodejs
@@ -619,19 +619,6 @@ geometry_msgs_generate_messages_py: cmake_check_build_system
 geometry_msgs_generate_messages_py/fast:
 	$(MAKE) -f camera_listeners/CMakeFiles/geometry_msgs_generate_messages_py.dir/build.make camera_listeners/CMakeFiles/geometry_msgs_generate_messages_py.dir/build
 .PHONY : geometry_msgs_generate_messages_py/fast
-
-#=============================================================================
-# Target rules for targets named feature_tracker
-
-# Build rule for target.
-feature_tracker: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 feature_tracker
-.PHONY : feature_tracker
-
-# fast build rule for target.
-feature_tracker/fast:
-	$(MAKE) -f camera_listeners/CMakeFiles/feature_tracker.dir/build.make camera_listeners/CMakeFiles/feature_tracker.dir/build
-.PHONY : feature_tracker/fast
 
 #=============================================================================
 # Target rules for targets named rosgraph_msgs_generate_messages_py
@@ -879,6 +866,32 @@ tf2_msgs_generate_messages_py: cmake_check_build_system
 tf2_msgs_generate_messages_py/fast:
 	$(MAKE) -f camera_listeners/CMakeFiles/tf2_msgs_generate_messages_py.dir/build.make camera_listeners/CMakeFiles/tf2_msgs_generate_messages_py.dir/build
 .PHONY : tf2_msgs_generate_messages_py/fast
+
+#=============================================================================
+# Target rules for targets named geometry_msgs_generate_messages_cpp
+
+# Build rule for target.
+geometry_msgs_generate_messages_cpp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 geometry_msgs_generate_messages_cpp
+.PHONY : geometry_msgs_generate_messages_cpp
+
+# fast build rule for target.
+geometry_msgs_generate_messages_cpp/fast:
+	$(MAKE) -f camera_listeners/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build.make camera_listeners/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build
+.PHONY : geometry_msgs_generate_messages_cpp/fast
+
+#=============================================================================
+# Target rules for targets named myslam
+
+# Build rule for target.
+myslam: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 myslam
+.PHONY : myslam
+
+# fast build rule for target.
+myslam/fast:
+	$(MAKE) -f camera_listeners/CMakeFiles/myslam.dir/build.make camera_listeners/CMakeFiles/myslam.dir/build
+.PHONY : myslam/fast
 
 #=============================================================================
 # Target rules for targets named mynteye_listener_d
@@ -1227,6 +1240,7 @@ help:
 	@echo "... gmock_main"
 	@echo "... gtest"
 	@echo "... gtest_main"
+	@echo "... run_vo"
 	@echo "... sensor_msgs_generate_messages_lisp"
 	@echo "... tf2_msgs_generate_messages_lisp"
 	@echo "... sensor_msgs_generate_messages_cpp"
@@ -1238,7 +1252,6 @@ help:
 	@echo "... rosgraph_msgs_generate_messages_lisp"
 	@echo "... tf_generate_messages_eus"
 	@echo "... roscpp_generate_messages_eus"
-	@echo "... geometry_msgs_generate_messages_cpp"
 	@echo "... sensor_msgs_generate_messages_nodejs"
 	@echo "... rosgraph_msgs_generate_messages_cpp"
 	@echo "... tf2_msgs_generate_messages_cpp"
@@ -1253,7 +1266,6 @@ help:
 	@echo "... geometry_msgs_generate_messages_nodejs"
 	@echo "... std_msgs_generate_messages_nodejs"
 	@echo "... geometry_msgs_generate_messages_py"
-	@echo "... feature_tracker"
 	@echo "... rosgraph_msgs_generate_messages_py"
 	@echo "... tf_generate_messages_lisp"
 	@echo "... tf2_msgs_generate_messages_nodejs"
@@ -1273,6 +1285,8 @@ help:
 	@echo "... tf2_msgs_generate_messages_eus"
 	@echo "... actionlib_msgs_generate_messages_nodejs"
 	@echo "... tf2_msgs_generate_messages_py"
+	@echo "... geometry_msgs_generate_messages_cpp"
+	@echo "... myslam"
 	@echo "... mynteye_listener_d"
 	@echo "... mynteye_wrapper_d"
 	@echo "... bond_generate_messages_lisp"

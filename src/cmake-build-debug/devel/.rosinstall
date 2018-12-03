@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/tg/my_slam/src/cmake-build-debug/devel/setup.sh

@@ -9,7 +9,7 @@ project(camera_listeners)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS roscpp cv_bridge image_transport sensor_msgs std_msgs tf)
 
-find_package(OpenCV 3 REQUIRED core highgui)
+find_package(OpenCV 3 REQUIRED)
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
 
@@ -105,6 +105,7 @@ catkin_package(
 #  CATKIN_DEPENDS other_catkin_pkg
 #  DEPENDS system_lib
 )
+set( CMAKE_LIBRARY_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/lib )
 
 ###########
 ## Build ##
@@ -118,20 +119,30 @@ include_directories(
  ${OpenCV_INCLUDE_DIRS}
 )
 
-## Declare a C++ library
-# add_library(${PROJECT_NAME}
-#   src/${PROJECT_NAME}/camera_listeners.cpp
-# )
+ link_directories(lib)
 
+set(LINK_LIBRARIES
+  ${catkin_LIBRARIES}
+  ${OpenCV_LIBS}
+)
+
+## Declare a C++ library
+add_library(myslam
+   src/frame.cpp
+   src/feature_tracker.cpp
+   src/config.cpp
+   src/camera.cpp
+ )
+ target_link_libraries( myslam ${LINK_LIBRARIES} )
 ## Add cmake target dependencies of the library
 ## as an example, code may need to be generated before libraries
 ## either from message generation or dynamic reconfigure
-# add_dependencies(${PROJECT_NAME} ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+## add_dependencies(myslam  ${OpenCV_LIBS})
 
 ## Declare a C++ executable
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
- add_executable(feature_tracker src/feature_tracker.cpp)
+ add_executable(run_vo src/run_vo_node.cpp)
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
@@ -144,9 +155,9 @@ include_directories(
 # add_dependencies(${PROJECT_NAME}_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 ## Specify libraries to link a library or executable target against
- target_link_libraries(feature_tracker
-   ${catkin_LIBRARIES}
-   ${OpenCV_LIBS}
+ target_link_libraries(run_vo
+   ${LINK_LIBRARIES}
+   myslam
  )
 
 #############
