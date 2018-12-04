@@ -7,7 +7,7 @@ project(camera_listeners)
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
-find_package(catkin REQUIRED COMPONENTS roscpp cv_bridge image_transport sensor_msgs std_msgs tf)
+find_package(catkin REQUIRED COMPONENTS roscpp cv_bridge image_transport sensor_msgs std_msgs tf message_filters)
 
 find_package(OpenCV 3 REQUIRED)
 ## System dependencies are found with CMake's conventions

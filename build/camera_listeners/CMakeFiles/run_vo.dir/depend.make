@@ -5,7 +5,6 @@ camera_listeners/CMakeFiles/run_vo.dir/src/run_vo_node.cpp.o: /home/tg/my_slam/s
 camera_listeners/CMakeFiles/run_vo.dir/src/run_vo_node.cpp.o: /home/tg/my_slam/src/camera_listeners/include/config.h
 camera_listeners/CMakeFiles/run_vo.dir/src/run_vo_node.cpp.o: /home/tg/my_slam/src/camera_listeners/include/feature_tracker.h
 camera_listeners/CMakeFiles/run_vo.dir/src/run_vo_node.cpp.o: /home/tg/my_slam/src/camera_listeners/include/frame.h
-camera_listeners/CMakeFiles/run_vo.dir/src/run_vo_node.cpp.o: /home/tg/my_slam/src/camera_listeners/include/get_data.h
 camera_listeners/CMakeFiles/run_vo.dir/src/run_vo_node.cpp.o: /home/tg/my_slam/src/camera_listeners/include/my_include.h
 camera_listeners/CMakeFiles/run_vo.dir/src/run_vo_node.cpp.o: /home/tg/my_slam/src/camera_listeners/src/run_vo_node.cpp
 camera_listeners/CMakeFiles/run_vo.dir/src/run_vo_node.cpp.o: /opt/ros/kinetic/include/cv_bridge/cv_bridge.h

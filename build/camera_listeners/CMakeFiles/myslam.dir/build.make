@@ -185,13 +185,13 @@ myslam_EXTERNAL_OBJECTS =
 /home/tg/my_slam/src/camera_listeners/lib/libmyslam.so: /opt/ros/kinetic/lib/libtf.so
 /home/tg/my_slam/src/camera_listeners/lib/libmyslam.so: /opt/ros/kinetic/lib/libtf2_ros.so
 /home/tg/my_slam/src/camera_listeners/lib/libmyslam.so: /opt/ros/kinetic/lib/libactionlib.so
+/home/tg/my_slam/src/camera_listeners/lib/libmyslam.so: /opt/ros/kinetic/lib/libtf2.so
 /home/tg/my_slam/src/camera_listeners/lib/libmyslam.so: /opt/ros/kinetic/lib/libmessage_filters.so
 /home/tg/my_slam/src/camera_listeners/lib/libmyslam.so: /opt/ros/kinetic/lib/libroscpp.so
 /home/tg/my_slam/src/camera_listeners/lib/libmyslam.so: /usr/lib/x86_64-linux-gnu/libboost_filesystem.so
 /home/tg/my_slam/src/camera_listeners/lib/libmyslam.so: /usr/lib/x86_64-linux-gnu/libboost_signals.so
-/home/tg/my_slam/src/camera_listeners/lib/libmyslam.so: /opt/ros/kinetic/lib/libxmlrpcpp.so
-/home/tg/my_slam/src/camera_listeners/lib/libmyslam.so: /opt/ros/kinetic/lib/libtf2.so
 /home/tg/my_slam/src/camera_listeners/lib/libmyslam.so: /opt/ros/kinetic/lib/libroscpp_serialization.so
+/home/tg/my_slam/src/camera_listeners/lib/libmyslam.so: /opt/ros/kinetic/lib/libxmlrpcpp.so
 /home/tg/my_slam/src/camera_listeners/lib/libmyslam.so: /opt/ros/kinetic/lib/librosconsole.so
 /home/tg/my_slam/src/camera_listeners/lib/libmyslam.so: /opt/ros/kinetic/lib/librosconsole_log4cxx.so
 /home/tg/my_slam/src/camera_listeners/lib/libmyslam.so: /opt/ros/kinetic/lib/librosconsole_backend_interface.so

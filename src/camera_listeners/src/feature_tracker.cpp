@@ -70,10 +70,10 @@ bool VisualOdometry::Add_Frame(Frame::ptr frame)
             Compute_Descriptors();
             Feature_Match();
 
-            Mat imgGoodMatch;
-            drawMatches(ref->leftImage, keyPointsRef, curr->leftImage, keyPointsCurr, featureMatches, imgGoodMatch);
-            imshow("Good_Match", imgGoodMatch);
-            waitKey(1);
+            // Mat imgGoodMatch;
+            // drawMatches(ref->leftImage, keyPointsRef, curr->leftImage, keyPointsCurr, featureMatches, imgGoodMatch);
+            // imshow("Good_Match", imgGoodMatch);
+            // waitKey(1);
             keyPointsRef.assign(keyPointsCurr.begin(), keyPointsCurr.end());
             descriptorsRef = descriptorsCurr.clone();
             ref = curr;

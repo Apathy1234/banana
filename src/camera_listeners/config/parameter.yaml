@@ -8,7 +8,7 @@ camera.cy: 243.18
 
 
 # VO parameters
-numberOfFeature: 20   # the number of feature
+numberOfFeature: 500   # the number of feature
 scaleFactor: 1.2        # scale in image pyramid
 levelOfPyramid: 8       # the level of pyramid
 matchRatio: 2.0         # ratio for selecting good matches

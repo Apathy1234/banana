@@ -28,10 +28,6 @@ config.h
 my_include.h
 /home/tg/my_slam/src/camera_listeners/include/my_include.h
 
-/home/tg/my_slam/src/camera_listeners/include/get_data.h
-my_include.h
-/home/tg/my_slam/src/camera_listeners/include/my_include.h
-
 /home/tg/my_slam/src/camera_listeners/include/my_include.h
 ros/ros.h
 /home/tg/my_slam/src/camera_listeners/include/ros/ros.h
@@ -67,8 +63,6 @@ iostream
 /home/tg/my_slam/src/camera_listeners/src/run_vo_node.cpp
 my_include.h
 /home/tg/my_slam/src/camera_listeners/src/my_include.h
-get_data.h
-/home/tg/my_slam/src/camera_listeners/src/get_data.h
 feature_tracker.h
 /home/tg/my_slam/src/camera_listeners/src/feature_tracker.h
 frame.h

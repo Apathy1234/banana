@@ -30,5 +30,8 @@ using namespace std;
 
 using namespace cv;
 
+namespace enc = sensor_msgs::image_encodings;
+
+const string FILE_DIR = "/home/tg/my_slam/src/camera_listeners/config/parameter.yaml";
 
 #endif 
