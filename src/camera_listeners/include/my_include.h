@@ -2,8 +2,12 @@
 #define _MY_INCLUDE_H_
 
 #include "ros/ros.h"
+#include <sensor_msgs/Image.h>
 #include <sensor_msgs/image_encodings.h>
 #include <image_transport/image_transport.h>
+
+#include <message_filters/subscriber.h>
+#include <message_filters/time_synchronizer.h>
 
 #include <cv_bridge/cv_bridge.h>
 #include <opencv2/core/core.hpp>
@@ -12,7 +16,7 @@
 // #include <opencv2/imgproc/imgproc.hpp>
 // #include <opencv2/calib3d/calib3d.hpp>
 
-// #include <algorithm>
+#include <algorithm>
 #include <vector>
 // #include <list>
 #include <memory>

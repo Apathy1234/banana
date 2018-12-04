@@ -8,7 +8,6 @@ const bool SHOW_IMAGE = false;
 
 namespace enc = sensor_msgs::image_encodings;
 
-
 class ImageConvert
 {
 private:

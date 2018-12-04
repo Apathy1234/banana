@@ -2,87 +2,87 @@
 <project version="4">
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
     <generated>
-      <config projectName="Project" targetName="mynteye_wrapper_d_generate_messages_py" />
-      <config projectName="Project" targetName="bond_generate_messages_nodejs" />
-      <config projectName="Project" targetName="roscpp_generate_messages_py" />
-      <config projectName="Project" targetName="tf_generate_messages_eus" />
-      <config projectName="Project" targetName="tf2_msgs_generate_messages_cpp" />
-      <config projectName="Project" targetName="sensor_msgs_generate_messages_nodejs" />
-      <config projectName="Project" targetName="std_msgs_generate_messages_cpp" />
-      <config projectName="Project" targetName="mynteye_wrapper_d_gennodejs" />
-      <config projectName="Project" targetName="actionlib_generate_messages_nodejs" />
-      <config projectName="Project" targetName="clean_test_results" />
-      <config projectName="Project" targetName="mynteye_wrapper_d_genlisp" />
-      <config projectName="Project" targetName="_mynteye_wrapper_d_generate_messages_check_deps_Temp" />
-      <config projectName="Project" targetName="run_vo" />
-      <config projectName="Project" targetName="gtest" />
-      <config projectName="Project" targetName="std_msgs_generate_messages_nodejs" />
-      <config projectName="Project" targetName="geometry_msgs_generate_messages_cpp" />
-      <config projectName="Project" targetName="rosgraph_msgs_generate_messages_cpp" />
-      <config projectName="Project" targetName="mynteye_wrapper_d_generate_messages_nodejs" />
-      <config projectName="Project" targetName="rosgraph_msgs_generate_messages_lisp" />
-      <config projectName="Project" targetName="sensor_msgs_generate_messages_py" />
-      <config projectName="Project" targetName="geometry_msgs_generate_messages_lisp" />
-      <config projectName="Project" targetName="mynteye_wrapper_d_gencpp" />
-      <config projectName="Project" targetName="rosgraph_msgs_generate_messages_py" />
-      <config projectName="Project" targetName="bond_generate_messages_py" />
-      <config projectName="Project" targetName="std_msgs_generate_messages_py" />
-      <config projectName="Project" targetName="tf_generate_messages_cpp" />
       <config projectName="Project" targetName="gmock" />
+      <config projectName="Project" targetName="mynteye_wrapper_d_generate_messages_py" />
+      <config projectName="Project" targetName="bond_generate_messages_eus" />
+      <config projectName="Project" targetName="tf_generate_messages_py" />
+      <config projectName="Project" targetName="mynteye_wrapper_d_generate_messages_nodejs" />
+      <config projectName="Project" targetName="tf2_msgs_generate_messages_lisp" />
+      <config projectName="Project" targetName="actionlib_msgs_generate_messages_nodejs" />
+      <config projectName="Project" targetName="std_msgs_generate_messages_nodejs" />
+      <config projectName="Project" targetName="tf_generate_messages_cpp" />
+      <config projectName="Project" targetName="std_msgs_generate_messages_lisp" />
+      <config projectName="Project" targetName="rosgraph_msgs_generate_messages_eus" />
+      <config projectName="Project" targetName="actionlib_generate_messages_cpp" />
+      <config projectName="Project" targetName="sensor_msgs_generate_messages_py" />
+      <config projectName="Project" targetName="download_extra_data" />
+      <config projectName="Project" targetName="nodelet_generate_messages_eus" />
       <config projectName="Project" targetName="myslam" />
       <config projectName="Project" targetName="actionlib_msgs_generate_messages_eus" />
-      <config projectName="Project" targetName="roscpp_generate_messages_eus" />
-      <config projectName="Project" targetName="tf2_msgs_generate_messages_eus" />
-      <config projectName="Project" targetName="doxygen" />
-      <config projectName="Project" targetName="nodelet_generate_messages_cpp" />
-      <config projectName="Project" targetName="bond_generate_messages_eus" />
-      <config projectName="Project" targetName="tests" />
-      <config projectName="Project" targetName="std_msgs_generate_messages_eus" />
-      <config projectName="Project" targetName="actionlib_msgs_generate_messages_lisp" />
       <config projectName="Project" targetName="mynteye_wrapper_d_generate_messages_lisp" />
-      <config projectName="Project" targetName="bond_generate_messages_lisp" />
-      <config projectName="Project" targetName="tf2_msgs_generate_messages_nodejs" />
-      <config projectName="Project" targetName="actionlib_generate_messages_py" />
-      <config projectName="Project" targetName="rosgraph_msgs_generate_messages_nodejs" />
-      <config projectName="Project" targetName="actionlib_generate_messages_eus" />
-      <config projectName="Project" targetName="mynteye_wrapper_d_generate_messages" />
-      <config projectName="Project" targetName="rosgraph_msgs_generate_messages_eus" />
-      <config projectName="Project" targetName="roscpp_generate_messages_nodejs" />
-      <config projectName="Project" targetName="download_extra_data" />
-      <config projectName="Project" targetName="mynteye_wrapper_d_geneus" />
-      <config projectName="Project" targetName="run_tests" />
-      <config projectName="Project" targetName="mynteye_wrapper_d_generate_messages_eus" />
-      <config projectName="Project" targetName="geometry_msgs_generate_messages_py" />
-      <config projectName="Project" targetName="mynteye_wrapper_d_node" />
-      <config projectName="Project" targetName="geometry_msgs_generate_messages_nodejs" />
-      <config projectName="Project" targetName="actionlib_generate_messages_lisp" />
-      <config projectName="Project" targetName="nodelet_generate_messages_py" />
-      <config projectName="Project" targetName="roscpp_generate_messages_cpp" />
-      <config projectName="Project" targetName="actionlib_msgs_generate_messages_cpp" />
-      <config projectName="Project" targetName="nodelet_generate_messages_eus" />
-      <config projectName="Project" targetName="nodelet_generate_messages_lisp" />
-      <config projectName="Project" targetName="actionlib_msgs_generate_messages_nodejs" />
-      <config projectName="Project" targetName="bond_generate_messages_cpp" />
-      <config projectName="Project" targetName="actionlib_msgs_generate_messages_py" />
-      <config projectName="Project" targetName="sensor_msgs_generate_messages_eus" />
-      <config projectName="Project" targetName="mynteye_wrapper_d" />
-      <config projectName="Project" targetName="tf2_msgs_generate_messages_lisp" />
-      <config projectName="Project" targetName="std_msgs_generate_messages_lisp" />
-      <config projectName="Project" targetName="mynteye_listener_d" />
-      <config projectName="Project" targetName="sensor_msgs_generate_messages_lisp" />
-      <config projectName="Project" targetName="tf2_msgs_generate_messages_py" />
-      <config projectName="Project" targetName="gmock_main" />
-      <config projectName="Project" targetName="actionlib_generate_messages_cpp" />
       <config projectName="Project" targetName="gtest_main" />
-      <config projectName="Project" targetName="tf_generate_messages_lisp" />
-      <config projectName="Project" targetName="mynteye_wrapper_d_generate_messages_cpp" />
-      <config projectName="Project" targetName="mynteye_wrapper_d_genpy" />
-      <config projectName="Project" targetName="nodelet_generate_messages_nodejs" />
-      <config projectName="Project" targetName="sensor_msgs_generate_messages_cpp" />
+      <config projectName="Project" targetName="tests" />
+      <config projectName="Project" targetName="rosgraph_msgs_generate_messages_cpp" />
       <config projectName="Project" targetName="roscpp_generate_messages_lisp" />
-      <config projectName="Project" targetName="geometry_msgs_generate_messages_eus" />
-      <config projectName="Project" targetName="tf_generate_messages_py" />
+      <config projectName="Project" targetName="bond_generate_messages_cpp" />
+      <config projectName="Project" targetName="_mynteye_wrapper_d_generate_messages_check_deps_Temp" />
+      <config projectName="Project" targetName="mynteye_wrapper_d_gencpp" />
+      <config projectName="Project" targetName="rosgraph_msgs_generate_messages_nodejs" />
+      <config projectName="Project" targetName="tf2_msgs_generate_messages_py" />
+      <config projectName="Project" targetName="roscpp_generate_messages_py" />
+      <config projectName="Project" targetName="tf_generate_messages_eus" />
+      <config projectName="Project" targetName="clean_test_results" />
+      <config projectName="Project" targetName="mynteye_wrapper_d_gennodejs" />
+      <config projectName="Project" targetName="actionlib_generate_messages_eus" />
+      <config projectName="Project" targetName="actionlib_msgs_generate_messages_py" />
+      <config projectName="Project" targetName="nodelet_generate_messages_py" />
+      <config projectName="Project" targetName="mynteye_wrapper_d_genlisp" />
+      <config projectName="Project" targetName="mynteye_wrapper_d_generate_messages" />
+      <config projectName="Project" targetName="actionlib_msgs_generate_messages_lisp" />
+      <config projectName="Project" targetName="roscpp_generate_messages_cpp" />
+      <config projectName="Project" targetName="rosgraph_msgs_generate_messages_lisp" />
+      <config projectName="Project" targetName="nodelet_generate_messages_cpp" />
+      <config projectName="Project" targetName="geometry_msgs_generate_messages_cpp" />
+      <config projectName="Project" targetName="actionlib_generate_messages_lisp" />
+      <config projectName="Project" targetName="tf2_msgs_generate_messages_cpp" />
+      <config projectName="Project" targetName="gtest" />
+      <config projectName="Project" targetName="gmock_main" />
+      <config projectName="Project" targetName="mynteye_wrapper_d" />
+      <config projectName="Project" targetName="mynteye_wrapper_d_geneus" />
+      <config projectName="Project" targetName="sensor_msgs_generate_messages_nodejs" />
+      <config projectName="Project" targetName="actionlib_generate_messages_py" />
       <config projectName="Project" targetName="tf_generate_messages_nodejs" />
+      <config projectName="Project" targetName="rosgraph_msgs_generate_messages_py" />
+      <config projectName="Project" targetName="mynteye_wrapper_d_generate_messages_cpp" />
+      <config projectName="Project" targetName="bond_generate_messages_nodejs" />
+      <config projectName="Project" targetName="actionlib_generate_messages_nodejs" />
+      <config projectName="Project" targetName="bond_generate_messages_py" />
+      <config projectName="Project" targetName="std_msgs_generate_messages_cpp" />
+      <config projectName="Project" targetName="roscpp_generate_messages_eus" />
+      <config projectName="Project" targetName="std_msgs_generate_messages_py" />
+      <config projectName="Project" targetName="mynteye_wrapper_d_node" />
+      <config projectName="Project" targetName="geometry_msgs_generate_messages_eus" />
+      <config projectName="Project" targetName="bond_generate_messages_lisp" />
+      <config projectName="Project" targetName="sensor_msgs_generate_messages_eus" />
+      <config projectName="Project" targetName="sensor_msgs_generate_messages_cpp" />
+      <config projectName="Project" targetName="tf_generate_messages_lisp" />
+      <config projectName="Project" targetName="tf2_msgs_generate_messages_nodejs" />
+      <config projectName="Project" targetName="mynteye_listener_d" />
+      <config projectName="Project" targetName="doxygen" />
+      <config projectName="Project" targetName="mynteye_wrapper_d_generate_messages_eus" />
+      <config projectName="Project" targetName="geometry_msgs_generate_messages_nodejs" />
+      <config projectName="Project" targetName="sensor_msgs_generate_messages_lisp" />
+      <config projectName="Project" targetName="geometry_msgs_generate_messages_lisp" />
+      <config projectName="Project" targetName="tf2_msgs_generate_messages_eus" />
+      <config projectName="Project" targetName="std_msgs_generate_messages_eus" />
+      <config projectName="Project" targetName="nodelet_generate_messages_lisp" />
+      <config projectName="Project" targetName="run_vo" />
+      <config projectName="Project" targetName="nodelet_generate_messages_nodejs" />
+      <config projectName="Project" targetName="actionlib_msgs_generate_messages_cpp" />
+      <config projectName="Project" targetName="run_tests" />
+      <config projectName="Project" targetName="roscpp_generate_messages_nodejs" />
+      <config projectName="Project" targetName="geometry_msgs_generate_messages_py" />
+      <config projectName="Project" targetName="mynteye_wrapper_d_genpy" />
     </generated>
   </component>
   <component name="CMakeSettings">
@@ -92,41 +92,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5251ce10-22ca-4a7b-8f12-37eddc9d840d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../build/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../build/CMakeCache.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../build/CMakeFiles/Makefile.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../build/CMakeFiles/Makefile.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../build/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/../build/CMakeFiles/Makefile2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../build/CMakeFiles/TargetDirectories.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../build/CMakeFiles/TargetDirectories.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../build/CMakeFiles/progress.marks" beforeDir="false" afterPath="$PROJECT_DIR$/../build/CMakeFiles/progress.marks" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../build/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/../build/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../build/camera_listeners/CMakeFiles/feature_tracker.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/../build/camera_listeners/CMakeFiles/feature_tracker.dir/CXX.includecache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../build/camera_listeners/CMakeFiles/feature_tracker.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../build/camera_listeners/CMakeFiles/feature_tracker.dir/DependInfo.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../build/camera_listeners/CMakeFiles/feature_tracker.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/../build/camera_listeners/CMakeFiles/feature_tracker.dir/build.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../build/camera_listeners/CMakeFiles/feature_tracker.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../build/camera_listeners/CMakeFiles/feature_tracker.dir/cmake_clean.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../build/camera_listeners/CMakeFiles/feature_tracker.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/../build/camera_listeners/CMakeFiles/feature_tracker.dir/depend.internal" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../build/camera_listeners/CMakeFiles/feature_tracker.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/../build/camera_listeners/CMakeFiles/feature_tracker.dir/depend.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../build/camera_listeners/CMakeFiles/feature_tracker.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../build/camera_listeners/CMakeFiles/feature_tracker.dir/link.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../build/camera_listeners/CMakeFiles/feature_tracker.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/../build/camera_listeners/CMakeFiles/feature_tracker.dir/progress.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../build/camera_listeners/CMakeFiles/feature_tracker.dir/src/feature_tracker.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/../build/camera_listeners/CMakeFiles/feature_tracker.dir/src/feature_tracker.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../build/camera_listeners/CMakeFiles/progress.marks" beforeDir="false" afterPath="$PROJECT_DIR$/../build/camera_listeners/CMakeFiles/progress.marks" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../build/camera_listeners/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/../build/camera_listeners/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../build/gtest/CMakeFiles/gmock.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/../build/gtest/CMakeFiles/gmock.dir/progress.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../build/gtest/CMakeFiles/gmock_main.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/../build/gtest/CMakeFiles/gmock_main.dir/progress.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../build/gtest/gtest/CMakeFiles/gtest.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/../build/gtest/gtest/CMakeFiles/gtest.dir/progress.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../build/gtest/gtest/CMakeFiles/gtest_main.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/../build/gtest/gtest/CMakeFiles/gtest_main.dir/progress.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../build/mynteye_wrapper_d/CMakeFiles/mynteye_listener_d.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/../build/mynteye_wrapper_d/CMakeFiles/mynteye_listener_d.dir/progress.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../build/mynteye_wrapper_d/CMakeFiles/mynteye_wrapper_d.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/../build/mynteye_wrapper_d/CMakeFiles/mynteye_wrapper_d.dir/progress.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../build/mynteye_wrapper_d/CMakeFiles/mynteye_wrapper_d_generate_messages_cpp.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/../build/mynteye_wrapper_d/CMakeFiles/mynteye_wrapper_d_generate_messages_cpp.dir/progress.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../build/mynteye_wrapper_d/CMakeFiles/mynteye_wrapper_d_generate_messages_eus.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/../build/mynteye_wrapper_d/CMakeFiles/mynteye_wrapper_d_generate_messages_eus.dir/progress.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../build/mynteye_wrapper_d/CMakeFiles/mynteye_wrapper_d_generate_messages_lisp.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/../build/mynteye_wrapper_d/CMakeFiles/mynteye_wrapper_d_generate_messages_lisp.dir/progress.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../build/mynteye_wrapper_d/CMakeFiles/mynteye_wrapper_d_generate_messages_nodejs.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/../build/mynteye_wrapper_d/CMakeFiles/mynteye_wrapper_d_generate_messages_nodejs.dir/progress.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../build/mynteye_wrapper_d/CMakeFiles/mynteye_wrapper_d_generate_messages_py.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/../build/mynteye_wrapper_d/CMakeFiles/mynteye_wrapper_d_generate_messages_py.dir/progress.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../build/mynteye_wrapper_d/CMakeFiles/mynteye_wrapper_d_node.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/../build/mynteye_wrapper_d/CMakeFiles/mynteye_wrapper_d_node.dir/progress.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../devel/lib/camera_listeners/feature_tracker" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/camera_listeners/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/camera_listeners/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/camera_listeners/include/get_data.h" beforeDir="false" afterPath="$PROJECT_DIR$/camera_listeners/include/get_data.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build/camera_listeners/CMakeFiles/myslam.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/../build/camera_listeners/CMakeFiles/myslam.dir/CXX.includecache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build/camera_listeners/CMakeFiles/myslam.dir/src/feature_tracker.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/../build/camera_listeners/CMakeFiles/myslam.dir/src/feature_tracker.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build/camera_listeners/CMakeFiles/run_vo.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/../build/camera_listeners/CMakeFiles/run_vo.dir/CXX.includecache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build/camera_listeners/CMakeFiles/run_vo.dir/src/run_vo_node.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/../build/camera_listeners/CMakeFiles/run_vo.dir/src/run_vo_node.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../devel/lib/camera_listeners/run_vo" beforeDir="false" afterPath="$PROJECT_DIR$/../devel/lib/camera_listeners/run_vo" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/camera_listeners/include/feature_tracker.h" beforeDir="false" afterPath="$PROJECT_DIR$/camera_listeners/include/feature_tracker.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/camera_listeners/include/my_include.h" beforeDir="false" afterPath="$PROJECT_DIR$/camera_listeners/include/my_include.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/camera_listeners/lib/libmyslam.so" beforeDir="false" afterPath="$PROJECT_DIR$/camera_listeners/lib/libmyslam.so" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/camera_listeners/src/feature_tracker.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/camera_listeners/src/feature_tracker.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/launch/vo.launch" beforeDir="false" afterPath="$PROJECT_DIR$/launch/vo.launch" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mynteye_wrapper_d/launch/mynteye.launch" beforeDir="false" afterPath="$PROJECT_DIR$/mynteye_wrapper_d/launch/mynteye.launch" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/camera_listeners/CMakeFiles/myslam.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/camera_listeners/CMakeFiles/myslam.dir/CXX.includecache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/camera_listeners/CMakeFiles/myslam.dir/src/feature_tracker.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/camera_listeners/CMakeFiles/myslam.dir/src/feature_tracker.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/camera_listeners/CMakeFiles/run_vo.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/camera_listeners/CMakeFiles/run_vo.dir/CXX.includecache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/camera_listeners/CMakeFiles/run_vo.dir/src/run_vo_node.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/camera_listeners/CMakeFiles/run_vo.dir/src/run_vo_node.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/devel/lib/camera_listeners/run_vo" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/devel/lib/camera_listeners/run_vo" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -141,7 +121,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/camera_listeners/src/config.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="397">
+            <state relative-caret-position="434">
               <caret line="31" selection-start-line="31" selection-end-line="31" />
             </state>
           </provider>
@@ -170,11 +150,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/camera_listeners/src/run_vo_node.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
-              <caret line="26" column="56" lean-forward="true" selection-start-line="26" selection-start-column="56" selection-end-line="26" selection-end-column="56" />
+            <state relative-caret-position="224">
+              <caret line="16" selection-start-line="16" selection-end-line="16" />
             </state>
           </provider>
         </entry>
@@ -188,11 +168,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/camera_listeners/src/feature_tracker.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" selection-start-line="14" selection-end-line="14" />
+            <state relative-caret-position="294">
+              <caret line="65" column="16" lean-forward="true" selection-start-line="65" selection-start-column="16" selection-end-line="65" selection-end-column="16" />
             </state>
           </provider>
         </entry>
@@ -209,7 +189,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="1192" />
     <option name="y" value="52" />
     <option name="width" value="1400" />
@@ -773,23 +753,25 @@
       <updated>1543822479308</updated>
       <workItem from="1543822484169" duration="417000" />
       <workItem from="1543823314484" duration="105000" />
+      <workItem from="1543892429078" duration="226000" />
+      <workItem from="1543892894573" duration="385000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="522000" />
+    <option name="totallyTimeSpent" value="1133000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="964" y="-11" width="1857" height="1092" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18884595" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1932634" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39979124" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.47599164" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -812,14 +794,26 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/camera_listeners/src/run_vo_node.cpp</url>
-          <line>13</line>
-          <option name="timeStamp" value="3" />
+          <url>file://$PROJECT_DIR$/camera_listeners/src/feature_tracker.cpp</url>
+          <line>39</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/camera_listeners/src/feature_tracker.cpp</url>
+          <line>57</line>
+          <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/camera_listeners/src/config.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="434">
+          <caret line="31" selection-start-line="31" selection-end-line="31" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/camera_listeners/src/frame.cpp">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -837,17 +831,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/camera_listeners/src/config.cpp">
+    <entry file="file://$PROJECT_DIR$/camera_listeners/src/run_vo_node.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="397">
-          <caret line="31" selection-start-line="31" selection-end-line="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/camera_listeners/src/feature_tracker.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" selection-start-line="14" selection-end-line="14" />
+        <state relative-caret-position="224">
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
         </state>
       </provider>
     </entry>
@@ -858,10 +845,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/camera_listeners/src/run_vo_node.cpp">
+    <entry file="file://$PROJECT_DIR$/camera_listeners/src/feature_tracker.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="26" column="56" lean-forward="true" selection-start-line="26" selection-start-column="56" selection-end-line="26" selection-end-column="56" />
+        <state relative-caret-position="294">
+          <caret line="65" column="16" lean-forward="true" selection-start-line="65" selection-start-column="16" selection-end-line="65" selection-end-column="16" />
         </state>
       </provider>
     </entry>

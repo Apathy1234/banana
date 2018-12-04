@@ -36,13 +36,10 @@ void VisualOdometry::Feature_Match(void)
     matcher.match(descriptorsRef, descriptorsCurr, matches);
 
     // select the best matches
-    float minDist =min_element(matches.begin(), matches.end(),
-                               [] ( const cv::DMatch& m1, const cv::DMatch& m2 )
-    {
-        return m1.distance < m2.distance;
-    } )->distance;
+    float minDist =min_element(matches.begin(), matches.end(), [] ( const DMatch& m1, const DMatch& m2 ){ return m1.distance < m2.distance;} )->distance;
+
     featureMatches.clear();
-    for ( cv::DMatch& m : matches )
+    for ( DMatch& m : matches )
     {
         if ( m.distance < max<float> ( minDist*matchRatio, 30.0 ) )
         {
@@ -62,6 +59,8 @@ bool VisualOdometry::Add_Frame(Frame::ptr frame)
             curr = ref = frame;
             Extract_Keypoints();
             Compute_Descriptors();
+            keyPointsRef.assign(keyPointsCurr.begin(), keyPointsCurr.end());
+            descriptorsRef = descriptorsCurr.clone();
             break;
         }
         case OK:
@@ -69,7 +68,14 @@ bool VisualOdometry::Add_Frame(Frame::ptr frame)
             curr = frame;
             Extract_Keypoints();
             Compute_Descriptors();
-            // Feature_Match();
+            Feature_Match();
+
+            Mat imgGoodMatch;
+            drawMatches(ref->leftImage, keyPointsRef, curr->leftImage, keyPointsCurr, featureMatches, imgGoodMatch);
+            imshow("Good_Match", imgGoodMatch);
+            waitKey(1);
+            keyPointsRef.assign(keyPointsCurr.begin(), keyPointsCurr.end());
+            descriptorsRef = descriptorsCurr.clone();
             ref = curr;
             break;
         }

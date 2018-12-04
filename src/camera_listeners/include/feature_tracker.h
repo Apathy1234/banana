@@ -21,6 +21,7 @@ public:
     cv::Ptr<ORB>        orb;            // orb detector and computer
     vector<Point3f>     pos3dRef;       // 3d points in reference frame 
     vector<KeyPoint>    keyPointsCurr;  // keypoints in current frame
+    vector<KeyPoint>    keyPointsRef;
     Mat                 descriptorsCurr;// descriptors in current frame
     Mat                 descriptorsRef; // descriptors in reference frame
 
