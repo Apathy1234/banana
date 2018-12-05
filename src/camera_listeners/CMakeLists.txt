@@ -132,6 +132,7 @@ add_library(myslam
    src/feature_tracker.cpp
    src/config.cpp
    src/camera.cpp
+   src/data_convert.cpp
  )
  target_link_libraries( myslam ${LINK_LIBRARIES} )
 ## Add cmake target dependencies of the library
