@@ -16,15 +16,11 @@ config.h
 my_include.h
 /home/tg/my_slam/src/camera_listeners/include/my_include.h
 
-/home/tg/my_slam/src/camera_listeners/include/data_convert.h
-my_include.h
-/home/tg/my_slam/src/camera_listeners/include/my_include.h
-
 /home/tg/my_slam/src/camera_listeners/include/feature_tracker.h
 my_include.h
 /home/tg/my_slam/src/camera_listeners/include/my_include.h
-frame.h
-/home/tg/my_slam/src/camera_listeners/include/frame.h
+update_trackers.h
+/home/tg/my_slam/src/camera_listeners/include/update_trackers.h
 config.h
 /home/tg/my_slam/src/camera_listeners/include/config.h
 
@@ -53,9 +49,17 @@ opencv2/highgui/highgui.hpp
 -
 opencv2/features2d/features2d.hpp
 -
+opencv2/video/tracking.hpp
+-
+opencv2/imgproc/imgproc.hpp
+-
+opencv2/calib3d/calib3d.hpp
+-
 algorithm
 -
 vector
+-
+utility
 -
 memory
 -
@@ -63,20 +67,26 @@ string
 -
 iostream
 -
+cmath
+-
+
+/home/tg/my_slam/src/camera_listeners/include/update_trackers.h
+my_include.h
+/home/tg/my_slam/src/camera_listeners/include/my_include.h
+config.h
+/home/tg/my_slam/src/camera_listeners/include/config.h
 
 /home/tg/my_slam/src/camera_listeners/src/run_vo_node.cpp
 my_include.h
 /home/tg/my_slam/src/camera_listeners/src/my_include.h
-feature_tracker.h
-/home/tg/my_slam/src/camera_listeners/src/feature_tracker.h
 frame.h
 /home/tg/my_slam/src/camera_listeners/src/frame.h
 config.h
 /home/tg/my_slam/src/camera_listeners/src/config.h
 camera.h
 /home/tg/my_slam/src/camera_listeners/src/camera.h
-data_convert.h
-/home/tg/my_slam/src/camera_listeners/src/data_convert.h
+feature_tracker.h
+/home/tg/my_slam/src/camera_listeners/src/feature_tracker.h
 
 /opt/ros/kinetic/include/cv_bridge/cv_bridge.h
 sensor_msgs/Image.h
@@ -353,6 +363,10 @@ opencv2/core/affine.hpp
 /opt/ros/kinetic/include/opencv-3.3.1-dev/opencv2/opencv2/core/affine.hpp
 opencv2/calib3d/calib3d_c.h
 /opt/ros/kinetic/include/opencv-3.3.1-dev/opencv2/opencv2/calib3d/calib3d_c.h
+
+/opt/ros/kinetic/include/opencv-3.3.1-dev/opencv2/calib3d/calib3d.hpp
+opencv2/calib3d.hpp
+/opt/ros/kinetic/include/opencv-3.3.1-dev/opencv2/calib3d/opencv2/calib3d.hpp
 
 /opt/ros/kinetic/include/opencv-3.3.1-dev/opencv2/calib3d/calib3d_c.h
 opencv2/core/core_c.h

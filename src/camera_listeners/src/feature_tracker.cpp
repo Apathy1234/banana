@@ -1,91 +1,73 @@
 #include "feature_tracker.h"
 
-
-VisualOdometry::VisualOdometry():state(INITIALIZING), ref(nullptr), curr(nullptr), lostNum(0)
+FeatureTracker::FeatureTracker(void):stereoSub(1), state(FIRST_IMAGE), firstImageTime(0), currImageTime(0), pubCnt(1), pubThisFrame(false), tracker(new UpdateTrackers)
 {
-    featureNum = Config::get<int>("numberOfFeature");
-    scaleFactor = Config::get<double>("scaleFactor");
-    pyramidLevel = Config::get<int>("levelOfPyramid");
-    matchRatio = Config::get<float>("matchRatio");
-    maxLostNum = Config::get<int>("maxNumLost");
-    keyframeMiniRot = Config::get<double>("keyFrameRotation");
-    keyframeMiniTrans = Config::get<double>("keyFrameTranslation");
+    leftSub.subscribe(n, "/mynteye/left/image_mono", 1);
+    rightSub.subscribe(n, "/mynteye/right/image_mono", 1);
+    depthSub.subscribe(n, "mynteye/depth/image_raw", 1);
+    stereoSub.connectInput(leftSub, rightSub, depthSub);
+    stereoSub.registerCallback(&FeatureTracker::Stereo_Callback, this); 
 
-    orb = ORB::create(featureNum, scaleFactor, pyramidLevel);
+    FREQ = Config::get<int>("Frequence");
 }
 
-VisualOdometry::~VisualOdometry()
+FeatureTracker::~FeatureTracker(void)
 {
 
 }
 
-void VisualOdometry::Extract_Keypoints(void)
+void FeatureTracker::Stereo_Callback(const sensor_msgs::ImageConstPtr& leftImg, const sensor_msgs::ImageConstPtr& rightImg, const sensor_msgs::ImageConstPtr& depthImg)
 {
-    orb->detect(curr->leftImage, keyPointsCurr);
-}
-
-void VisualOdometry::Compute_Descriptors(void)
-{
-    orb->compute(curr->leftImage, keyPointsCurr, descriptorsCurr);
-}
-
-void VisualOdometry::Feature_Match(void)
-{
-    vector<DMatch> matches;
-    BFMatcher matcher(NORM_HAMMING);
-    matcher.match(descriptorsRef, descriptorsCurr, matches);
-
-    // select the best matches
-    float minDist =min_element(matches.begin(), matches.end(), [] ( const DMatch& m1, const DMatch& m2 ){ return m1.distance < m2.distance;} )->distance;
-
-    featureMatches.clear();
-    for ( DMatch& m : matches )
+    timeBegin = ros::Time::now().toNSec();
+    ROS_INFO_STREAM("code cost time: " << (timeBegin - timeEnd) << " ns");
+    timeEnd = timeBegin;
+    
+    if ( state == FIRST_IMAGE )
     {
-        if ( m.distance < max<float> ( minDist*matchRatio, 30.0 ) )
+        state = NOT_FIRST_IMAGE;        // 状态转换
+        currImageTime = firstImageTime = leftImg->header.stamp.toSec();
+        
+    }
+    if ( (leftImg->header.stamp.toSec()-currImageTime) > 1.0 )
+    {
+        ROS_WARN("image fault! reset the feature tracker");
+        state = FIRST_IMAGE;
+        pubCnt = 1;
+        return;
+    }
+
+    currImageTime = leftImg->header.stamp.toSec();  //获取当前帧时间戳
+
+    // 控制频率
+    if ( round(1.0*pubCnt / (currImageTime - firstImageTime)) <= FREQ )
+    {   
+        pubThisFrame = true;                        //发布标志位置位
+
+        if ( abs(1.0*pubCnt/(currImageTime - firstImageTime) - FREQ) < 0.02 * FREQ)   // 频率控制误差
         {
-            featureMatches.push_back(m);
+            firstImageTime = currImageTime;         // 重置图像帧数时间戳
+            pubCnt = 0;                             // 重置发布计数器
         }
     }
-    cout<<"good matches: "<<featureMatches.size()<<endl;
-}
-
-bool VisualOdometry::Add_Frame(Frame::ptr frame)
-{
-    switch(state)
+    else
     {
-        case INITIALIZING:
-        {
-            state = OK;
-            curr = ref = frame;
-            Extract_Keypoints();
-            Compute_Descriptors();
-            keyPointsRef.assign(keyPointsCurr.begin(), keyPointsCurr.end());
-            descriptorsRef = descriptorsCurr.clone();
-            break;
-        }
-        case OK:
-        {
-            curr = frame;
-            Extract_Keypoints();
-            Compute_Descriptors();
-            Feature_Match();
+        pubThisFrame = false;
+    }
 
-            // Mat imgGoodMatch;
-            // drawMatches(ref->leftImage, keyPointsRef, curr->leftImage, keyPointsCurr, featureMatches, imgGoodMatch);
-            // imshow("Good_Match", imgGoodMatch);
-            // waitKey(1);
-            keyPointsRef.assign(keyPointsCurr.begin(), keyPointsCurr.end());
-            descriptorsRef = descriptorsCurr.clone();
-            ref = curr;
-            break;
-        }
-        case LOST:
-        {
-            cout << "vo has lost! Please check it!";
-            break;
-        }
-        default:
+    cv_bridge::CvImageConstPtr leftImagePtr, rightImagePtr, depthImagePtr;
+
+    leftImagePtr = cv_bridge::toCvCopy(leftImg, enc::MONO8);
+    rightImagePtr = cv_bridge::toCvCopy(rightImg, enc::MONO8);
+    depthImagePtr = cv_bridge::toCvCopy(depthImg, enc::MONO16);
+    
+
+    tracker->Find_Feature(leftImagePtr->image, leftImagePtr->header.stamp.toSec(), pubThisFrame);
+
+    for (unsigned int i = 0;; i++)
+    {
+        bool completed = false;
+        completed |= tracker->Update_Tracker_ID(i);
+        if (!completed)
             break;
     }
-    return true;
 }

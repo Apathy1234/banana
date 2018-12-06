@@ -81,33 +81,9 @@ camera_listeners/CMakeFiles/myslam.dir/src/frame.cpp.o.provides: camera_listener
 camera_listeners/CMakeFiles/myslam.dir/src/frame.cpp.o.provides.build: camera_listeners/CMakeFiles/myslam.dir/src/frame.cpp.o
 
 
-camera_listeners/CMakeFiles/myslam.dir/src/feature_tracker.cpp.o: camera_listeners/CMakeFiles/myslam.dir/flags.make
-camera_listeners/CMakeFiles/myslam.dir/src/feature_tracker.cpp.o: /home/tg/my_slam/src/camera_listeners/src/feature_tracker.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/tg/my_slam/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object camera_listeners/CMakeFiles/myslam.dir/src/feature_tracker.cpp.o"
-	cd /home/tg/my_slam/build/camera_listeners && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/myslam.dir/src/feature_tracker.cpp.o -c /home/tg/my_slam/src/camera_listeners/src/feature_tracker.cpp
-
-camera_listeners/CMakeFiles/myslam.dir/src/feature_tracker.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/myslam.dir/src/feature_tracker.cpp.i"
-	cd /home/tg/my_slam/build/camera_listeners && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/tg/my_slam/src/camera_listeners/src/feature_tracker.cpp > CMakeFiles/myslam.dir/src/feature_tracker.cpp.i
-
-camera_listeners/CMakeFiles/myslam.dir/src/feature_tracker.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/myslam.dir/src/feature_tracker.cpp.s"
-	cd /home/tg/my_slam/build/camera_listeners && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/tg/my_slam/src/camera_listeners/src/feature_tracker.cpp -o CMakeFiles/myslam.dir/src/feature_tracker.cpp.s
-
-camera_listeners/CMakeFiles/myslam.dir/src/feature_tracker.cpp.o.requires:
-
-.PHONY : camera_listeners/CMakeFiles/myslam.dir/src/feature_tracker.cpp.o.requires
-
-camera_listeners/CMakeFiles/myslam.dir/src/feature_tracker.cpp.o.provides: camera_listeners/CMakeFiles/myslam.dir/src/feature_tracker.cpp.o.requires
-	$(MAKE) -f camera_listeners/CMakeFiles/myslam.dir/build.make camera_listeners/CMakeFiles/myslam.dir/src/feature_tracker.cpp.o.provides.build
-.PHONY : camera_listeners/CMakeFiles/myslam.dir/src/feature_tracker.cpp.o.provides
-
-camera_listeners/CMakeFiles/myslam.dir/src/feature_tracker.cpp.o.provides.build: camera_listeners/CMakeFiles/myslam.dir/src/feature_tracker.cpp.o
-
-
 camera_listeners/CMakeFiles/myslam.dir/src/config.cpp.o: camera_listeners/CMakeFiles/myslam.dir/flags.make
 camera_listeners/CMakeFiles/myslam.dir/src/config.cpp.o: /home/tg/my_slam/src/camera_listeners/src/config.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/tg/my_slam/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object camera_listeners/CMakeFiles/myslam.dir/src/config.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/tg/my_slam/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object camera_listeners/CMakeFiles/myslam.dir/src/config.cpp.o"
 	cd /home/tg/my_slam/build/camera_listeners && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/myslam.dir/src/config.cpp.o -c /home/tg/my_slam/src/camera_listeners/src/config.cpp
 
 camera_listeners/CMakeFiles/myslam.dir/src/config.cpp.i: cmake_force
@@ -131,7 +107,7 @@ camera_listeners/CMakeFiles/myslam.dir/src/config.cpp.o.provides.build: camera_l
 
 camera_listeners/CMakeFiles/myslam.dir/src/camera.cpp.o: camera_listeners/CMakeFiles/myslam.dir/flags.make
 camera_listeners/CMakeFiles/myslam.dir/src/camera.cpp.o: /home/tg/my_slam/src/camera_listeners/src/camera.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/tg/my_slam/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object camera_listeners/CMakeFiles/myslam.dir/src/camera.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/tg/my_slam/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object camera_listeners/CMakeFiles/myslam.dir/src/camera.cpp.o"
 	cd /home/tg/my_slam/build/camera_listeners && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/myslam.dir/src/camera.cpp.o -c /home/tg/my_slam/src/camera_listeners/src/camera.cpp
 
 camera_listeners/CMakeFiles/myslam.dir/src/camera.cpp.i: cmake_force
@@ -153,46 +129,70 @@ camera_listeners/CMakeFiles/myslam.dir/src/camera.cpp.o.provides: camera_listene
 camera_listeners/CMakeFiles/myslam.dir/src/camera.cpp.o.provides.build: camera_listeners/CMakeFiles/myslam.dir/src/camera.cpp.o
 
 
-camera_listeners/CMakeFiles/myslam.dir/src/data_convert.cpp.o: camera_listeners/CMakeFiles/myslam.dir/flags.make
-camera_listeners/CMakeFiles/myslam.dir/src/data_convert.cpp.o: /home/tg/my_slam/src/camera_listeners/src/data_convert.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/tg/my_slam/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object camera_listeners/CMakeFiles/myslam.dir/src/data_convert.cpp.o"
-	cd /home/tg/my_slam/build/camera_listeners && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/myslam.dir/src/data_convert.cpp.o -c /home/tg/my_slam/src/camera_listeners/src/data_convert.cpp
+camera_listeners/CMakeFiles/myslam.dir/src/feature_tracker.cpp.o: camera_listeners/CMakeFiles/myslam.dir/flags.make
+camera_listeners/CMakeFiles/myslam.dir/src/feature_tracker.cpp.o: /home/tg/my_slam/src/camera_listeners/src/feature_tracker.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/tg/my_slam/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object camera_listeners/CMakeFiles/myslam.dir/src/feature_tracker.cpp.o"
+	cd /home/tg/my_slam/build/camera_listeners && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/myslam.dir/src/feature_tracker.cpp.o -c /home/tg/my_slam/src/camera_listeners/src/feature_tracker.cpp
 
-camera_listeners/CMakeFiles/myslam.dir/src/data_convert.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/myslam.dir/src/data_convert.cpp.i"
-	cd /home/tg/my_slam/build/camera_listeners && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/tg/my_slam/src/camera_listeners/src/data_convert.cpp > CMakeFiles/myslam.dir/src/data_convert.cpp.i
+camera_listeners/CMakeFiles/myslam.dir/src/feature_tracker.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/myslam.dir/src/feature_tracker.cpp.i"
+	cd /home/tg/my_slam/build/camera_listeners && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/tg/my_slam/src/camera_listeners/src/feature_tracker.cpp > CMakeFiles/myslam.dir/src/feature_tracker.cpp.i
 
-camera_listeners/CMakeFiles/myslam.dir/src/data_convert.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/myslam.dir/src/data_convert.cpp.s"
-	cd /home/tg/my_slam/build/camera_listeners && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/tg/my_slam/src/camera_listeners/src/data_convert.cpp -o CMakeFiles/myslam.dir/src/data_convert.cpp.s
+camera_listeners/CMakeFiles/myslam.dir/src/feature_tracker.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/myslam.dir/src/feature_tracker.cpp.s"
+	cd /home/tg/my_slam/build/camera_listeners && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/tg/my_slam/src/camera_listeners/src/feature_tracker.cpp -o CMakeFiles/myslam.dir/src/feature_tracker.cpp.s
 
-camera_listeners/CMakeFiles/myslam.dir/src/data_convert.cpp.o.requires:
+camera_listeners/CMakeFiles/myslam.dir/src/feature_tracker.cpp.o.requires:
 
-.PHONY : camera_listeners/CMakeFiles/myslam.dir/src/data_convert.cpp.o.requires
+.PHONY : camera_listeners/CMakeFiles/myslam.dir/src/feature_tracker.cpp.o.requires
 
-camera_listeners/CMakeFiles/myslam.dir/src/data_convert.cpp.o.provides: camera_listeners/CMakeFiles/myslam.dir/src/data_convert.cpp.o.requires
-	$(MAKE) -f camera_listeners/CMakeFiles/myslam.dir/build.make camera_listeners/CMakeFiles/myslam.dir/src/data_convert.cpp.o.provides.build
-.PHONY : camera_listeners/CMakeFiles/myslam.dir/src/data_convert.cpp.o.provides
+camera_listeners/CMakeFiles/myslam.dir/src/feature_tracker.cpp.o.provides: camera_listeners/CMakeFiles/myslam.dir/src/feature_tracker.cpp.o.requires
+	$(MAKE) -f camera_listeners/CMakeFiles/myslam.dir/build.make camera_listeners/CMakeFiles/myslam.dir/src/feature_tracker.cpp.o.provides.build
+.PHONY : camera_listeners/CMakeFiles/myslam.dir/src/feature_tracker.cpp.o.provides
 
-camera_listeners/CMakeFiles/myslam.dir/src/data_convert.cpp.o.provides.build: camera_listeners/CMakeFiles/myslam.dir/src/data_convert.cpp.o
+camera_listeners/CMakeFiles/myslam.dir/src/feature_tracker.cpp.o.provides.build: camera_listeners/CMakeFiles/myslam.dir/src/feature_tracker.cpp.o
+
+
+camera_listeners/CMakeFiles/myslam.dir/src/update_trackers.cpp.o: camera_listeners/CMakeFiles/myslam.dir/flags.make
+camera_listeners/CMakeFiles/myslam.dir/src/update_trackers.cpp.o: /home/tg/my_slam/src/camera_listeners/src/update_trackers.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/tg/my_slam/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object camera_listeners/CMakeFiles/myslam.dir/src/update_trackers.cpp.o"
+	cd /home/tg/my_slam/build/camera_listeners && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/myslam.dir/src/update_trackers.cpp.o -c /home/tg/my_slam/src/camera_listeners/src/update_trackers.cpp
+
+camera_listeners/CMakeFiles/myslam.dir/src/update_trackers.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/myslam.dir/src/update_trackers.cpp.i"
+	cd /home/tg/my_slam/build/camera_listeners && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/tg/my_slam/src/camera_listeners/src/update_trackers.cpp > CMakeFiles/myslam.dir/src/update_trackers.cpp.i
+
+camera_listeners/CMakeFiles/myslam.dir/src/update_trackers.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/myslam.dir/src/update_trackers.cpp.s"
+	cd /home/tg/my_slam/build/camera_listeners && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/tg/my_slam/src/camera_listeners/src/update_trackers.cpp -o CMakeFiles/myslam.dir/src/update_trackers.cpp.s
+
+camera_listeners/CMakeFiles/myslam.dir/src/update_trackers.cpp.o.requires:
+
+.PHONY : camera_listeners/CMakeFiles/myslam.dir/src/update_trackers.cpp.o.requires
+
+camera_listeners/CMakeFiles/myslam.dir/src/update_trackers.cpp.o.provides: camera_listeners/CMakeFiles/myslam.dir/src/update_trackers.cpp.o.requires
+	$(MAKE) -f camera_listeners/CMakeFiles/myslam.dir/build.make camera_listeners/CMakeFiles/myslam.dir/src/update_trackers.cpp.o.provides.build
+.PHONY : camera_listeners/CMakeFiles/myslam.dir/src/update_trackers.cpp.o.provides
+
+camera_listeners/CMakeFiles/myslam.dir/src/update_trackers.cpp.o.provides.build: camera_listeners/CMakeFiles/myslam.dir/src/update_trackers.cpp.o
 
 
 # Object files for target myslam
 myslam_OBJECTS = \
 "CMakeFiles/myslam.dir/src/frame.cpp.o" \
-"CMakeFiles/myslam.dir/src/feature_tracker.cpp.o" \
 "CMakeFiles/myslam.dir/src/config.cpp.o" \
 "CMakeFiles/myslam.dir/src/camera.cpp.o" \
-"CMakeFiles/myslam.dir/src/data_convert.cpp.o"
+"CMakeFiles/myslam.dir/src/feature_tracker.cpp.o" \
+"CMakeFiles/myslam.dir/src/update_trackers.cpp.o"
 
 # External object files for target myslam
 myslam_EXTERNAL_OBJECTS =
 
 /home/tg/my_slam/src/camera_listeners/lib/libmyslam.so: camera_listeners/CMakeFiles/myslam.dir/src/frame.cpp.o
-/home/tg/my_slam/src/camera_listeners/lib/libmyslam.so: camera_listeners/CMakeFiles/myslam.dir/src/feature_tracker.cpp.o
 /home/tg/my_slam/src/camera_listeners/lib/libmyslam.so: camera_listeners/CMakeFiles/myslam.dir/src/config.cpp.o
 /home/tg/my_slam/src/camera_listeners/lib/libmyslam.so: camera_listeners/CMakeFiles/myslam.dir/src/camera.cpp.o
-/home/tg/my_slam/src/camera_listeners/lib/libmyslam.so: camera_listeners/CMakeFiles/myslam.dir/src/data_convert.cpp.o
+/home/tg/my_slam/src/camera_listeners/lib/libmyslam.so: camera_listeners/CMakeFiles/myslam.dir/src/feature_tracker.cpp.o
+/home/tg/my_slam/src/camera_listeners/lib/libmyslam.so: camera_listeners/CMakeFiles/myslam.dir/src/update_trackers.cpp.o
 /home/tg/my_slam/src/camera_listeners/lib/libmyslam.so: camera_listeners/CMakeFiles/myslam.dir/build.make
 /home/tg/my_slam/src/camera_listeners/lib/libmyslam.so: /opt/ros/kinetic/lib/libcv_bridge.so
 /home/tg/my_slam/src/camera_listeners/lib/libmyslam.so: /opt/ros/kinetic/lib/x86_64-linux-gnu/libopencv_core3.so.3.3.1
@@ -287,10 +287,10 @@ camera_listeners/CMakeFiles/myslam.dir/build: /home/tg/my_slam/src/camera_listen
 .PHONY : camera_listeners/CMakeFiles/myslam.dir/build
 
 camera_listeners/CMakeFiles/myslam.dir/requires: camera_listeners/CMakeFiles/myslam.dir/src/frame.cpp.o.requires
-camera_listeners/CMakeFiles/myslam.dir/requires: camera_listeners/CMakeFiles/myslam.dir/src/feature_tracker.cpp.o.requires
 camera_listeners/CMakeFiles/myslam.dir/requires: camera_listeners/CMakeFiles/myslam.dir/src/config.cpp.o.requires
 camera_listeners/CMakeFiles/myslam.dir/requires: camera_listeners/CMakeFiles/myslam.dir/src/camera.cpp.o.requires
-camera_listeners/CMakeFiles/myslam.dir/requires: camera_listeners/CMakeFiles/myslam.dir/src/data_convert.cpp.o.requires
+camera_listeners/CMakeFiles/myslam.dir/requires: camera_listeners/CMakeFiles/myslam.dir/src/feature_tracker.cpp.o.requires
+camera_listeners/CMakeFiles/myslam.dir/requires: camera_listeners/CMakeFiles/myslam.dir/src/update_trackers.cpp.o.requires
 
 .PHONY : camera_listeners/CMakeFiles/myslam.dir/requires
 

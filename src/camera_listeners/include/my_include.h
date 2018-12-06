@@ -13,15 +13,18 @@
 #include <opencv2/core/core.hpp>
 #include <opencv2/highgui/highgui.hpp>
 #include <opencv2/features2d/features2d.hpp>
-// #include <opencv2/imgproc/imgproc.hpp>
-// #include <opencv2/calib3d/calib3d.hpp>
+#include <opencv2/video/tracking.hpp>
+#include <opencv2/imgproc/imgproc.hpp>
+#include <opencv2/calib3d/calib3d.hpp>
 
 #include <algorithm>
 #include <vector>
+#include <utility>
 // #include <list>
 #include <memory>
 #include <string>
 #include <iostream>
+#include <cmath>
 // #include <set>
 // #include <unordered_map>
 // #include <map>
@@ -31,5 +34,9 @@ using namespace std;
 using namespace cv;
 
 const string FILE_DIR = "/home/tg/my_slam/src/camera_listeners/config/parameter.yaml";
+
+const int WIDTH = 640;
+const int HEIGHT = 480;
+
 
 #endif 

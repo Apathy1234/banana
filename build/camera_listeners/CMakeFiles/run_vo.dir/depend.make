@@ -3,10 +3,10 @@
 
 camera_listeners/CMakeFiles/run_vo.dir/src/run_vo_node.cpp.o: /home/tg/my_slam/src/camera_listeners/include/camera.h
 camera_listeners/CMakeFiles/run_vo.dir/src/run_vo_node.cpp.o: /home/tg/my_slam/src/camera_listeners/include/config.h
-camera_listeners/CMakeFiles/run_vo.dir/src/run_vo_node.cpp.o: /home/tg/my_slam/src/camera_listeners/include/data_convert.h
 camera_listeners/CMakeFiles/run_vo.dir/src/run_vo_node.cpp.o: /home/tg/my_slam/src/camera_listeners/include/feature_tracker.h
 camera_listeners/CMakeFiles/run_vo.dir/src/run_vo_node.cpp.o: /home/tg/my_slam/src/camera_listeners/include/frame.h
 camera_listeners/CMakeFiles/run_vo.dir/src/run_vo_node.cpp.o: /home/tg/my_slam/src/camera_listeners/include/my_include.h
+camera_listeners/CMakeFiles/run_vo.dir/src/run_vo_node.cpp.o: /home/tg/my_slam/src/camera_listeners/include/update_trackers.h
 camera_listeners/CMakeFiles/run_vo.dir/src/run_vo_node.cpp.o: /home/tg/my_slam/src/camera_listeners/src/run_vo_node.cpp
 camera_listeners/CMakeFiles/run_vo.dir/src/run_vo_node.cpp.o: /opt/ros/kinetic/include/cv_bridge/cv_bridge.h
 camera_listeners/CMakeFiles/run_vo.dir/src/run_vo_node.cpp.o: /opt/ros/kinetic/include/image_transport/camera_publisher.h
@@ -30,6 +30,7 @@ camera_listeners/CMakeFiles/run_vo.dir/src/run_vo_node.cpp.o: /opt/ros/kinetic/i
 camera_listeners/CMakeFiles/run_vo.dir/src/run_vo_node.cpp.o: /opt/ros/kinetic/include/message_filters/time_synchronizer.h
 camera_listeners/CMakeFiles/run_vo.dir/src/run_vo_node.cpp.o: /opt/ros/kinetic/include/opencv-3.3.1-dev/opencv/cxcore.h
 camera_listeners/CMakeFiles/run_vo.dir/src/run_vo_node.cpp.o: /opt/ros/kinetic/include/opencv-3.3.1-dev/opencv2/calib3d.hpp
+camera_listeners/CMakeFiles/run_vo.dir/src/run_vo_node.cpp.o: /opt/ros/kinetic/include/opencv-3.3.1-dev/opencv2/calib3d/calib3d.hpp
 camera_listeners/CMakeFiles/run_vo.dir/src/run_vo_node.cpp.o: /opt/ros/kinetic/include/opencv-3.3.1-dev/opencv2/calib3d/calib3d_c.h
 camera_listeners/CMakeFiles/run_vo.dir/src/run_vo_node.cpp.o: /opt/ros/kinetic/include/opencv-3.3.1-dev/opencv2/core.hpp
 camera_listeners/CMakeFiles/run_vo.dir/src/run_vo_node.cpp.o: /opt/ros/kinetic/include/opencv-3.3.1-dev/opencv2/core/affine.hpp

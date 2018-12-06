@@ -129,11 +129,11 @@ set(LINK_LIBRARIES
 ## Declare a C++ library
 add_library(myslam
    src/frame.cpp
-   src/feature_tracker.cpp
    src/config.cpp
    src/camera.cpp
-   src/data_convert.cpp
- )
+   src/feature_tracker.cpp
+   src/update_trackers.cpp
+   )
  target_link_libraries( myslam ${LINK_LIBRARIES} )
 ## Add cmake target dependencies of the library
 ## as an example, code may need to be generated before libraries

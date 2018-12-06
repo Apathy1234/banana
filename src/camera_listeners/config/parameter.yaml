@@ -7,12 +7,11 @@ camera.cx: 315.28
 camera.cy: 243.18
 
 
-# VO parameters
-numberOfFeature: 500   # the number of feature
-scaleFactor: 1.2        # scale in image pyramid
-levelOfPyramid: 8       # the level of pyramid
-matchRatio: 2.0         # ratio for selecting good matches
-maxNumLost: 10
-minInliers: 10
-keyFrameRotation: 0.1
-keyFrameTranslation: 0.1
+# feature tracker parameters
+FeatureDistance: 10                 # the distance between two keypoints
+Frequence: 10                       # the fequence of publish feature tracker
+BorderSize: 1                        #
+FeatureMinDis: 15                   #
+MaxFeatureCnt: 150                   #
+
+F_THRESHOLD: 1.0
