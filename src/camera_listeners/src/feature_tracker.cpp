@@ -9,6 +9,7 @@ FeatureTracker::FeatureTracker(void):stereoSub(1), state(FIRST_IMAGE), firstImag
     stereoSub.registerCallback(&FeatureTracker::Stereo_Callback, this); 
 
     FREQ = Config::get<int>("Frequence");
+    SHOW_TRACKER = Config::get<int>("SHOW_TRACKER");
 }
 
 FeatureTracker::~FeatureTracker(void)
@@ -26,7 +27,7 @@ void FeatureTracker::Stereo_Callback(const sensor_msgs::ImageConstPtr& leftImg, 
     {
         state = NOT_FIRST_IMAGE;        // 状态转换
         currImageTime = firstImageTime = leftImg->header.stamp.toSec();
-        
+        return;
     }
     if ( (leftImg->header.stamp.toSec()-currImageTime) > 1.0 )
     {
@@ -63,11 +64,25 @@ void FeatureTracker::Stereo_Callback(const sensor_msgs::ImageConstPtr& leftImg, 
 
     tracker->Find_Feature(leftImagePtr->image, leftImagePtr->header.stamp.toSec(), pubThisFrame);
 
-    for (unsigned int i = 0;; i++)
+    for( unsigned int i = 0;; i++ )
     {
         bool completed = false;
         completed |= tracker->Update_Tracker_ID(i);
         if (!completed)
             break;
+    }
+
+    if( pubThisFrame )
+    {
+        if( SHOW_TRACKER )
+        {
+            Mat imgShow = leftImagePtr->image.clone();
+            for( auto kps: tracker->keyPointsCurr )
+            {
+                circle(imgShow, kps, 2, Scalar(255), -1);
+            }
+            imshow("Tracker", imgShow);
+            waitKey(1);
+        }
     }
 }

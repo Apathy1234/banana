@@ -43,7 +43,7 @@
   <!-- Auto-white balance -->
   <arg name="state_awb" default="false" />
   <!-- IR intensity -->
-  <arg name="ir_intensity" default="4" />
+  <arg name="ir_intensity" default="0" />
 
   <!-- Process mode, e.g. imu assembly, temp_drift -->
   <arg name="proc_mode" default="$(arg proc_none)" />

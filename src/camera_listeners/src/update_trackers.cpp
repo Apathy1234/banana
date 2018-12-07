@@ -48,6 +48,8 @@ void UpdateTrackers::Reduce_Vector(vector<int>& v, vector<uchar> status)
 
 void UpdateTrackers::Delete_Point_With_F(void)
 {
+    if ( keyPointsRef.empty() )
+        return;
     vector<uchar> status;
     findFundamentalMat(keyPointsRef, keyPointsCurr, FM_RANSAC, F_THRESHOLD, 0.99, status);
 
@@ -117,21 +119,8 @@ void UpdateTrackers::Find_Feature( const Mat& _img, double _currTime, const bool
 
     img = _img;
 
-     if ( imgCurr.empty() )
-     {
-         imgCurr = img.clone();
-         goodFeaturesToTrack(imgCurr, keyPointsCurr, MAX_CNT, 0.01, MIN_DIS);            //第一次寻找特征点
-         for( auto kps : keyPointsCurr )
-         {
-             trackerId.push_back(-1);
-             trackerCnt.push_back(0);
-         }
-     }
-     else
-     {
-        imgCurr = img.clone();
-        keyPointsCurr.clear();
-     }
+    imgCurr = img.clone();
+    keyPointsCurr.clear();
 
 
     if ( keyPointsRef.size() > 0 )
@@ -160,12 +149,12 @@ void UpdateTrackers::Find_Feature( const Mat& _img, double _currTime, const bool
     {
         Delete_Point_With_F();
         Set_Mask();
-//        imshow("mask", mask);
-//        waitKey(1);
+        // imshow("mask", mask);
+        // waitKey(1);
         int featureMaxCnt = MAX_CNT - static_cast<int>(keyPointsCurr.size());
         if ( featureMaxCnt > 0 )            // 特征点数量不足
         {
-            goodFeaturesToTrack(imgCurr, keyPointsAdd, featureMaxCnt, 0.01, MIN_DIS, mask);
+            goodFeaturesToTrack(imgCurr, keyPointsAdd, featureMaxCnt, 0.1, MIN_DIS, mask);
         }
         else
         {

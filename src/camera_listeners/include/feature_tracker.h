@@ -11,8 +11,7 @@ namespace enc = sensor_msgs::image_encodings;
 class FeatureTracker
 {
 private:
-    const bool SHOW_IMAGE = false;
-
+    int SHOW_TRACKER;
     uint64_t timeBegin = 0, timeEnd = 0;
 
     enum FeatureState

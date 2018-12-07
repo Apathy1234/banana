@@ -6,12 +6,15 @@ camera.fy: 351.96
 camera.cx: 315.28
 camera.cy: 243.18
 
+# show image
+SHOW_TRACKER: 1
+
 
 # feature tracker parameters
 FeatureDistance: 10                 # the distance between two keypoints
 Frequence: 10                       # the fequence of publish feature tracker
-BorderSize: 1                        #
+BorderSize: 1                       #
 FeatureMinDis: 15                   #
-MaxFeatureCnt: 150                   #
+MaxFeatureCnt: 150                  #
 
 F_THRESHOLD: 1.0

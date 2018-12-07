@@ -14,6 +14,10 @@ private:
     int MAX_CNT;
     double F_THRESHOLD;
     int n_id;
+    vector<Point2f> keyPointsAdd;
+    Mat mask;
+
+
     bool Point_In_Border(const Point2f& pt);
     void Reduce_Vector(vector<Point2f>& v, vector<uchar> status);
     void Reduce_Vector(vector<int>& v, vector<uchar> status);
@@ -24,10 +28,9 @@ public:
     typedef shared_ptr<UpdateTrackers> ptr;
     vector<Point2f> keyPointsRef;
     vector<Point2f> keyPointsCurr;
-    vector<Point2f> keyPointsAdd;
     vector<int> trackerId;
     vector<int> trackerCnt;
-    Mat mask;
+
 
     UpdateTrackers(void);
     ~UpdateTrackers(void);
