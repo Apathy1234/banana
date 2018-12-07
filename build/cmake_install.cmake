@@ -117,7 +117,7 @@ endif()
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   include("/home/tg/my_slam/build/gtest/cmake_install.cmake")
-  include("/home/tg/my_slam/build/camera_listeners/cmake_install.cmake")
+  include("/home/tg/my_slam/build/feature_tracker/cmake_install.cmake")
   include("/home/tg/my_slam/build/mynteye_wrapper_d/cmake_install.cmake")
 
 endif()

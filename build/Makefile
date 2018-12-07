@@ -283,19 +283,6 @@ gtest_main/fast:
 .PHONY : gtest_main/fast
 
 #=============================================================================
-# Target rules for targets named run_vo
-
-# Build rule for target.
-run_vo: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 run_vo
-.PHONY : run_vo
-
-# fast build rule for target.
-run_vo/fast:
-	$(MAKE) -f camera_listeners/CMakeFiles/run_vo.dir/build.make camera_listeners/CMakeFiles/run_vo.dir/build
-.PHONY : run_vo/fast
-
-#=============================================================================
 # Target rules for targets named sensor_msgs_generate_messages_lisp
 
 # Build rule for target.
@@ -305,7 +292,7 @@ sensor_msgs_generate_messages_lisp: cmake_check_build_system
 
 # fast build rule for target.
 sensor_msgs_generate_messages_lisp/fast:
-	$(MAKE) -f camera_listeners/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/build.make camera_listeners/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/build
+	$(MAKE) -f feature_tracker/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/build.make feature_tracker/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/build
 .PHONY : sensor_msgs_generate_messages_lisp/fast
 
 #=============================================================================
@@ -318,7 +305,7 @@ tf2_msgs_generate_messages_lisp: cmake_check_build_system
 
 # fast build rule for target.
 tf2_msgs_generate_messages_lisp/fast:
-	$(MAKE) -f camera_listeners/CMakeFiles/tf2_msgs_generate_messages_lisp.dir/build.make camera_listeners/CMakeFiles/tf2_msgs_generate_messages_lisp.dir/build
+	$(MAKE) -f feature_tracker/CMakeFiles/tf2_msgs_generate_messages_lisp.dir/build.make feature_tracker/CMakeFiles/tf2_msgs_generate_messages_lisp.dir/build
 .PHONY : tf2_msgs_generate_messages_lisp/fast
 
 #=============================================================================
@@ -331,7 +318,7 @@ sensor_msgs_generate_messages_cpp: cmake_check_build_system
 
 # fast build rule for target.
 sensor_msgs_generate_messages_cpp/fast:
-	$(MAKE) -f camera_listeners/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/build.make camera_listeners/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/build
+	$(MAKE) -f feature_tracker/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/build.make feature_tracker/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/build
 .PHONY : sensor_msgs_generate_messages_cpp/fast
 
 #=============================================================================
@@ -344,7 +331,7 @@ std_msgs_generate_messages_lisp: cmake_check_build_system
 
 # fast build rule for target.
 std_msgs_generate_messages_lisp/fast:
-	$(MAKE) -f camera_listeners/CMakeFiles/std_msgs_generate_messages_lisp.dir/build.make camera_listeners/CMakeFiles/std_msgs_generate_messages_lisp.dir/build
+	$(MAKE) -f feature_tracker/CMakeFiles/std_msgs_generate_messages_lisp.dir/build.make feature_tracker/CMakeFiles/std_msgs_generate_messages_lisp.dir/build
 .PHONY : std_msgs_generate_messages_lisp/fast
 
 #=============================================================================
@@ -357,7 +344,7 @@ geometry_msgs_generate_messages_lisp: cmake_check_build_system
 
 # fast build rule for target.
 geometry_msgs_generate_messages_lisp/fast:
-	$(MAKE) -f camera_listeners/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/build.make camera_listeners/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/build
+	$(MAKE) -f feature_tracker/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/build.make feature_tracker/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/build
 .PHONY : geometry_msgs_generate_messages_lisp/fast
 
 #=============================================================================
@@ -370,7 +357,7 @@ std_msgs_generate_messages_eus: cmake_check_build_system
 
 # fast build rule for target.
 std_msgs_generate_messages_eus/fast:
-	$(MAKE) -f camera_listeners/CMakeFiles/std_msgs_generate_messages_eus.dir/build.make camera_listeners/CMakeFiles/std_msgs_generate_messages_eus.dir/build
+	$(MAKE) -f feature_tracker/CMakeFiles/std_msgs_generate_messages_eus.dir/build.make feature_tracker/CMakeFiles/std_msgs_generate_messages_eus.dir/build
 .PHONY : std_msgs_generate_messages_eus/fast
 
 #=============================================================================
@@ -383,7 +370,7 @@ roscpp_generate_messages_lisp: cmake_check_build_system
 
 # fast build rule for target.
 roscpp_generate_messages_lisp/fast:
-	$(MAKE) -f camera_listeners/CMakeFiles/roscpp_generate_messages_lisp.dir/build.make camera_listeners/CMakeFiles/roscpp_generate_messages_lisp.dir/build
+	$(MAKE) -f feature_tracker/CMakeFiles/roscpp_generate_messages_lisp.dir/build.make feature_tracker/CMakeFiles/roscpp_generate_messages_lisp.dir/build
 .PHONY : roscpp_generate_messages_lisp/fast
 
 #=============================================================================
@@ -396,7 +383,7 @@ roscpp_generate_messages_nodejs: cmake_check_build_system
 
 # fast build rule for target.
 roscpp_generate_messages_nodejs/fast:
-	$(MAKE) -f camera_listeners/CMakeFiles/roscpp_generate_messages_nodejs.dir/build.make camera_listeners/CMakeFiles/roscpp_generate_messages_nodejs.dir/build
+	$(MAKE) -f feature_tracker/CMakeFiles/roscpp_generate_messages_nodejs.dir/build.make feature_tracker/CMakeFiles/roscpp_generate_messages_nodejs.dir/build
 .PHONY : roscpp_generate_messages_nodejs/fast
 
 #=============================================================================
@@ -409,7 +396,7 @@ rosgraph_msgs_generate_messages_lisp: cmake_check_build_system
 
 # fast build rule for target.
 rosgraph_msgs_generate_messages_lisp/fast:
-	$(MAKE) -f camera_listeners/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/build.make camera_listeners/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/build
+	$(MAKE) -f feature_tracker/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/build.make feature_tracker/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/build
 .PHONY : rosgraph_msgs_generate_messages_lisp/fast
 
 #=============================================================================
@@ -422,7 +409,7 @@ tf_generate_messages_eus: cmake_check_build_system
 
 # fast build rule for target.
 tf_generate_messages_eus/fast:
-	$(MAKE) -f camera_listeners/CMakeFiles/tf_generate_messages_eus.dir/build.make camera_listeners/CMakeFiles/tf_generate_messages_eus.dir/build
+	$(MAKE) -f feature_tracker/CMakeFiles/tf_generate_messages_eus.dir/build.make feature_tracker/CMakeFiles/tf_generate_messages_eus.dir/build
 .PHONY : tf_generate_messages_eus/fast
 
 #=============================================================================
@@ -435,7 +422,7 @@ roscpp_generate_messages_eus: cmake_check_build_system
 
 # fast build rule for target.
 roscpp_generate_messages_eus/fast:
-	$(MAKE) -f camera_listeners/CMakeFiles/roscpp_generate_messages_eus.dir/build.make camera_listeners/CMakeFiles/roscpp_generate_messages_eus.dir/build
+	$(MAKE) -f feature_tracker/CMakeFiles/roscpp_generate_messages_eus.dir/build.make feature_tracker/CMakeFiles/roscpp_generate_messages_eus.dir/build
 .PHONY : roscpp_generate_messages_eus/fast
 
 #=============================================================================
@@ -448,7 +435,7 @@ sensor_msgs_generate_messages_nodejs: cmake_check_build_system
 
 # fast build rule for target.
 sensor_msgs_generate_messages_nodejs/fast:
-	$(MAKE) -f camera_listeners/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/build.make camera_listeners/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/build
+	$(MAKE) -f feature_tracker/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/build.make feature_tracker/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/build
 .PHONY : sensor_msgs_generate_messages_nodejs/fast
 
 #=============================================================================
@@ -461,7 +448,7 @@ rosgraph_msgs_generate_messages_cpp: cmake_check_build_system
 
 # fast build rule for target.
 rosgraph_msgs_generate_messages_cpp/fast:
-	$(MAKE) -f camera_listeners/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build.make camera_listeners/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build
+	$(MAKE) -f feature_tracker/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build.make feature_tracker/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build
 .PHONY : rosgraph_msgs_generate_messages_cpp/fast
 
 #=============================================================================
@@ -474,7 +461,7 @@ tf2_msgs_generate_messages_cpp: cmake_check_build_system
 
 # fast build rule for target.
 tf2_msgs_generate_messages_cpp/fast:
-	$(MAKE) -f camera_listeners/CMakeFiles/tf2_msgs_generate_messages_cpp.dir/build.make camera_listeners/CMakeFiles/tf2_msgs_generate_messages_cpp.dir/build
+	$(MAKE) -f feature_tracker/CMakeFiles/tf2_msgs_generate_messages_cpp.dir/build.make feature_tracker/CMakeFiles/tf2_msgs_generate_messages_cpp.dir/build
 .PHONY : tf2_msgs_generate_messages_cpp/fast
 
 #=============================================================================
@@ -487,7 +474,7 @@ roscpp_generate_messages_cpp: cmake_check_build_system
 
 # fast build rule for target.
 roscpp_generate_messages_cpp/fast:
-	$(MAKE) -f camera_listeners/CMakeFiles/roscpp_generate_messages_cpp.dir/build.make camera_listeners/CMakeFiles/roscpp_generate_messages_cpp.dir/build
+	$(MAKE) -f feature_tracker/CMakeFiles/roscpp_generate_messages_cpp.dir/build.make feature_tracker/CMakeFiles/roscpp_generate_messages_cpp.dir/build
 .PHONY : roscpp_generate_messages_cpp/fast
 
 #=============================================================================
@@ -500,7 +487,7 @@ geometry_msgs_generate_messages_eus: cmake_check_build_system
 
 # fast build rule for target.
 geometry_msgs_generate_messages_eus/fast:
-	$(MAKE) -f camera_listeners/CMakeFiles/geometry_msgs_generate_messages_eus.dir/build.make camera_listeners/CMakeFiles/geometry_msgs_generate_messages_eus.dir/build
+	$(MAKE) -f feature_tracker/CMakeFiles/geometry_msgs_generate_messages_eus.dir/build.make feature_tracker/CMakeFiles/geometry_msgs_generate_messages_eus.dir/build
 .PHONY : geometry_msgs_generate_messages_eus/fast
 
 #=============================================================================
@@ -513,7 +500,7 @@ actionlib_msgs_generate_messages_py: cmake_check_build_system
 
 # fast build rule for target.
 actionlib_msgs_generate_messages_py/fast:
-	$(MAKE) -f camera_listeners/CMakeFiles/actionlib_msgs_generate_messages_py.dir/build.make camera_listeners/CMakeFiles/actionlib_msgs_generate_messages_py.dir/build
+	$(MAKE) -f feature_tracker/CMakeFiles/actionlib_msgs_generate_messages_py.dir/build.make feature_tracker/CMakeFiles/actionlib_msgs_generate_messages_py.dir/build
 .PHONY : actionlib_msgs_generate_messages_py/fast
 
 #=============================================================================
@@ -526,7 +513,7 @@ rosgraph_msgs_generate_messages_nodejs: cmake_check_build_system
 
 # fast build rule for target.
 rosgraph_msgs_generate_messages_nodejs/fast:
-	$(MAKE) -f camera_listeners/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/build.make camera_listeners/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/build
+	$(MAKE) -f feature_tracker/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/build.make feature_tracker/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/build
 .PHONY : rosgraph_msgs_generate_messages_nodejs/fast
 
 #=============================================================================
@@ -539,7 +526,7 @@ rosgraph_msgs_generate_messages_eus: cmake_check_build_system
 
 # fast build rule for target.
 rosgraph_msgs_generate_messages_eus/fast:
-	$(MAKE) -f camera_listeners/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/build.make camera_listeners/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/build
+	$(MAKE) -f feature_tracker/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/build.make feature_tracker/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/build
 .PHONY : rosgraph_msgs_generate_messages_eus/fast
 
 #=============================================================================
@@ -552,7 +539,7 @@ tf_generate_messages_cpp: cmake_check_build_system
 
 # fast build rule for target.
 tf_generate_messages_cpp/fast:
-	$(MAKE) -f camera_listeners/CMakeFiles/tf_generate_messages_cpp.dir/build.make camera_listeners/CMakeFiles/tf_generate_messages_cpp.dir/build
+	$(MAKE) -f feature_tracker/CMakeFiles/tf_generate_messages_cpp.dir/build.make feature_tracker/CMakeFiles/tf_generate_messages_cpp.dir/build
 .PHONY : tf_generate_messages_cpp/fast
 
 #=============================================================================
@@ -565,7 +552,7 @@ actionlib_generate_messages_eus: cmake_check_build_system
 
 # fast build rule for target.
 actionlib_generate_messages_eus/fast:
-	$(MAKE) -f camera_listeners/CMakeFiles/actionlib_generate_messages_eus.dir/build.make camera_listeners/CMakeFiles/actionlib_generate_messages_eus.dir/build
+	$(MAKE) -f feature_tracker/CMakeFiles/actionlib_generate_messages_eus.dir/build.make feature_tracker/CMakeFiles/actionlib_generate_messages_eus.dir/build
 .PHONY : actionlib_generate_messages_eus/fast
 
 #=============================================================================
@@ -578,7 +565,7 @@ std_msgs_generate_messages_py: cmake_check_build_system
 
 # fast build rule for target.
 std_msgs_generate_messages_py/fast:
-	$(MAKE) -f camera_listeners/CMakeFiles/std_msgs_generate_messages_py.dir/build.make camera_listeners/CMakeFiles/std_msgs_generate_messages_py.dir/build
+	$(MAKE) -f feature_tracker/CMakeFiles/std_msgs_generate_messages_py.dir/build.make feature_tracker/CMakeFiles/std_msgs_generate_messages_py.dir/build
 .PHONY : std_msgs_generate_messages_py/fast
 
 #=============================================================================
@@ -591,7 +578,7 @@ geometry_msgs_generate_messages_nodejs: cmake_check_build_system
 
 # fast build rule for target.
 geometry_msgs_generate_messages_nodejs/fast:
-	$(MAKE) -f camera_listeners/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/build.make camera_listeners/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/build
+	$(MAKE) -f feature_tracker/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/build.make feature_tracker/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/build
 .PHONY : geometry_msgs_generate_messages_nodejs/fast
 
 #=============================================================================
@@ -604,7 +591,7 @@ std_msgs_generate_messages_nodejs: cmake_check_build_system
 
 # fast build rule for target.
 std_msgs_generate_messages_nodejs/fast:
-	$(MAKE) -f camera_listeners/CMakeFiles/std_msgs_generate_messages_nodejs.dir/build.make camera_listeners/CMakeFiles/std_msgs_generate_messages_nodejs.dir/build
+	$(MAKE) -f feature_tracker/CMakeFiles/std_msgs_generate_messages_nodejs.dir/build.make feature_tracker/CMakeFiles/std_msgs_generate_messages_nodejs.dir/build
 .PHONY : std_msgs_generate_messages_nodejs/fast
 
 #=============================================================================
@@ -617,8 +604,21 @@ geometry_msgs_generate_messages_py: cmake_check_build_system
 
 # fast build rule for target.
 geometry_msgs_generate_messages_py/fast:
-	$(MAKE) -f camera_listeners/CMakeFiles/geometry_msgs_generate_messages_py.dir/build.make camera_listeners/CMakeFiles/geometry_msgs_generate_messages_py.dir/build
+	$(MAKE) -f feature_tracker/CMakeFiles/geometry_msgs_generate_messages_py.dir/build.make feature_tracker/CMakeFiles/geometry_msgs_generate_messages_py.dir/build
 .PHONY : geometry_msgs_generate_messages_py/fast
+
+#=============================================================================
+# Target rules for targets named feature_tracker_node
+
+# Build rule for target.
+feature_tracker_node: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 feature_tracker_node
+.PHONY : feature_tracker_node
+
+# fast build rule for target.
+feature_tracker_node/fast:
+	$(MAKE) -f feature_tracker/CMakeFiles/feature_tracker_node.dir/build.make feature_tracker/CMakeFiles/feature_tracker_node.dir/build
+.PHONY : feature_tracker_node/fast
 
 #=============================================================================
 # Target rules for targets named rosgraph_msgs_generate_messages_py
@@ -630,7 +630,7 @@ rosgraph_msgs_generate_messages_py: cmake_check_build_system
 
 # fast build rule for target.
 rosgraph_msgs_generate_messages_py/fast:
-	$(MAKE) -f camera_listeners/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build.make camera_listeners/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build
+	$(MAKE) -f feature_tracker/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build.make feature_tracker/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build
 .PHONY : rosgraph_msgs_generate_messages_py/fast
 
 #=============================================================================
@@ -643,7 +643,7 @@ tf_generate_messages_lisp: cmake_check_build_system
 
 # fast build rule for target.
 tf_generate_messages_lisp/fast:
-	$(MAKE) -f camera_listeners/CMakeFiles/tf_generate_messages_lisp.dir/build.make camera_listeners/CMakeFiles/tf_generate_messages_lisp.dir/build
+	$(MAKE) -f feature_tracker/CMakeFiles/tf_generate_messages_lisp.dir/build.make feature_tracker/CMakeFiles/tf_generate_messages_lisp.dir/build
 .PHONY : tf_generate_messages_lisp/fast
 
 #=============================================================================
@@ -656,7 +656,7 @@ tf2_msgs_generate_messages_nodejs: cmake_check_build_system
 
 # fast build rule for target.
 tf2_msgs_generate_messages_nodejs/fast:
-	$(MAKE) -f camera_listeners/CMakeFiles/tf2_msgs_generate_messages_nodejs.dir/build.make camera_listeners/CMakeFiles/tf2_msgs_generate_messages_nodejs.dir/build
+	$(MAKE) -f feature_tracker/CMakeFiles/tf2_msgs_generate_messages_nodejs.dir/build.make feature_tracker/CMakeFiles/tf2_msgs_generate_messages_nodejs.dir/build
 .PHONY : tf2_msgs_generate_messages_nodejs/fast
 
 #=============================================================================
@@ -669,7 +669,7 @@ roscpp_generate_messages_py: cmake_check_build_system
 
 # fast build rule for target.
 roscpp_generate_messages_py/fast:
-	$(MAKE) -f camera_listeners/CMakeFiles/roscpp_generate_messages_py.dir/build.make camera_listeners/CMakeFiles/roscpp_generate_messages_py.dir/build
+	$(MAKE) -f feature_tracker/CMakeFiles/roscpp_generate_messages_py.dir/build.make feature_tracker/CMakeFiles/roscpp_generate_messages_py.dir/build
 .PHONY : roscpp_generate_messages_py/fast
 
 #=============================================================================
@@ -682,7 +682,7 @@ tf_generate_messages_nodejs: cmake_check_build_system
 
 # fast build rule for target.
 tf_generate_messages_nodejs/fast:
-	$(MAKE) -f camera_listeners/CMakeFiles/tf_generate_messages_nodejs.dir/build.make camera_listeners/CMakeFiles/tf_generate_messages_nodejs.dir/build
+	$(MAKE) -f feature_tracker/CMakeFiles/tf_generate_messages_nodejs.dir/build.make feature_tracker/CMakeFiles/tf_generate_messages_nodejs.dir/build
 .PHONY : tf_generate_messages_nodejs/fast
 
 #=============================================================================
@@ -695,7 +695,7 @@ tf_generate_messages_py: cmake_check_build_system
 
 # fast build rule for target.
 tf_generate_messages_py/fast:
-	$(MAKE) -f camera_listeners/CMakeFiles/tf_generate_messages_py.dir/build.make camera_listeners/CMakeFiles/tf_generate_messages_py.dir/build
+	$(MAKE) -f feature_tracker/CMakeFiles/tf_generate_messages_py.dir/build.make feature_tracker/CMakeFiles/tf_generate_messages_py.dir/build
 .PHONY : tf_generate_messages_py/fast
 
 #=============================================================================
@@ -708,7 +708,7 @@ sensor_msgs_generate_messages_py: cmake_check_build_system
 
 # fast build rule for target.
 sensor_msgs_generate_messages_py/fast:
-	$(MAKE) -f camera_listeners/CMakeFiles/sensor_msgs_generate_messages_py.dir/build.make camera_listeners/CMakeFiles/sensor_msgs_generate_messages_py.dir/build
+	$(MAKE) -f feature_tracker/CMakeFiles/sensor_msgs_generate_messages_py.dir/build.make feature_tracker/CMakeFiles/sensor_msgs_generate_messages_py.dir/build
 .PHONY : sensor_msgs_generate_messages_py/fast
 
 #=============================================================================
@@ -721,7 +721,7 @@ actionlib_generate_messages_cpp: cmake_check_build_system
 
 # fast build rule for target.
 actionlib_generate_messages_cpp/fast:
-	$(MAKE) -f camera_listeners/CMakeFiles/actionlib_generate_messages_cpp.dir/build.make camera_listeners/CMakeFiles/actionlib_generate_messages_cpp.dir/build
+	$(MAKE) -f feature_tracker/CMakeFiles/actionlib_generate_messages_cpp.dir/build.make feature_tracker/CMakeFiles/actionlib_generate_messages_cpp.dir/build
 .PHONY : actionlib_generate_messages_cpp/fast
 
 #=============================================================================
@@ -734,7 +734,7 @@ sensor_msgs_generate_messages_eus: cmake_check_build_system
 
 # fast build rule for target.
 sensor_msgs_generate_messages_eus/fast:
-	$(MAKE) -f camera_listeners/CMakeFiles/sensor_msgs_generate_messages_eus.dir/build.make camera_listeners/CMakeFiles/sensor_msgs_generate_messages_eus.dir/build
+	$(MAKE) -f feature_tracker/CMakeFiles/sensor_msgs_generate_messages_eus.dir/build.make feature_tracker/CMakeFiles/sensor_msgs_generate_messages_eus.dir/build
 .PHONY : sensor_msgs_generate_messages_eus/fast
 
 #=============================================================================
@@ -747,7 +747,7 @@ std_msgs_generate_messages_cpp: cmake_check_build_system
 
 # fast build rule for target.
 std_msgs_generate_messages_cpp/fast:
-	$(MAKE) -f camera_listeners/CMakeFiles/std_msgs_generate_messages_cpp.dir/build.make camera_listeners/CMakeFiles/std_msgs_generate_messages_cpp.dir/build
+	$(MAKE) -f feature_tracker/CMakeFiles/std_msgs_generate_messages_cpp.dir/build.make feature_tracker/CMakeFiles/std_msgs_generate_messages_cpp.dir/build
 .PHONY : std_msgs_generate_messages_cpp/fast
 
 #=============================================================================
@@ -760,7 +760,7 @@ actionlib_msgs_generate_messages_cpp: cmake_check_build_system
 
 # fast build rule for target.
 actionlib_msgs_generate_messages_cpp/fast:
-	$(MAKE) -f camera_listeners/CMakeFiles/actionlib_msgs_generate_messages_cpp.dir/build.make camera_listeners/CMakeFiles/actionlib_msgs_generate_messages_cpp.dir/build
+	$(MAKE) -f feature_tracker/CMakeFiles/actionlib_msgs_generate_messages_cpp.dir/build.make feature_tracker/CMakeFiles/actionlib_msgs_generate_messages_cpp.dir/build
 .PHONY : actionlib_msgs_generate_messages_cpp/fast
 
 #=============================================================================
@@ -773,7 +773,7 @@ actionlib_generate_messages_nodejs: cmake_check_build_system
 
 # fast build rule for target.
 actionlib_generate_messages_nodejs/fast:
-	$(MAKE) -f camera_listeners/CMakeFiles/actionlib_generate_messages_nodejs.dir/build.make camera_listeners/CMakeFiles/actionlib_generate_messages_nodejs.dir/build
+	$(MAKE) -f feature_tracker/CMakeFiles/actionlib_generate_messages_nodejs.dir/build.make feature_tracker/CMakeFiles/actionlib_generate_messages_nodejs.dir/build
 .PHONY : actionlib_generate_messages_nodejs/fast
 
 #=============================================================================
@@ -786,7 +786,7 @@ actionlib_generate_messages_py: cmake_check_build_system
 
 # fast build rule for target.
 actionlib_generate_messages_py/fast:
-	$(MAKE) -f camera_listeners/CMakeFiles/actionlib_generate_messages_py.dir/build.make camera_listeners/CMakeFiles/actionlib_generate_messages_py.dir/build
+	$(MAKE) -f feature_tracker/CMakeFiles/actionlib_generate_messages_py.dir/build.make feature_tracker/CMakeFiles/actionlib_generate_messages_py.dir/build
 .PHONY : actionlib_generate_messages_py/fast
 
 #=============================================================================
@@ -799,7 +799,7 @@ actionlib_generate_messages_lisp: cmake_check_build_system
 
 # fast build rule for target.
 actionlib_generate_messages_lisp/fast:
-	$(MAKE) -f camera_listeners/CMakeFiles/actionlib_generate_messages_lisp.dir/build.make camera_listeners/CMakeFiles/actionlib_generate_messages_lisp.dir/build
+	$(MAKE) -f feature_tracker/CMakeFiles/actionlib_generate_messages_lisp.dir/build.make feature_tracker/CMakeFiles/actionlib_generate_messages_lisp.dir/build
 .PHONY : actionlib_generate_messages_lisp/fast
 
 #=============================================================================
@@ -812,7 +812,7 @@ actionlib_msgs_generate_messages_eus: cmake_check_build_system
 
 # fast build rule for target.
 actionlib_msgs_generate_messages_eus/fast:
-	$(MAKE) -f camera_listeners/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/build.make camera_listeners/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/build
+	$(MAKE) -f feature_tracker/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/build.make feature_tracker/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/build
 .PHONY : actionlib_msgs_generate_messages_eus/fast
 
 #=============================================================================
@@ -825,7 +825,7 @@ actionlib_msgs_generate_messages_lisp: cmake_check_build_system
 
 # fast build rule for target.
 actionlib_msgs_generate_messages_lisp/fast:
-	$(MAKE) -f camera_listeners/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/build.make camera_listeners/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/build
+	$(MAKE) -f feature_tracker/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/build.make feature_tracker/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/build
 .PHONY : actionlib_msgs_generate_messages_lisp/fast
 
 #=============================================================================
@@ -838,7 +838,7 @@ tf2_msgs_generate_messages_eus: cmake_check_build_system
 
 # fast build rule for target.
 tf2_msgs_generate_messages_eus/fast:
-	$(MAKE) -f camera_listeners/CMakeFiles/tf2_msgs_generate_messages_eus.dir/build.make camera_listeners/CMakeFiles/tf2_msgs_generate_messages_eus.dir/build
+	$(MAKE) -f feature_tracker/CMakeFiles/tf2_msgs_generate_messages_eus.dir/build.make feature_tracker/CMakeFiles/tf2_msgs_generate_messages_eus.dir/build
 .PHONY : tf2_msgs_generate_messages_eus/fast
 
 #=============================================================================
@@ -851,7 +851,7 @@ actionlib_msgs_generate_messages_nodejs: cmake_check_build_system
 
 # fast build rule for target.
 actionlib_msgs_generate_messages_nodejs/fast:
-	$(MAKE) -f camera_listeners/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/build.make camera_listeners/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/build
+	$(MAKE) -f feature_tracker/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/build.make feature_tracker/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/build
 .PHONY : actionlib_msgs_generate_messages_nodejs/fast
 
 #=============================================================================
@@ -864,7 +864,7 @@ tf2_msgs_generate_messages_py: cmake_check_build_system
 
 # fast build rule for target.
 tf2_msgs_generate_messages_py/fast:
-	$(MAKE) -f camera_listeners/CMakeFiles/tf2_msgs_generate_messages_py.dir/build.make camera_listeners/CMakeFiles/tf2_msgs_generate_messages_py.dir/build
+	$(MAKE) -f feature_tracker/CMakeFiles/tf2_msgs_generate_messages_py.dir/build.make feature_tracker/CMakeFiles/tf2_msgs_generate_messages_py.dir/build
 .PHONY : tf2_msgs_generate_messages_py/fast
 
 #=============================================================================
@@ -877,7 +877,7 @@ geometry_msgs_generate_messages_cpp: cmake_check_build_system
 
 # fast build rule for target.
 geometry_msgs_generate_messages_cpp/fast:
-	$(MAKE) -f camera_listeners/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build.make camera_listeners/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build
+	$(MAKE) -f feature_tracker/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build.make feature_tracker/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build
 .PHONY : geometry_msgs_generate_messages_cpp/fast
 
 #=============================================================================
@@ -890,7 +890,7 @@ myslam: cmake_check_build_system
 
 # fast build rule for target.
 myslam/fast:
-	$(MAKE) -f camera_listeners/CMakeFiles/myslam.dir/build.make camera_listeners/CMakeFiles/myslam.dir/build
+	$(MAKE) -f feature_tracker/CMakeFiles/myslam.dir/build.make feature_tracker/CMakeFiles/myslam.dir/build
 .PHONY : myslam/fast
 
 #=============================================================================
@@ -1240,7 +1240,6 @@ help:
 	@echo "... gmock_main"
 	@echo "... gtest"
 	@echo "... gtest_main"
-	@echo "... run_vo"
 	@echo "... sensor_msgs_generate_messages_lisp"
 	@echo "... tf2_msgs_generate_messages_lisp"
 	@echo "... sensor_msgs_generate_messages_cpp"
@@ -1266,6 +1265,7 @@ help:
 	@echo "... geometry_msgs_generate_messages_nodejs"
 	@echo "... std_msgs_generate_messages_nodejs"
 	@echo "... geometry_msgs_generate_messages_py"
+	@echo "... feature_tracker_node"
 	@echo "... rosgraph_msgs_generate_messages_py"
 	@echo "... tf_generate_messages_lisp"
 	@echo "... tf2_msgs_generate_messages_nodejs"

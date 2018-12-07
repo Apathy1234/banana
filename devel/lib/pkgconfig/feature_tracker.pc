@@ -1,0 +1,8 @@
+prefix=/home/tg/my_slam/devel
+
+Name: feature_tracker
+Description: Description of feature_tracker
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/tg/my_slam/devel/lib 
+Requires: 

@@ -5,5 +5,5 @@
 # This file includes the relevant testing commands required for 
 # testing this directory and lists subdirectories to be tested as well.
 subdirs(gtest)
-subdirs(camera_listeners)
+subdirs(feature_tracker)
 subdirs(mynteye_wrapper_d)
