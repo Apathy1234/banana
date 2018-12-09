@@ -10,15 +10,10 @@ int main(int argc, char **argv)
 
     Config::Open_ParameterFile( FILE_DIR );
 
-    Camera::ptr camera(new Camera);
-
     FeatureTracker featureTracker;
 
 
-    while(ros::ok())
-    {
-        ros::spinOnce();
-    }
+    ros::spin();
 
     return 0;
 }

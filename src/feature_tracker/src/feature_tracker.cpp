@@ -10,6 +10,7 @@ FeatureTracker::FeatureTracker(void):stereoSub(1), state(FIRST_IMAGE), firstImag
 
     FREQ = Config::get<int>("Frequence");
     SHOW_TRACKER = Config::get<int>("SHOW_TRACKER");
+    TRACKERSIZE = Config::get<int>("TrackerSize");
 }
 
 FeatureTracker::~FeatureTracker(void)
@@ -20,8 +21,6 @@ FeatureTracker::~FeatureTracker(void)
 void FeatureTracker::Stereo_Callback(const sensor_msgs::ImageConstPtr& leftImg, const sensor_msgs::ImageConstPtr& rightImg, const sensor_msgs::ImageConstPtr& depthImg)
 {
     timeBegin = ros::Time::now().toNSec();
-    ROS_INFO_STREAM("code cost time: " << (timeBegin - timeEnd) << " ns");
-    timeEnd = timeBegin;
     
     if ( state == FIRST_IMAGE )
     {
@@ -31,7 +30,7 @@ void FeatureTracker::Stereo_Callback(const sensor_msgs::ImageConstPtr& leftImg, 
     }
     if ( (leftImg->header.stamp.toSec()-currImageTime) > 1.0 )
     {
-        ROS_WARN("image fault! reset the feature tracker");
+        ROS_WARN("image fault! reset the feature tracker!");
         state = FIRST_IMAGE;
         pubCnt = 1;
         return;
@@ -74,15 +73,20 @@ void FeatureTracker::Stereo_Callback(const sensor_msgs::ImageConstPtr& leftImg, 
 
     if( pubThisFrame )
     {
+        ROS_INFO_STREAM("the number of trackers: " << tracker->keyPointsCurr.size());
         if( SHOW_TRACKER )
         {
-            Mat imgShow = leftImagePtr->image.clone();
-            for( auto kps: tracker->keyPointsCurr )
+            leftImagePtr = cv_bridge::cvtColor(leftImagePtr, enc::BGR8);
+            Mat imgShow = leftImagePtr->image;
+            for( unsigned int i = 0; i < tracker->keyPointsCurr.size(); i++)
             {
-                circle(imgShow, kps, 2, Scalar(255), -1);
+                double cnt = min(1.0, 1.0*tracker->trackerCnt[i]/TRACKERSIZE);
+                circle(imgShow, tracker->keyPointsCurr[i], 3, Scalar(255*(1-cnt), 0, 255*cnt), -1);
             }
             imshow("Tracker", imgShow);
             waitKey(1);
         }
     }
+    timeEnd = ros::Time::now().toNSec();
+    ROS_INFO_STREAM("code cost time: " << (timeEnd - timeBegin) << " ns");
 }

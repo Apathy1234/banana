@@ -12,6 +12,7 @@ class FeatureTracker
 {
 private:
     int SHOW_TRACKER;
+    int TRACKERSIZE;
     uint64_t timeBegin = 0, timeEnd = 0;
 
     enum FeatureState

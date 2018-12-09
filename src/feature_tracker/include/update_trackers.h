@@ -10,6 +10,7 @@ private:
     Mat imgRef;
     Mat imgCurr;
     int BORDERSIZE;
+    int EQUALIZE;
     int MIN_DIS;
     int MAX_CNT;
     double F_THRESHOLD;

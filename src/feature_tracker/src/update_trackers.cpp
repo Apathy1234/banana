@@ -6,6 +6,7 @@ UpdateTrackers::UpdateTrackers(void):n_id(0)
     MIN_DIS = Config::get<int>("FeatureMinDis");
     MAX_CNT = Config::get<int>("MaxFeatureCnt");
     F_THRESHOLD = Config::get<double>("F_THRESHOLD");
+    EQUALIZE = Config::get<int>("EQUALIZE");
 }
 
 UpdateTrackers::~UpdateTrackers(void)
@@ -17,7 +18,7 @@ bool UpdateTrackers::Point_In_Border(const Point2f& pt)
 {
     int x = cvRound(pt.x);
     int y = cvRound(pt.y);
-    return (BORDERSIZE <= x && x <= (WIDTH - BORDERSIZE) && BORDERSIZE <= y && y <= (HEIGHT - BORDERSIZE) );
+    return (BORDERSIZE < x && x <= (WIDTH - BORDERSIZE) && BORDERSIZE < y && y <= (HEIGHT - BORDERSIZE) );
 }
 
 void UpdateTrackers::Reduce_Vector(vector<Point2f>& v, vector<uchar> status)
@@ -48,16 +49,21 @@ void UpdateTrackers::Reduce_Vector(vector<int>& v, vector<uchar> status)
 
 void UpdateTrackers::Delete_Point_With_F(void)
 {
-    if ( keyPointsRef.empty() )
-        return;
-    vector<uchar> status;
-    findFundamentalMat(keyPointsRef, keyPointsCurr, FM_RANSAC, F_THRESHOLD, 0.99, status);
+    // if ( keyPointsRef.empty() )
+    // {
+    //     ROS_INFO_STREAM("I am here!");
+    //     return;
+    // }
+    if ( keyPointsCurr.size() >= 8 )
+    {
+        vector<uchar> status;
+        findFundamentalMat(keyPointsRef, keyPointsCurr, FM_RANSAC, F_THRESHOLD, 0.99, status);
 
-    Reduce_Vector(keyPointsRef, status);
-    Reduce_Vector(keyPointsCurr, status);
-    Reduce_Vector(trackerId, status);
-    Reduce_Vector(trackerCnt, status);
-
+        Reduce_Vector(keyPointsRef, status);
+        Reduce_Vector(keyPointsCurr, status);
+        Reduce_Vector(trackerId, status);
+        Reduce_Vector(trackerCnt, status);
+    }
 }
 
 void UpdateTrackers::Set_Mask(void)
@@ -116,10 +122,20 @@ void UpdateTrackers::Add_Points(void)
 void UpdateTrackers::Find_Feature( const Mat& _img, double _currTime, const bool pubThisFrame)
 {
     Mat img;
+    if( EQUALIZE )
+    {
+        Ptr<CLAHE> clahe = createCLAHE(3.0, Size(8, 8));
+        clahe->apply(_img, img);
+    }
+    else
+    {
+        img = _img;
+    }
 
-    img = _img;
 
-    imgCurr = img.clone();
+    // imgCurr = img.clone();
+
+    imgCurr = img;
     keyPointsCurr.clear();
 
 
@@ -149,12 +165,10 @@ void UpdateTrackers::Find_Feature( const Mat& _img, double _currTime, const bool
     {
         Delete_Point_With_F();
         Set_Mask();
-        // imshow("mask", mask);
-        // waitKey(1);
         int featureMaxCnt = MAX_CNT - static_cast<int>(keyPointsCurr.size());
         if ( featureMaxCnt > 0 )            // 特征点数量不足
         {
-            goodFeaturesToTrack(imgCurr, keyPointsAdd, featureMaxCnt, 0.1, MIN_DIS, mask);
+            goodFeaturesToTrack(imgCurr, keyPointsAdd, featureMaxCnt, 0.01, MIN_DIS, mask);
         }
         else
         {
@@ -164,6 +178,7 @@ void UpdateTrackers::Find_Feature( const Mat& _img, double _currTime, const bool
         Add_Points();
     }
 
-    imgRef = imgCurr.clone();
+    // imgRef = imgCurr.clone();
+    imgRef = imgCurr;
     keyPointsRef = keyPointsCurr;
 }

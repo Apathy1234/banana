@@ -39,9 +39,9 @@
   <arg name="depth_stream_format" default="$(arg stream_yuyv)" />
 
   <!-- Auto-exposure -->
-  <arg name="state_ae" default="false" />
+  <arg name="state_ae" default="true" />
   <!-- Auto-white balance -->
-  <arg name="state_awb" default="false" />
+  <arg name="state_awb" default="true" />
   <!-- IR intensity -->
   <arg name="ir_intensity" default="0" />
 

@@ -11,10 +11,11 @@ SHOW_TRACKER: 1
 
 
 # feature tracker parameters
-FeatureDistance: 10                 # the distance between two keypoints
 Frequence: 10                       # the fequence of publish feature tracker
 BorderSize: 1                       #
-FeatureMinDis: 15                   #
-MaxFeatureCnt: 150                  #
+FeatureMinDis: 40                   #
+MaxFeatureCnt: 100                  #
+TrackerSize: 50
 
 F_THRESHOLD: 1.0
+EQUALIZE: 1
