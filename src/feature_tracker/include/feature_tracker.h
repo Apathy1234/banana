@@ -13,7 +13,8 @@ class FeatureTracker
 private:
     int SHOW_TRACKER;
     int TRACKERSIZE;
-    uint64_t timeBegin = 0, timeEnd = 0;
+    uint64_t timeBegin;
+    uint64_t timeEnd;
 
     enum FeatureState
     {
@@ -32,6 +33,7 @@ private:
     
     ros::NodeHandle n;
     
+    ros::Publisher pubMatchImage;
     message_filters::Subscriber<sensor_msgs::Image> leftSub;
     message_filters::Subscriber<sensor_msgs::Image> rightSub;
     message_filters::Subscriber<sensor_msgs::Image> depthSub;

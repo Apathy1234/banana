@@ -2,6 +2,7 @@
 
 FeatureTracker::FeatureTracker(void):stereoSub(1), state(FIRST_IMAGE), firstImageTime(0), currImageTime(0), pubCnt(1), pubThisFrame(false), tracker(new UpdateTrackers)
 {
+    pubMatchImage = n.advertise<sensor_msgs::Image>("/featur_tracker/left/image", 1);
     leftSub.subscribe(n, "/mynteye/left/image_mono", 1);
     rightSub.subscribe(n, "/mynteye/right/image_mono", 1);
     depthSub.subscribe(n, "mynteye/depth/image_raw", 1);
@@ -73,6 +74,7 @@ void FeatureTracker::Stereo_Callback(const sensor_msgs::ImageConstPtr& leftImg, 
 
     if( pubThisFrame )
     {
+        pubCnt++;
         ROS_INFO_STREAM("the number of trackers: " << tracker->keyPointsCurr.size());
         if( SHOW_TRACKER )
         {
@@ -83,8 +85,9 @@ void FeatureTracker::Stereo_Callback(const sensor_msgs::ImageConstPtr& leftImg, 
                 double cnt = min(1.0, 1.0*tracker->trackerCnt[i]/TRACKERSIZE);
                 circle(imgShow, tracker->keyPointsCurr[i], 3, Scalar(255*(1-cnt), 0, 255*cnt), -1);
             }
-            imshow("Tracker", imgShow);
-            waitKey(1);
+            // imshow("Tracker", imgShow);
+            // waitKey(1);
+            pubMatchImage.publish(leftImagePtr->toImageMsg());
         }
     }
     timeEnd = ros::Time::now().toNSec();

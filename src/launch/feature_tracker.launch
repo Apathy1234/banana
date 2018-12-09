@@ -4,4 +4,6 @@
 
 <node name="feature_tracker_node" pkg="feature_tracker" type="feature_tracker_node"/>
 
+ <node name="rviz" pkg="rviz" type="rviz" args="-d $(find feature_tracker)/rviz/feature_tracker.rviz"/>
+
 </launch>
