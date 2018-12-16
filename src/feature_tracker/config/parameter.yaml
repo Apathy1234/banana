@@ -5,7 +5,7 @@ camera.fx: 351.24
 camera.fy: 351.96
 camera.cx: 315.28
 camera.cy: 243.18
-camera.factorScale: 1000  # convert mm to m
+camera.factorScale: 1000.0  # convert mm to m
 
 # show image
 SHOW_TRACKER: 1
@@ -16,7 +16,7 @@ Frequence: 10                       # the fequence of publish feature tracker
 BorderSize: 1                       #
 FeatureMinDis: 30                   #
 MaxFeatureCnt: 100                  #
-TrackerSize: 10
+TrackerSize: 30
 
 F_THRESHOLD: 1.0
 EQUALIZE: 1

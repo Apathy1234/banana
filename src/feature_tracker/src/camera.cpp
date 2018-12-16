@@ -6,7 +6,7 @@ Camera::Camera()
     fy = Config::get<float>("camera.fy");
     cx = Config::get<float>("camera.cx");
     cy = Config::get<float>("camera.cy");
-    factorScale = Config::get<int>("camera.factorScale");
+    factorScale = Config::get<float>("camera.factorScale");
     kMatrix << fx,  0, cx, 
                 0, fy, cy, 
                 0,  0,  1;
@@ -61,7 +61,7 @@ bool Camera::Pixel_2_Camera(const Eigen::Vector3f& p_src, Eigen::Vector3f& p_dis
     ushort d = depthImage.at<ushort>(y, x);
     if( d != 0)
     {
-        depth = d / factorScale;
+        depth = static_cast<float>(d / factorScale);
     }
     else
     {
@@ -73,7 +73,7 @@ bool Camera::Pixel_2_Camera(const Eigen::Vector3f& p_src, Eigen::Vector3f& p_dis
             d = depthImage.at<unsigned short>(y+dy[num], x+dx[num]);
             if ( d != 0 )
             {
-                depth = d / factorScale;
+                depth = static_cast<float>(d / factorScale);
                 break;
             }
         }

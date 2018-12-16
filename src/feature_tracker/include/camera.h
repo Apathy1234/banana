@@ -11,8 +11,8 @@ class Camera
 {
 private:
     float fx, fy, cx, cy;
-    int factorScale;
-    unsigned short depth;
+    float factorScale;
+    float depth;
 
 public:
     typedef shared_ptr<Camera> ptr;
