@@ -1,8 +1,0 @@
-prefix=/home/tg/my_slam/src/cmake-build-debug/devel
-
-Name: mynteye_wrapper_d
-Description: Description of mynteye_wrapper_d
-Version: 0.0.0
-Cflags: -I/home/tg/my_slam/src/cmake-build-debug/devel/include
-Libs: -L/home/tg/my_slam/src/cmake-build-debug/devel/lib 
-Requires: cv_bridge image_transport message_runtime nodelet roscpp sensor_msgs std_msgs tf
