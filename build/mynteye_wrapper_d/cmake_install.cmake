@@ -95,7 +95,7 @@ if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspeci
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libmynteye_wrapper_d.so")
     file(RPATH_CHANGE
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libmynteye_wrapper_d.so"
-         OLD_RPATH "/opt/ros/kinetic/lib:/opt/ros/kinetic/lib/x86_64-linux-gnu:/home/tg/3rd_party/MYNT-EYE-D-SDK/_install/lib:/home/tg/3rd_party/MYNT-EYE-D-SDK/3rdparty/eSPDI/linux/x64:"
+         OLD_RPATH "/opt/ros/kinetic/lib:/usr/local/lib:/opt/ros/kinetic/lib/x86_64-linux-gnu:/home/tg/MYNT-EYE-D-SDK/3rdparty/eSPDI/linux/x64:"
          NEW_RPATH "")
     if(CMAKE_INSTALL_DO_STRIP)
       execute_process(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libmynteye_wrapper_d.so")
@@ -115,7 +115,7 @@ if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspeci
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/mynteye_wrapper_d/mynteye_wrapper_d_node")
     file(RPATH_CHANGE
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/mynteye_wrapper_d/mynteye_wrapper_d_node"
-         OLD_RPATH "/home/tg/my_slam/devel/lib:/opt/ros/kinetic/lib:/opt/ros/kinetic/lib/x86_64-linux-gnu:/home/tg/3rd_party/MYNT-EYE-D-SDK/_install/lib:/home/tg/3rd_party/MYNT-EYE-D-SDK/3rdparty/eSPDI/linux/x64:"
+         OLD_RPATH "/home/tg/my_slam/devel/lib:/opt/ros/kinetic/lib:/usr/local/lib:/opt/ros/kinetic/lib/x86_64-linux-gnu:/home/tg/MYNT-EYE-D-SDK/3rdparty/eSPDI/linux/x64:"
          NEW_RPATH "")
     if(CMAKE_INSTALL_DO_STRIP)
       execute_process(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/mynteye_wrapper_d/mynteye_wrapper_d_node")

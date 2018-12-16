@@ -1,12 +1,10 @@
 #include "my_include.h"
-#include "frame.h"
 #include "config.h"
-#include "camera.h"
 #include "feature_tracker.h"
 
 int main(int argc, char **argv)
 {
-    ros::init(argc, argv, "get_image");
+    ros::init(argc, argv, "feature_tracker");
 
     Config::Open_ParameterFile( FILE_DIR );
 

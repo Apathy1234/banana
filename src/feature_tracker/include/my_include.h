@@ -4,7 +4,9 @@
 #include "ros/ros.h"
 #include <sensor_msgs/Image.h>
 #include <sensor_msgs/image_encodings.h>
+#include <sensor_msgs/PointCloud.h>
 #include <image_transport/image_transport.h>
+#include <geometry_msgs/Point32.h>
 
 #include <message_filters/subscriber.h>
 #include <message_filters/time_synchronizer.h>
@@ -27,7 +29,11 @@
 #include <cmath>
 // #include <set>
 // #include <unordered_map>
-// #include <map>
+#include <map>
+
+
+#include <Eigen/Core>
+#include <Eigen/Dense>
 
 using namespace std;
 

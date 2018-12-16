@@ -1,6 +1,6 @@
 #include "update_trackers.h"
 
-UpdateTrackers::UpdateTrackers(void):n_id(0)
+UpdateTrackers::UpdateTrackers(void):n_id(0), camera(new Camera)
 {
     BORDERSIZE = Config::get<int>("BorderSize");
     MIN_DIS = Config::get<int>("FeatureMinDis");
@@ -21,7 +21,7 @@ bool UpdateTrackers::Point_In_Border(const Point2f& pt)
     return (BORDERSIZE < x && x <= (WIDTH - BORDERSIZE) && BORDERSIZE < y && y <= (HEIGHT - BORDERSIZE) );
 }
 
-void UpdateTrackers::Reduce_Vector(vector<Point2f>& v, vector<uchar> status)
+void UpdateTrackers::Reduce_Vector(vector<Point2f>& v, vector<unsigned char> status)
 {
     int num = 0;
     for ( int i =  0; i <  int(v.size()); i++)
@@ -34,7 +34,7 @@ void UpdateTrackers::Reduce_Vector(vector<Point2f>& v, vector<uchar> status)
     v.resize(num);
 }
 
-void UpdateTrackers::Reduce_Vector(vector<int>& v, vector<uchar> status)
+void UpdateTrackers::Reduce_Vector(vector<int>& v, vector<unsigned char> status)
 {
     int num = 0;
     for ( int i =  0; i <  int(v.size()); i++)
@@ -49,14 +49,9 @@ void UpdateTrackers::Reduce_Vector(vector<int>& v, vector<uchar> status)
 
 void UpdateTrackers::Delete_Point_With_F(void)
 {
-    // if ( keyPointsRef.empty() )
-    // {
-    //     ROS_INFO_STREAM("I am here!");
-    //     return;
-    // }
     if ( keyPointsCurr.size() >= 8 )
     {
-        vector<uchar> status;
+        vector<unsigned char> status;
         findFundamentalMat(keyPointsRef, keyPointsCurr, FM_RANSAC, F_THRESHOLD, 0.99, status);
 
         Reduce_Vector(keyPointsRef, status);
@@ -87,7 +82,7 @@ void UpdateTrackers::Set_Mask(void)
 
     for ( auto& it : cnt_pts_id)
     {
-        if ( mask.at<uchar>(it.second.first) == 255 )
+        if ( mask.at<unsigned char>(it.second.first) == 255 )
         {
             trackerCnt.push_back(it.first);                         //重新放入特征点
             trackerId.push_back(it.second.second);
@@ -119,9 +114,35 @@ void UpdateTrackers::Add_Points(void)
     }
 }
 
-void UpdateTrackers::Find_Feature( const Mat& _img, double _currTime, const bool pubThisFrame)
+void UpdateTrackers::Calculation_Points_From_Depth(void)
+{
+    kpsCameraCurr.clear();
+    kpsCameraId.clear();
+    kpsCameraCnt.clear();
+    kpsCamera_uv.clear();
+    for ( ushort i = 0; i < keyPointsCurr.size(); i++ )
+    {
+        Eigen::Vector3f a(keyPointsCurr[i].x, keyPointsCurr[i].y, 1);
+        Eigen::Vector3f b;
+        if ( !camera->Pixel_2_Camera(a, b) )
+        {
+            continue;
+        }
+        kpsCameraCurr.push_back(Point3f(b.x(), b.y(), b.z()));
+        kpsCameraId.push_back(trackerId[i]);
+        kpsCameraCnt.push_back(trackerCnt[i]);
+        kpsCamera_uv.push_back(Point2f(a.x(), a.y()));
+    }
+    ROS_INFO_STREAM("the size of publish point: " << kpsCameraCurr.size());
+    // ROS_INFO_STREAM("1: " << kpsCameraId.size());
+    // ROS_INFO_STREAM("2: " << kpsCameraCnt.size());
+    // ROS_INFO_STREAM("3: " << kpsCamera_uv.size());
+}
+
+void UpdateTrackers::Find_Feature( const Mat& _img, const Mat& depth_img, double _currTime, const bool pubThisFrame)
 {
     Mat img;
+    timeCurr = _currTime;
     if( EQUALIZE )
     {
         Ptr<CLAHE> clahe = createCLAHE(3.0, Size(8, 8));
@@ -141,7 +162,7 @@ void UpdateTrackers::Find_Feature( const Mat& _img, double _currTime, const bool
 
     if ( keyPointsRef.size() > 0 )
     {
-        vector<uchar> status;
+        vector<unsigned char> status;
         vector<float> err;
         
         calcOpticalFlowPyrLK(imgRef, imgCurr, keyPointsRef, keyPointsCurr, status, err);
@@ -178,7 +199,16 @@ void UpdateTrackers::Find_Feature( const Mat& _img, double _currTime, const bool
         Add_Points();
     }
 
-    // imgRef = imgCurr.clone();
+    camera->depthImage = depth_img.clone();
     imgRef = imgCurr;
+    for( unsigned int i = 0;; i++ )
+    {
+        bool completed = false;
+        completed |= Update_Tracker_ID(i);
+        if (!completed)
+            break;
+    }
     keyPointsRef = keyPointsCurr;
+    timeRef = timeCurr;
+    Calculation_Points_From_Depth();
 }

@@ -216,13 +216,13 @@ myslam_EXTERNAL_OBJECTS =
 /home/tg/my_slam/src/feature_tracker/lib/libmyslam.so: /opt/ros/kinetic/lib/libroscpp.so
 /home/tg/my_slam/src/feature_tracker/lib/libmyslam.so: /usr/lib/x86_64-linux-gnu/libboost_filesystem.so
 /home/tg/my_slam/src/feature_tracker/lib/libmyslam.so: /usr/lib/x86_64-linux-gnu/libboost_signals.so
-/home/tg/my_slam/src/feature_tracker/lib/libmyslam.so: /opt/ros/kinetic/lib/libroscpp_serialization.so
 /home/tg/my_slam/src/feature_tracker/lib/libmyslam.so: /opt/ros/kinetic/lib/libxmlrpcpp.so
 /home/tg/my_slam/src/feature_tracker/lib/libmyslam.so: /opt/ros/kinetic/lib/librosconsole.so
 /home/tg/my_slam/src/feature_tracker/lib/libmyslam.so: /opt/ros/kinetic/lib/librosconsole_log4cxx.so
 /home/tg/my_slam/src/feature_tracker/lib/libmyslam.so: /opt/ros/kinetic/lib/librosconsole_backend_interface.so
 /home/tg/my_slam/src/feature_tracker/lib/libmyslam.so: /usr/lib/x86_64-linux-gnu/liblog4cxx.so
 /home/tg/my_slam/src/feature_tracker/lib/libmyslam.so: /usr/lib/x86_64-linux-gnu/libboost_regex.so
+/home/tg/my_slam/src/feature_tracker/lib/libmyslam.so: /opt/ros/kinetic/lib/libroscpp_serialization.so
 /home/tg/my_slam/src/feature_tracker/lib/libmyslam.so: /opt/ros/kinetic/lib/librostime.so
 /home/tg/my_slam/src/feature_tracker/lib/libmyslam.so: /opt/ros/kinetic/lib/libcpp_common.so
 /home/tg/my_slam/src/feature_tracker/lib/libmyslam.so: /usr/lib/x86_64-linux-gnu/libboost_system.so

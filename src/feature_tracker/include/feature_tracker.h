@@ -16,6 +16,7 @@ private:
     uint64_t timeBegin;
     uint64_t timeEnd;
 
+    bool initPub = true;
     enum FeatureState
     {
         FIRST_IMAGE = -1,
@@ -34,6 +35,7 @@ private:
     ros::NodeHandle n;
     
     ros::Publisher pubMatchImage;
+    ros::Publisher pubPoints;
     message_filters::Subscriber<sensor_msgs::Image> leftSub;
     message_filters::Subscriber<sensor_msgs::Image> rightSub;
     message_filters::Subscriber<sensor_msgs::Image> depthSub;

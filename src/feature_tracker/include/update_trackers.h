@@ -3,6 +3,7 @@
 
 #include "my_include.h"
 #include "config.h"
+#include "camera.h"
 
 class UpdateTrackers
 {
@@ -14,17 +15,21 @@ private:
     int MIN_DIS;
     int MAX_CNT;
     double F_THRESHOLD;
+    double timeRef;
+    double timeCurr;
     int n_id;
-    vector<Point2f> keyPointsAdd;
     Mat mask;
-
+    vector<Point2f> keyPointsAdd;
+    Camera::ptr camera;
 
     bool Point_In_Border(const Point2f& pt);
-    void Reduce_Vector(vector<Point2f>& v, vector<uchar> status);
-    void Reduce_Vector(vector<int>& v, vector<uchar> status);
+    void Reduce_Vector(vector<Point2f>& v, vector<unsigned char> status);
+    void Reduce_Vector(vector<int>& v, vector<unsigned char> status);
     void Add_Points(void);
     void Set_Mask(void);
     void Delete_Point_With_F(void);
+    void Calculation_Points_From_Depth(void);
+    
 public:
     typedef shared_ptr<UpdateTrackers> ptr;
     vector<Point2f> keyPointsRef;
@@ -32,13 +37,17 @@ public:
     vector<int> trackerId;
     vector<int> trackerCnt;
 
+    vector<Point3f> kpsCameraCurr;
+    vector<Point2d> kpsCamera_uv;
+    vector<int> kpsCameraId;
+    vector<int> kpsCameraCnt;
 
     UpdateTrackers(void);
     ~UpdateTrackers(void);
 
     bool Update_Tracker_ID(int i);
 
-    void Find_Feature( const Mat& _img, double _currTime, const bool pubThisFrame);
+    void Find_Feature( const Mat& _img, const Mat& depth_img, double _currTime, const bool pubThisFrame);
 };
 
 

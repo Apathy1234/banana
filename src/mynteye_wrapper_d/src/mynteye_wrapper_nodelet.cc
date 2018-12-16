@@ -34,12 +34,38 @@
 
 #include <mynteye_wrapper_d/Temp.h>
 
-#include "mynteye/camera.h"
-#include "mynteye/utils.h"
+#include "mynteyed/camera.h"
+#include "mynteyed/utils.h"
 
 #include "pointcloud_generator.h" // NOLINT
 
 MYNTEYE_BEGIN_NAMESPACE
+
+namespace {
+
+void matrix_3x1(const double (*src1)[3], const double (*src2)[1],
+    double (*dst)[1]) {
+  for (int i = 0; i < 3; i++) {
+    for (int j = 0; j < 1; j++) {
+      for (int k = 0; k < 3; k++) {
+        dst[i][j] += src1[i][k] * src2[k][j];
+      }
+    }
+  }
+}
+
+void matrix_3x3(const double (*src1)[3], const double (*src2)[3],
+    double (*dst)[3]) {
+  for (int i = 0; i < 3; i++) {
+    for (int j = 0; j < 3; j++) {
+      for (int k = 0; k < 3; k++) {
+        dst[i][j] += src1[i][k] * src2[k][j];
+      }
+    }
+  }
+}
+
+}  // namespace
 
 namespace enc = sensor_msgs::image_encodings;
 
@@ -56,6 +82,7 @@ class MYNTEYEWrapperNodelet : public nodelet::Nodelet {
   ros::Publisher pub_points;
   ros::Publisher pub_imu;
   ros::Publisher pub_temp;
+  ros::Publisher pub_imu_processed;
 
   sensor_msgs::CameraInfoPtr left_info_ptr;
   sensor_msgs::CameraInfoPtr right_info_ptr;
@@ -75,6 +102,7 @@ class MYNTEYEWrapperNodelet : public nodelet::Nodelet {
   std::string points_frame_id;
   std::string imu_frame_id;
   std::string temp_frame_id;
+  std::string imu_frame_processed_id;
 
   // MYNTEYE objects
   OpenParams params;
@@ -83,6 +111,9 @@ class MYNTEYEWrapperNodelet : public nodelet::Nodelet {
   // Others
 
   std::unique_ptr<PointCloudGenerator> pointcloud_generator;
+
+  std::shared_ptr<MotionIntrinsics> motion_intrinsics;
+  bool motion_intrinsics_enabled;
 
   std::shared_ptr<ImuData> imu_accel;
   std::shared_ptr<ImuData> imu_gyro;
@@ -99,6 +130,7 @@ class MYNTEYEWrapperNodelet : public nodelet::Nodelet {
     bool points;
     bool imu;
     bool temp;
+    bool imu_processed;
     bool left;
     bool right;
   } sub_result_t;
@@ -111,6 +143,8 @@ class MYNTEYEWrapperNodelet : public nodelet::Nodelet {
   ~MYNTEYEWrapperNodelet() {
     closeDevice();
     mynteye.reset(nullptr);
+    motion_intrinsics = nullptr;
+    motion_intrinsics_enabled = false;
   }
 
   void onInit() override {
@@ -122,28 +156,28 @@ class MYNTEYEWrapperNodelet : public nodelet::Nodelet {
     // Launch params
     int dev_index = 0;
     int framerate = 10;
+    int dev_mode = 2;
     int color_mode = 0;
     int depth_mode = 0;
     int stream_mode = 0;
-    int device_mode = 2;
     int color_stream_format = 0;
     int depth_stream_format = 0;
     bool state_ae = true;
     bool state_awb = true;
     int ir_intensity = 0;
-    int proc_mode = 0;
+    bool ir_depth_only = true;
     nh_ns.getParam("dev_index", dev_index);
     nh_ns.getParam("framerate", framerate);
+    nh_ns.getParam("dev_mode", dev_mode);
     nh_ns.getParam("color_mode", color_mode);
     nh_ns.getParam("depth_mode", depth_mode);
     nh_ns.getParam("stream_mode", stream_mode);
-    nh_ns.getParam("device_mode", device_mode);
     nh_ns.getParam("color_stream_format", color_stream_format);
     nh_ns.getParam("depth_stream_format", depth_stream_format);
     nh_ns.getParam("state_ae", state_ae);
     nh_ns.getParam("state_awb", state_awb);
     nh_ns.getParam("ir_intensity", ir_intensity);
-    nh_ns.getParam("proc_mode", proc_mode);
+    nh_ns.getParam("ir_depth_only", ir_depth_only);
 
     points_frequency = DEFAULT_POINTS_FREQUENCE;
     points_factor = DEFAULT_POINTS_FACTOR;
@@ -161,6 +195,7 @@ class MYNTEYEWrapperNodelet : public nodelet::Nodelet {
     points_frame_id = "mynteye_points_frame";
     imu_frame_id = "mynteye_imu_frame";
     temp_frame_id = "mynteye_temp_frame";
+    imu_frame_processed_id = "mynteye_imu_frame_processed";
     nh_ns.getParam("base_frame_id", base_frame_id);
     nh_ns.getParam("left_mono_frame", left_mono_frame_id);
     nh_ns.getParam("left_color_frame", left_color_frame_id);
@@ -170,6 +205,7 @@ class MYNTEYEWrapperNodelet : public nodelet::Nodelet {
     nh_ns.getParam("points_frame", points_frame_id);
     nh_ns.getParam("imu_frame", imu_frame_id);
     nh_ns.getParam("temp_frame", temp_frame_id);
+    nh_ns.getParam("imu_frame_processed", imu_frame_processed_id);
     NODELET_INFO_STREAM("base_frame: " << base_frame_id);
     NODELET_INFO_STREAM("left_mono_frame: " << left_mono_frame_id);
     NODELET_INFO_STREAM("left_color_frame: " << left_color_frame_id);
@@ -179,6 +215,7 @@ class MYNTEYEWrapperNodelet : public nodelet::Nodelet {
     NODELET_INFO_STREAM("points_frame: " << points_frame_id);
     NODELET_INFO_STREAM("imu_frame: " << imu_frame_id);
     NODELET_INFO_STREAM("temp_frame: " << temp_frame_id);
+    NODELET_INFO_STREAM("imu_frame_processed: " << imu_frame_processed_id);
 
     std::string left_mono_topic = "mynteye/left/image_mono";
     std::string left_color_topic = "mynteye/left/image_color";
@@ -188,6 +225,7 @@ class MYNTEYEWrapperNodelet : public nodelet::Nodelet {
     std::string points_topic = "mynteye/points";
     std::string imu_topic = "mynteye/imu";
     std::string temp_topic = "mynteye/temp";
+    std::string imu_processed_topic = "mynteye/imu_processed";
     nh_ns.getParam("left_mono_topic", left_mono_topic);
     nh_ns.getParam("left_color_topic", left_color_topic);
     nh_ns.getParam("right_mono_topic", right_mono_topic);
@@ -196,6 +234,7 @@ class MYNTEYEWrapperNodelet : public nodelet::Nodelet {
     nh_ns.getParam("points_topic", points_topic);
     nh_ns.getParam("imu_topic", imu_topic);
     nh_ns.getParam("temp_topic", temp_topic);
+    nh_ns.getParam("imu_processed_topic", imu_processed_topic);
 
     // MYNTEYE objects
     mynteye.reset(new Camera);
@@ -237,10 +276,10 @@ class MYNTEYEWrapperNodelet : public nodelet::Nodelet {
       NODELET_INFO_STREAM(dashes);
     }
     params.framerate = framerate;
+    params.dev_mode = static_cast<DeviceMode>(dev_mode);
     params.color_mode = static_cast<ColorMode>(color_mode);
     params.depth_mode = static_cast<DepthMode>(depth_mode);
     params.stream_mode = static_cast<StreamMode>(stream_mode);
-    params.device_mode = static_cast<DeviceMode>(device_mode);
     params.color_stream_format =
         static_cast<StreamFormat>(color_stream_format);
     params.depth_stream_format =
@@ -248,8 +287,9 @@ class MYNTEYEWrapperNodelet : public nodelet::Nodelet {
     params.state_ae = state_ae;
     params.state_awb = state_awb;
     params.ir_intensity = ir_intensity;
+    params.ir_depth_only = ir_depth_only;
 
-    mynteye->EnableProcessMode(proc_mode);
+    mynteye->EnableProcessMode(ProcessMode::PROC_NONE);
 
     // Image publishers
 
@@ -273,6 +313,8 @@ class MYNTEYEWrapperNodelet : public nodelet::Nodelet {
     // imu
     pub_imu = nh.advertise<sensor_msgs::Imu>(imu_topic, 100);
     NODELET_INFO_STREAM("Advertized on topic " << imu_topic);
+    pub_imu_processed = nh.advertise<sensor_msgs::Imu>(imu_processed_topic, 100); // NOLINT
+    NODELET_INFO_STREAM("Advertized on topic " << imu_processed_topic);
     // temp
     pub_temp = nh.advertise<mynteye_wrapper_d::Temp>(temp_topic, 100);
     NODELET_INFO_STREAM("Advertized on topic " << temp_topic);
@@ -299,6 +341,7 @@ class MYNTEYEWrapperNodelet : public nodelet::Nodelet {
     bool points_sub = pub_points.getNumSubscribers() > 0;
     bool imu_sub = pub_imu.getNumSubscribers() > 0;
     bool temp_sub = pub_temp.getNumSubscribers() > 0;
+    bool imu_processed_sub = pub_imu_processed.getNumSubscribers() > 0;
 
     bool left_sub = left_mono_sub || left_color_sub;
     bool right_sub = right_mono_sub || right_color_sub;
@@ -307,21 +350,11 @@ class MYNTEYEWrapperNodelet : public nodelet::Nodelet {
       if (mynteye->IsImageInfoSupported()) {
         mynteye->EnableImageInfo(true);
       }
-      if (left_sub || points_sub) {
-        mynteye->EnableStreamData(ImageType::IMAGE_LEFT_COLOR);
-      }
-      if (right_sub && util::is_right_color_supported(params.stream_mode)) {
-        mynteye->EnableStreamData(ImageType::IMAGE_RIGHT_COLOR);
-      }
-      if (depth_sub || points_sub) {
-        mynteye->EnableStreamData(ImageType::IMAGE_DEPTH);
-      }
     } else {
       mynteye->DisableImageInfo();
-      mynteye->DisableStreamData(ImageType::IMAGE_ALL);
     }
 
-    if (imu_sub || temp_sub) {
+    if (imu_sub || imu_processed_sub || temp_sub) {
       if (mynteye->IsMotionDatasSupported()) {
         mynteye->EnableMotionDatas(0);
       }
@@ -331,7 +364,8 @@ class MYNTEYEWrapperNodelet : public nodelet::Nodelet {
 
     sub_result = {
       left_mono_sub, left_color_sub, right_mono_sub, right_color_sub,
-      depth_sub, points_sub, imu_sub, temp_sub, left_sub, right_sub,
+      depth_sub, points_sub, imu_sub, temp_sub,
+      imu_processed_sub, left_sub, right_sub,
     };
   }
 
@@ -371,14 +405,14 @@ class MYNTEYEWrapperNodelet : public nodelet::Nodelet {
 
     // Set motion data callback
     mynteye->SetMotionCallback([this](const MotionData& data) {
-      if (data.imu && (sub_result.imu || sub_result.temp)) {
-        ros::Time stamp = hardTimeToSoftTime(data.imu->timestamp);
+      if (data.imu && (sub_result.imu || sub_result.imu_processed ||
+          sub_result.temp)) {
         if (data.imu->flag == MYNTEYE_IMU_ACCEL) {
           imu_accel = data.imu;
-          publishImu(stamp, sub_result.imu, sub_result.temp);
+          publishImu(sub_result.imu, sub_result.imu_processed, sub_result.temp);
         } else if (data.imu->flag == MYNTEYE_IMU_GYRO) {
           imu_gyro = data.imu;
-          publishImu(stamp, sub_result.imu, sub_result.temp);
+          publishImu(sub_result.imu, sub_result.imu_processed, sub_result.temp);
         }
       }
     });
@@ -401,6 +435,19 @@ class MYNTEYEWrapperNodelet : public nodelet::Nodelet {
       NODELET_WARN_STREAM("Camera info is null");
       left_info_ptr = nullptr;
       right_info_ptr = nullptr;
+    }
+
+    // motion intrinsics
+    if (motion_intrinsics == nullptr) {
+      motion_intrinsics = std::make_shared<MotionIntrinsics>();
+    }
+    *motion_intrinsics = mynteye->GetMotionIntrinsics(&in_ok);
+    if (in_ok) {
+      motion_intrinsics_enabled = true;
+    } else {
+      motion_intrinsics_enabled = false;
+      std::cout << "This device not supported to get motion intrinsics."
+          << std::endl;
     }
 
     // pointcloud generator
@@ -486,35 +533,6 @@ class MYNTEYEWrapperNodelet : public nodelet::Nodelet {
       auto&& mat = data.img->To(ImageFormat::DEPTH_RAW)->ToMat();
       pub_depth.publish(
           cv_bridge::CvImage(header, enc::MONO16, mat).toImageMsg(), info);
-      /*{
-        sensor_msgs::ImagePtr depth_msg =
-            boost::make_shared<sensor_msgs::Image>();
-        depth_msg->header = header;
-
-        depth_msg->width = mat.cols;
-        depth_msg->height = mat.rows;
-
-        int num = 1;  // for endian detection
-        depth_msg->is_bigendian = !(*(char*)&num == 1);  // NOLINT
-
-        depth_msg->encoding = enc::MONO16;
-        depth_msg->step = depth_msg->width * sizeof(std::uint16_t);
-
-        std::size_t size = depth_msg->step * depth_msg->height;
-        depth_msg->data.resize(size);
-
-        std::uint16_t* data = reinterpret_cast<std::uint16_t*>(
-            &depth_msg->data[0]);
-        int data_size = depth_msg->width * depth_msg->height;
-
-        ushort* depth_data_ptr = mat.ptr<ushort>();
-        for (int i = 0; i < data_size; i++) {
-          *(data++) = *(depth_data_ptr++);
-        }
-
-        pub_depth.publish(depth_msg, info);
-      }*/
-
       if (sub_result.points) {
         points_depth = mat;
         publishPoints(header.stamp);
@@ -543,71 +561,92 @@ class MYNTEYEWrapperNodelet : public nodelet::Nodelet {
     points_depth.release();
   }
 
-  void publishImu(ros::Time stamp, bool imu_sub, bool temp_sub) {
+  void publishImu(bool imu_sub,
+        bool imu_processed_sub, bool temp_sub) {
     if (imu_accel == nullptr || imu_gyro == nullptr) {
       return;
     }
 
+    ros::Time stamp = hardTimeToSoftTime(imu_accel->timestamp);
+
     if (imu_sub) {
-      sensor_msgs::Imu msg;
-
-      // msg.header.seq = seq;
-      msg.header.stamp = stamp;
-      msg.header.frame_id = imu_frame_id;
-
-      // acceleration should be in m/s^2 (not in g's)
-      msg.linear_acceleration.x = imu_accel->accel[0] * gravity;
-      msg.linear_acceleration.y = imu_accel->accel[1] * gravity;
-      msg.linear_acceleration.z = imu_accel->accel[2] * gravity;
-
-      msg.linear_acceleration_covariance[0] = 0;
-      msg.linear_acceleration_covariance[1] = 0;
-      msg.linear_acceleration_covariance[2] = 0;
-
-      msg.linear_acceleration_covariance[3] = 0;
-      msg.linear_acceleration_covariance[4] = 0;
-      msg.linear_acceleration_covariance[5] = 0;
-
-      msg.linear_acceleration_covariance[6] = 0;
-      msg.linear_acceleration_covariance[7] = 0;
-      msg.linear_acceleration_covariance[8] = 0;
-
-      // velocity should be in rad/sec
-      msg.angular_velocity.x = imu_gyro->gyro[0] * M_PI / 180;
-      msg.angular_velocity.y = imu_gyro->gyro[1] * M_PI / 180;
-      msg.angular_velocity.z = imu_gyro->gyro[2] * M_PI / 180;
-
-      msg.angular_velocity_covariance[0] = 0;
-      msg.angular_velocity_covariance[1] = 0;
-      msg.angular_velocity_covariance[2] = 0;
-
-      msg.angular_velocity_covariance[3] = 0;
-      msg.angular_velocity_covariance[4] = 0;
-      msg.angular_velocity_covariance[5] = 0;
-
-      msg.angular_velocity_covariance[6] = 0;
-      msg.angular_velocity_covariance[7] = 0;
-      msg.angular_velocity_covariance[8] = 0;
-
+      auto msg = getImuMsgFromData(stamp, imu_frame_id, *imu_accel, *imu_gyro);
       pub_imu.publish(msg);
     }
 
+    if (motion_intrinsics_enabled && imu_processed_sub) {
+      auto data_acc1 = ProcImuTempDrift(*imu_accel);
+      auto data_gyr1 = ProcImuTempDrift(*imu_gyro);
+      auto data_acc2 = ProcImuAssembly(data_acc1);
+      auto data_gyr2 = ProcImuAssembly(data_gyr1);
+      auto msg = getImuMsgFromData(stamp, imu_frame_processed_id,
+                                    data_acc2, data_gyr2);
+      pub_imu_processed.publish(msg);
+    }
+
     if (temp_sub) {
-      publishTemp(imu_accel->temperature, stamp);
+      auto msg = getTempMsgFromData(stamp, temp_frame_id, *imu_accel);
+      pub_temp.publish(msg);
     }
 
     imu_accel = nullptr;
     imu_gyro = nullptr;
-
-    ros::Duration(0.001).sleep();
   }
 
-  void publishTemp(float temperature, ros::Time stamp) {
+  sensor_msgs::Imu getImuMsgFromData(ros::Time stamp,
+      const std::string& frame_id,
+      const ImuData& imu_accel, const ImuData& imu_gyro) {
+    sensor_msgs::Imu msg;
+
+    // msg.header.seq = seq;
+    msg.header.stamp = stamp;
+    msg.header.frame_id = frame_id;
+
+    // acceleration should be in m/s^2 (not in g's)
+    msg.linear_acceleration.x = imu_accel.accel[0] * gravity;
+    msg.linear_acceleration.y = imu_accel.accel[1] * gravity;
+    msg.linear_acceleration.z = imu_accel.accel[2] * gravity;
+
+    msg.linear_acceleration_covariance[0] = 0;
+    msg.linear_acceleration_covariance[1] = 0;
+    msg.linear_acceleration_covariance[2] = 0;
+
+    msg.linear_acceleration_covariance[3] = 0;
+    msg.linear_acceleration_covariance[4] = 0;
+    msg.linear_acceleration_covariance[5] = 0;
+
+    msg.linear_acceleration_covariance[6] = 0;
+    msg.linear_acceleration_covariance[7] = 0;
+    msg.linear_acceleration_covariance[8] = 0;
+
+    // velocity should be in rad/sec
+    msg.angular_velocity.x = imu_gyro.gyro[0] * M_PI / 180;
+    msg.angular_velocity.y = imu_gyro.gyro[1] * M_PI / 180;
+    msg.angular_velocity.z = imu_gyro.gyro[2] * M_PI / 180;
+
+    msg.angular_velocity_covariance[0] = 0;
+    msg.angular_velocity_covariance[1] = 0;
+    msg.angular_velocity_covariance[2] = 0;
+
+    msg.angular_velocity_covariance[3] = 0;
+    msg.angular_velocity_covariance[4] = 0;
+    msg.angular_velocity_covariance[5] = 0;
+
+    msg.angular_velocity_covariance[6] = 0;
+    msg.angular_velocity_covariance[7] = 0;
+    msg.angular_velocity_covariance[8] = 0;
+
+    return msg;
+  }
+
+  mynteye_wrapper_d::Temp getTempMsgFromData(ros::Time stamp,
+                  const std::string& frame_id,
+                  const ImuData& imu_accel) {
     mynteye_wrapper_d::Temp msg;
     msg.header.stamp = stamp;
-    msg.header.frame_id = temp_frame_id;
-    msg.data = temperature;
-    pub_temp.publish(msg);
+    msg.header.frame_id = frame_id;
+    msg.data = imu_accel.temperature;
+    return msg;
   }
 
   sensor_msgs::CameraInfoPtr createCameraInfo(const CameraIntrinsics& in) {
@@ -668,6 +707,71 @@ class MYNTEYEWrapperNodelet : public nodelet::Nodelet {
 
     return ros::Time(
         soft_time_begin + (_hard_time - hard_time_begin) * 0.00001f);
+    // return ros::Time::now();
+  }
+
+  ImuData ProcImuAssembly(const ImuData& data) const {
+    ImuData res = data;
+    if (nullptr == motion_intrinsics) {
+      std::cout << "[WARNING!] Motion intrinsic "
+                << "is not been supported at this device."
+                << std::endl;
+      return res;
+    }
+    double dst[3][3] = {0};
+    if (data.flag == 1) {
+      matrix_3x3(motion_intrinsics->accel.scale,
+          motion_intrinsics->accel.assembly, dst);
+      double s[3][1] = {0};
+      double d[3][1] = {0};
+      for (int i = 0; i < 3; i++) {
+        s[i][0] = data.accel[i];
+      }
+      matrix_3x1(dst, s, d);
+      for (int i = 0; i < 3; i++) {
+        res.accel[i] = d[i][0];
+      }
+    } else if (data.flag == 2) {
+      matrix_3x3(motion_intrinsics->gyro.scale,
+          motion_intrinsics->gyro.assembly, dst);
+      double s[3][1] = {0};
+      double d[3][1] = {0};
+      for (int i = 0; i < 3; i++) {
+        s[i][0] = data.gyro[i];
+      }
+      matrix_3x1(dst, s, d);
+      for (int i = 0; i < 3; i++) {
+        res.gyro[i] = d[i][0];
+      }
+    }
+    return res;
+  }
+
+  ImuData ProcImuTempDrift(const ImuData& data) const {
+    ImuData res = data;
+    if (nullptr == motion_intrinsics) {
+      std::cout << "[WARNING!] Motion intrinsic "
+                << "is not been supported at this device."
+                << std::endl;
+      return res;
+    }
+    double temp = res.temperature;
+    if (res.flag == 1) {
+      res.accel[0] -= motion_intrinsics->accel.x[1] * temp
+        + motion_intrinsics->accel.x[0];
+      res.accel[1] -= motion_intrinsics->accel.y[1] * temp
+        + motion_intrinsics->accel.y[0];
+      res.accel[2] -= motion_intrinsics->accel.z[1] * temp
+        + motion_intrinsics->accel.z[0];
+    } else if (res.flag == 2) {
+      res.gyro[0] -= motion_intrinsics->gyro.x[1] * temp
+        + motion_intrinsics->gyro.x[0];
+      res.gyro[1] -= motion_intrinsics->gyro.y[1] * temp
+        + motion_intrinsics->gyro.y[0];
+      res.gyro[2] -= motion_intrinsics->gyro.z[1] * temp
+        + motion_intrinsics->gyro.z[0];
+    }
+    return res;
   }
 
   CameraIntrinsics getDefaultCameraIntrinsics(const StreamMode& mode) {
@@ -678,11 +782,11 @@ class MYNTEYEWrapperNodelet : public nodelet::Nodelet {
       case StreamMode::STREAM_1280x480:
         return {640, 480, 979.8, 942.8, 682.3, 254.9, {0, 0, 0, 0, 0}};
       case StreamMode::STREAM_1280x720:
-        return {640, 480, 979.8, 942.8, 682.3, 254.9 * 2, {0, 0, 0, 0, 0}};
+        return {1280, 720, 979.8, 942.8, 682.3, 254.9 * 2, {0, 0, 0, 0, 0}};
       case StreamMode::STREAM_2560x720:
-        return {640, 480, 979.8, 942.8, 682.3 * 2, 254.9 * 2, {0, 0, 0, 0, 0}};
+        return {1280, 720, 979.8, 942.8, 682.3 * 2, 254.9 * 2, {0, 0, 0, 0, 0}};
       default:
-        return {640, 480, 979.8, 942.8, 682.3, 254.9, {0, 0, 0, 0, 0}};
+        return {1280, 720, 979.8, 942.8, 682.3, 254.9 * 2, {0, 0, 0, 0, 0}};
     }
   }
 };
@@ -690,4 +794,4 @@ class MYNTEYEWrapperNodelet : public nodelet::Nodelet {
 MYNTEYE_END_NAMESPACE
 
 #include <pluginlib/class_list_macros.h> // NOLINT
-PLUGINLIB_EXPORT_CLASS(MYNTEYE_NAMESPACE::MYNTEYEWrapperNodelet, nodelet::Nodelet);
+PLUGINLIB_EXPORT_CLASS(MYNTEYE_NAMESPACE::MYNTEYEWrapperNodelet, nodelet::Nodelet); // NOLINT
