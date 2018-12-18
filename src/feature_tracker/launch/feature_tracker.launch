@@ -1,0 +1,13 @@
+<launch>
+
+<include file="$(find mynteye_wrapper_d)/launch/mynteye.launch"/>
+
+<node name="feature_tracker_node" pkg="feature_tracker" type="feature_tracker_node">
+
+<param name = "file_dir"  type = "string" value = "$(find feature_tracker)/config/parameter.yaml"/>
+
+</node>
+
+ <node name="rviz" pkg="rviz" type="rviz" args="-d $(find feature_tracker)/rviz/feature_tracker.rviz"/>
+
+</launch>

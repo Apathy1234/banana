@@ -1,2 +1,2 @@
-feature_tracker:mynteye_wrapper_d
+feature_tracker:image_estimate:mynteye_wrapper_d
 -DCMAKE_BUILD_TYPE=Debug -DCATKIN_DEVEL_PREFIX=/home/tg/my_slam/devel -DCMAKE_INSTALL_PREFIX=/home/tg/my_slam/install -G Unix Makefiles

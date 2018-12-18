@@ -6,31 +6,31 @@
 
 #IncludeRegexTransform: 
 
-/home/tg/my_slam/src/feature_tracker/include/camera.h
-my_include.h
-/home/tg/my_slam/src/feature_tracker/include/my_include.h
-config.h
-/home/tg/my_slam/src/feature_tracker/include/config.h
+/home/tg/my_slam/src/feature_tracker/include/feature_tracker/camera.h
+feature_tracker/my_include.h
+/home/tg/my_slam/src/feature_tracker/include/feature_tracker/feature_tracker/my_include.h
+feature_tracker/config.h
+/home/tg/my_slam/src/feature_tracker/include/feature_tracker/feature_tracker/config.h
 
-/home/tg/my_slam/src/feature_tracker/include/config.h
-my_include.h
-/home/tg/my_slam/src/feature_tracker/include/my_include.h
+/home/tg/my_slam/src/feature_tracker/include/feature_tracker/config.h
+feature_tracker/my_include.h
+/home/tg/my_slam/src/feature_tracker/include/feature_tracker/feature_tracker/my_include.h
 
-/home/tg/my_slam/src/feature_tracker/include/feature_tracker.h
-my_include.h
-/home/tg/my_slam/src/feature_tracker/include/my_include.h
-update_trackers.h
-/home/tg/my_slam/src/feature_tracker/include/update_trackers.h
-config.h
-/home/tg/my_slam/src/feature_tracker/include/config.h
+/home/tg/my_slam/src/feature_tracker/include/feature_tracker/feature_tracker.h
+feature_tracker/my_include.h
+/home/tg/my_slam/src/feature_tracker/include/feature_tracker/feature_tracker/my_include.h
+feature_tracker/update_trackers.h
+/home/tg/my_slam/src/feature_tracker/include/feature_tracker/feature_tracker/update_trackers.h
+feature_tracker/config.h
+/home/tg/my_slam/src/feature_tracker/include/feature_tracker/feature_tracker/config.h
 
-/home/tg/my_slam/src/feature_tracker/include/frame.h
-my_include.h
-/home/tg/my_slam/src/feature_tracker/include/my_include.h
+/home/tg/my_slam/src/feature_tracker/include/feature_tracker/frame.h
+feature_tracker/my_include.h
+/home/tg/my_slam/src/feature_tracker/include/feature_tracker/feature_tracker/my_include.h
 
-/home/tg/my_slam/src/feature_tracker/include/my_include.h
+/home/tg/my_slam/src/feature_tracker/include/feature_tracker/my_include.h
 ros/ros.h
-/home/tg/my_slam/src/feature_tracker/include/ros/ros.h
+/home/tg/my_slam/src/feature_tracker/include/feature_tracker/ros/ros.h
 sensor_msgs/Image.h
 -
 sensor_msgs/image_encodings.h
@@ -80,33 +80,33 @@ Eigen/Core
 Eigen/Dense
 -
 
-/home/tg/my_slam/src/feature_tracker/include/update_trackers.h
-my_include.h
-/home/tg/my_slam/src/feature_tracker/include/my_include.h
-config.h
-/home/tg/my_slam/src/feature_tracker/include/config.h
-camera.h
-/home/tg/my_slam/src/feature_tracker/include/camera.h
+/home/tg/my_slam/src/feature_tracker/include/feature_tracker/update_trackers.h
+feature_tracker/my_include.h
+/home/tg/my_slam/src/feature_tracker/include/feature_tracker/feature_tracker/my_include.h
+feature_tracker/config.h
+/home/tg/my_slam/src/feature_tracker/include/feature_tracker/feature_tracker/config.h
+feature_tracker/camera.h
+/home/tg/my_slam/src/feature_tracker/include/feature_tracker/feature_tracker/camera.h
 
 /home/tg/my_slam/src/feature_tracker/src/camera.cpp
-camera.h
-/home/tg/my_slam/src/feature_tracker/src/camera.h
+feature_tracker/camera.h
+/home/tg/my_slam/src/feature_tracker/src/feature_tracker/camera.h
 
 /home/tg/my_slam/src/feature_tracker/src/config.cpp
-config.h
-/home/tg/my_slam/src/feature_tracker/src/config.h
+feature_tracker/config.h
+/home/tg/my_slam/src/feature_tracker/src/feature_tracker/config.h
 
 /home/tg/my_slam/src/feature_tracker/src/feature_tracker.cpp
-feature_tracker.h
-/home/tg/my_slam/src/feature_tracker/src/feature_tracker.h
+feature_tracker/feature_tracker.h
+/home/tg/my_slam/src/feature_tracker/src/feature_tracker/feature_tracker.h
 
 /home/tg/my_slam/src/feature_tracker/src/frame.cpp
-frame.h
-/home/tg/my_slam/src/feature_tracker/src/frame.h
+feature_tracker/frame.h
+/home/tg/my_slam/src/feature_tracker/src/feature_tracker/frame.h
 
 /home/tg/my_slam/src/feature_tracker/src/update_trackers.cpp
-update_trackers.h
-/home/tg/my_slam/src/feature_tracker/src/update_trackers.h
+feature_tracker/update_trackers.h
+/home/tg/my_slam/src/feature_tracker/src/feature_tracker/update_trackers.h
 
 /opt/ros/kinetic/include/cv_bridge/cv_bridge.h
 sensor_msgs/Image.h

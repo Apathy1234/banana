@@ -1,0 +1,6 @@
+<launch>
+<node pkg = "nodelet" name = "nodelet_manager" type = "nodelet" args = "manager" output = "screen"/>
+<node pkg = "nodelet" name = "nodelet_test" type = "nodelet" args = "load image_estimate/NodeletTest nodelet_manager" output = "screen">
+</node>
+
+</launch>

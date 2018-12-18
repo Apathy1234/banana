@@ -1,0 +1,7 @@
+<library path = "lib/libnodelet_test">
+ <class name = "image_estimate/NodeletTest" type = "NodeletTest" base_class_type = "nodelet::Nodelet">
+ <description>
+    This is my nodelet!
+ </description>
+ </class>
+</library>

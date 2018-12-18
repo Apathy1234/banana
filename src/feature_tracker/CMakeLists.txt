@@ -13,7 +13,6 @@ find_package(catkin REQUIRED COMPONENTS
   image_transport 
   sensor_msgs 
   std_msgs 
-  tf 
   message_filters
   geometry_msgs
   )

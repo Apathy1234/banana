@@ -21,7 +21,11 @@ flags = [
 '-isystem',
 '/home/tg/my_slam/devel/include',
 '-isystem',
-'/home/tg/my_slam/src/CMakeLists.txt/include',
+'/home/tg/my_slam/src/.idea/include',
+'-isystem',
+'/home/tg/my_slam/src/feature_tracker/include',
+'-isystem',
+'/home/tg/my_slam/src/image_estimate/include',
 '-isystem',
 '/home/tg/my_slam/src/mynteye_wrapper_d/include'
 ]

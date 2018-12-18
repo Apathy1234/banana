@@ -1,4 +1,4 @@
-#include "update_trackers.h"
+#include "feature_tracker/update_trackers.h"
 
 UpdateTrackers::UpdateTrackers(void):n_id(0), camera(new Camera)
 {
@@ -97,7 +97,10 @@ bool UpdateTrackers::Update_Tracker_ID(int i)
     if ( i < trackerId.size() )
     {
         if ( trackerId[i] == -1 )
-            trackerId[i] = n_id++;
+        {
+             trackerId[i] = n_id++;
+            //  ROS_INFO_STREAM("the id: " << n_id);
+        }
         return true;
     }
     else
@@ -133,7 +136,7 @@ void UpdateTrackers::Calculation_Points_From_Depth(void)
         kpsCameraCnt.push_back(trackerCnt[i]);
         kpsCamera_uv.push_back(Point2f(a.x(), a.y()));
     }
-    ROS_INFO_STREAM("the size of publish point: " << kpsCameraCurr.size());
+    // ROS_INFO_STREAM("the size of publish point: " << kpsCameraCurr.size());
     // ROS_INFO_STREAM("1: " << kpsCameraId.size());
     // ROS_INFO_STREAM("2: " << kpsCameraCnt.size());
     // ROS_INFO_STREAM("3: " << kpsCamera_uv.size());
@@ -210,5 +213,10 @@ void UpdateTrackers::Find_Feature( const Mat& _img, const Mat& depth_img, double
     }
     keyPointsRef = keyPointsCurr;
     timeRef = timeCurr;
+    // for(int i = 0; i< trackerId.size(); i++)
+    // {
+    //     ROS_INFO_STREAM(trackerId[i] << ": " << keyPointsCurr[i].x);
+    // }
+    // ROS_INFO_STREAM("====================END===============");
     Calculation_Points_From_Depth();
 }

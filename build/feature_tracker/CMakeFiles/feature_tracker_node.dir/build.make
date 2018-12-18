@@ -104,10 +104,6 @@ feature_tracker_node_EXTERNAL_OBJECTS =
 /home/tg/my_slam/devel/lib/feature_tracker/feature_tracker_node: /usr/lib/x86_64-linux-gnu/libpython2.7.so
 /home/tg/my_slam/devel/lib/feature_tracker/feature_tracker_node: /usr/lib/x86_64-linux-gnu/libboost_program_options.so
 /home/tg/my_slam/devel/lib/feature_tracker/feature_tracker_node: /usr/lib/x86_64-linux-gnu/libtinyxml.so
-/home/tg/my_slam/devel/lib/feature_tracker/feature_tracker_node: /opt/ros/kinetic/lib/libtf.so
-/home/tg/my_slam/devel/lib/feature_tracker/feature_tracker_node: /opt/ros/kinetic/lib/libtf2_ros.so
-/home/tg/my_slam/devel/lib/feature_tracker/feature_tracker_node: /opt/ros/kinetic/lib/libactionlib.so
-/home/tg/my_slam/devel/lib/feature_tracker/feature_tracker_node: /opt/ros/kinetic/lib/libtf2.so
 /home/tg/my_slam/devel/lib/feature_tracker/feature_tracker_node: /opt/ros/kinetic/lib/libmessage_filters.so
 /home/tg/my_slam/devel/lib/feature_tracker/feature_tracker_node: /opt/ros/kinetic/lib/libroscpp.so
 /home/tg/my_slam/devel/lib/feature_tracker/feature_tracker_node: /usr/lib/x86_64-linux-gnu/libboost_filesystem.so
@@ -143,10 +139,6 @@ feature_tracker_node_EXTERNAL_OBJECTS =
 /home/tg/my_slam/devel/lib/feature_tracker/feature_tracker_node: /usr/lib/x86_64-linux-gnu/libpython2.7.so
 /home/tg/my_slam/devel/lib/feature_tracker/feature_tracker_node: /usr/lib/x86_64-linux-gnu/libboost_program_options.so
 /home/tg/my_slam/devel/lib/feature_tracker/feature_tracker_node: /usr/lib/x86_64-linux-gnu/libtinyxml.so
-/home/tg/my_slam/devel/lib/feature_tracker/feature_tracker_node: /opt/ros/kinetic/lib/libtf.so
-/home/tg/my_slam/devel/lib/feature_tracker/feature_tracker_node: /opt/ros/kinetic/lib/libtf2_ros.so
-/home/tg/my_slam/devel/lib/feature_tracker/feature_tracker_node: /opt/ros/kinetic/lib/libactionlib.so
-/home/tg/my_slam/devel/lib/feature_tracker/feature_tracker_node: /opt/ros/kinetic/lib/libtf2.so
 /home/tg/my_slam/devel/lib/feature_tracker/feature_tracker_node: /opt/ros/kinetic/lib/libmessage_filters.so
 /home/tg/my_slam/devel/lib/feature_tracker/feature_tracker_node: /opt/ros/kinetic/lib/libroscpp.so
 /home/tg/my_slam/devel/lib/feature_tracker/feature_tracker_node: /usr/lib/x86_64-linux-gnu/libboost_filesystem.so

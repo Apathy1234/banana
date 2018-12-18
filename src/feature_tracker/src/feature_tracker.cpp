@@ -1,4 +1,4 @@
-#include "feature_tracker.h"
+#include "feature_tracker/feature_tracker.h"
 
 FeatureTracker::FeatureTracker(void):stereoSub(1), state(FIRST_IMAGE), firstImageTime(0), currImageTime(0), pubCnt(1), pubThisFrame(false), tracker(new UpdateTrackers)
 {
@@ -86,7 +86,9 @@ void FeatureTracker::Stereo_Callback(const sensor_msgs::ImageConstPtr& leftImg, 
     if( pubThisFrame )
     {
         pubCnt++;
-        sensor_msgs::PointCloud featurePoints;
+        // static int cnt = 0;
+        // cnt++;
+        sensor_msgs::PointCloudPtr featurePoints(new sensor_msgs::PointCloud);
         sensor_msgs::ChannelFloat32 id_of_point;
         sensor_msgs::ChannelFloat32 resp_of_point;
         sensor_msgs::ChannelFloat32 u_of_point;
@@ -96,8 +98,12 @@ void FeatureTracker::Stereo_Callback(const sensor_msgs::ImageConstPtr& leftImg, 
         resp_of_point.name = "tracker_counter";
         u_of_point.name = "x_of_kps_for_pixel";
         v_of_point.name = "y_of_kps_for_pixel";
-        featurePoints.header = leftImg->header;
-        featurePoints.header.frame_id = "camera";
+        featurePoints->header.stamp = leftImg->header.stamp;
+        featurePoints->header.frame_id = "camera";
+
+        // ROS_INFO_STREAM(featurePoints.header.seq);
+        // ROS_INFO_STREAM(featurePoints->header.stamp.nsec);
+        // ROS_INFO_STREAM(cnt);
         for ( ushort i = 0; i < tracker->kpsCameraId.size(); i++)
         {
             geometry_msgs::Point32 p;
@@ -105,24 +111,26 @@ void FeatureTracker::Stereo_Callback(const sensor_msgs::ImageConstPtr& leftImg, 
             p.y = tracker->kpsCameraCurr[i].y;
             p.z = tracker->kpsCameraCurr[i].z;
 
-            featurePoints.points.push_back( p );
-            id_of_point.values.push_back( tracker->kpsCameraId[i] );
+            featurePoints->points.push_back( p );
+            id_of_point.values.push_back( tracker->kpsCameraId[i]);
             resp_of_point.values.push_back( tracker->kpsCameraCnt[i]);
             u_of_point.values.push_back( tracker->kpsCamera_uv[i].x);
             v_of_point.values.push_back( tracker->kpsCamera_uv[i].y);
+            // ROS_INFO_STREAM(i << ": " << p.x << ", " << p.y << ", " << p.z << "; " << tracker->kpsCameraId[i] << ", " << tracker->kpsCameraCnt[i] << ", " << tracker->kpsCamera_uv[i].x << ", " << tracker->kpsCamera_uv[i].y);
         }
-        featurePoints.channels.push_back(id_of_point);
-        featurePoints.channels.push_back(resp_of_point);
-        featurePoints.channels.push_back(u_of_point);
-        featurePoints.channels.push_back(v_of_point);
-        if ( initPub )
-        {
-            initPub = false;
-        }
-        else
-        {
+        // ROS_INFO_STREAM("==============end=================");
+        featurePoints->channels.push_back(id_of_point);
+        featurePoints->channels.push_back(resp_of_point);
+        featurePoints->channels.push_back(u_of_point);
+        featurePoints->channels.push_back(v_of_point);
+        // if ( initPub )
+        // {
+        //     initPub = false;
+        // }
+        // else
+        // {
             pubPoints.publish(featurePoints);
-        }
+        // }
         // ROS_INFO_STREAM("the number of trackers: " << tracker->keyPointsCurr.size());
         if( SHOW_TRACKER )
         {

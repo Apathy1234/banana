@@ -1,4 +1,4 @@
-#include "config.h"
+#include "feature_tracker/config.h"
 
 shared_ptr<Config> Config::config = nullptr;
 
