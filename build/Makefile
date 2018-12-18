@@ -621,19 +621,6 @@ nodelet_generate_messages_nodejs/fast:
 .PHONY : nodelet_generate_messages_nodejs/fast
 
 #=============================================================================
-# Target rules for targets named feature_tracker_node
-
-# Build rule for target.
-feature_tracker_node: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 feature_tracker_node
-.PHONY : feature_tracker_node
-
-# fast build rule for target.
-feature_tracker_node/fast:
-	$(MAKE) -f feature_tracker/CMakeFiles/feature_tracker_node.dir/build.make feature_tracker/CMakeFiles/feature_tracker_node.dir/build
-.PHONY : feature_tracker_node/fast
-
-#=============================================================================
 # Target rules for targets named myslam
 
 # Build rule for target.
@@ -1279,7 +1266,6 @@ help:
 	@echo "... std_msgs_generate_messages_lisp"
 	@echo "... nodelet_generate_messages_lisp"
 	@echo "... nodelet_generate_messages_nodejs"
-	@echo "... feature_tracker_node"
 	@echo "... myslam"
 	@echo "... sensor_msgs_generate_messages_nodejs"
 	@echo "... sensor_msgs_generate_messages_eus"

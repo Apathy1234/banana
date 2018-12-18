@@ -7,6 +7,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/tg/my_slam/src/feature_tracker/src/camera.cpp" "/home/tg/my_slam/build/feature_tracker/CMakeFiles/myslam.dir/src/camera.cpp.o"
   "/home/tg/my_slam/src/feature_tracker/src/config.cpp" "/home/tg/my_slam/build/feature_tracker/CMakeFiles/myslam.dir/src/config.cpp.o"
   "/home/tg/my_slam/src/feature_tracker/src/feature_tracker.cpp" "/home/tg/my_slam/build/feature_tracker/CMakeFiles/myslam.dir/src/feature_tracker.cpp.o"
+  "/home/tg/my_slam/src/feature_tracker/src/feature_tracker_nodelet.cpp" "/home/tg/my_slam/build/feature_tracker/CMakeFiles/myslam.dir/src/feature_tracker_nodelet.cpp.o"
   "/home/tg/my_slam/src/feature_tracker/src/frame.cpp" "/home/tg/my_slam/build/feature_tracker/CMakeFiles/myslam.dir/src/frame.cpp.o"
   "/home/tg/my_slam/src/feature_tracker/src/update_trackers.cpp" "/home/tg/my_slam/build/feature_tracker/CMakeFiles/myslam.dir/src/update_trackers.cpp.o"
   )

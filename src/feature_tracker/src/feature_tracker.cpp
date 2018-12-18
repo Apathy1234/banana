@@ -1,6 +1,6 @@
 #include "feature_tracker/feature_tracker.h"
 
-FeatureTracker::FeatureTracker(void):stereoSub(1), state(FIRST_IMAGE), firstImageTime(0), currImageTime(0), pubCnt(1), pubThisFrame(false), tracker(new UpdateTrackers)
+FeatureTracker::FeatureTracker(ros::NodeHandle& nh):n(nh), stereoSub(1), state(FIRST_IMAGE), firstImageTime(0), currImageTime(0), pubCnt(1), pubThisFrame(false), tracker(new UpdateTrackers)
 {
     pubMatchImage = n.advertise<sensor_msgs::Image>("/featur_tracker/left/image", 1);
     pubPoints = n.advertise<sensor_msgs::PointCloud>("/feature_points", 1);
@@ -13,6 +13,7 @@ FeatureTracker::FeatureTracker(void):stereoSub(1), state(FIRST_IMAGE), firstImag
     FREQ = Config::get<int>("Frequence");
     SHOW_TRACKER = Config::get<int>("SHOW_TRACKER");
     TRACKERSIZE = Config::get<int>("TrackerSize");
+    
 }
 
 FeatureTracker::~FeatureTracker(void)
@@ -22,6 +23,7 @@ FeatureTracker::~FeatureTracker(void)
 
 void FeatureTracker::Stereo_Callback(const sensor_msgs::ImageConstPtr& leftImg, const sensor_msgs::ImageConstPtr& rightImg, const sensor_msgs::ImageConstPtr& depthImg)
 {
+    // cout << "I am here!";
     timeBegin = ros::Time::now().toNSec();
     // 丢弃开始5帧数据
     static ushort imgCnt = 0;

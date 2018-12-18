@@ -4,8 +4,9 @@ file(REMOVE_RECURSE
   "CMakeFiles/myslam.dir/src/camera.cpp.o"
   "CMakeFiles/myslam.dir/src/feature_tracker.cpp.o"
   "CMakeFiles/myslam.dir/src/update_trackers.cpp.o"
-  "/home/tg/my_slam/src/feature_tracker/lib/libmyslam.pdb"
-  "/home/tg/my_slam/src/feature_tracker/lib/libmyslam.so"
+  "CMakeFiles/myslam.dir/src/feature_tracker_nodelet.cpp.o"
+  "/home/tg/my_slam/devel/lib/libmyslam.pdb"
+  "/home/tg/my_slam/devel/lib/libmyslam.so"
 )
 
 # Per-language clean rules from dependency scanning.

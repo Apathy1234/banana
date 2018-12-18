@@ -64,7 +64,6 @@
 /home/tg/my_slam/build/feature_tracker/CMakeFiles/install.dir
 /home/tg/my_slam/build/feature_tracker/CMakeFiles/test.dir
 /home/tg/my_slam/build/feature_tracker/CMakeFiles/install/local.dir
-/home/tg/my_slam/build/feature_tracker/CMakeFiles/feature_tracker_node.dir
 /home/tg/my_slam/build/feature_tracker/CMakeFiles/list_install_components.dir
 /home/tg/my_slam/build/feature_tracker/CMakeFiles/install/strip.dir
 /home/tg/my_slam/build/feature_tracker/CMakeFiles/myslam.dir

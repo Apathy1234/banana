@@ -42,9 +42,9 @@ private:
     message_filters::TimeSynchronizer<sensor_msgs::Image, sensor_msgs::Image, sensor_msgs::Image> stereoSub;
 
 public:
-
-    FeatureTracker(void);
+    typedef shared_ptr<FeatureTracker> ptr;
     
+    FeatureTracker(ros::NodeHandle& nh);
     ~FeatureTracker(void);
 
     void Stereo_Callback(

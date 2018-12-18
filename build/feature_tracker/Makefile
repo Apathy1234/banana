@@ -166,21 +166,6 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-feature_tracker/CMakeFiles/feature_tracker_node.dir/rule:
-	cd /home/tg/my_slam/build && $(MAKE) -f CMakeFiles/Makefile2 feature_tracker/CMakeFiles/feature_tracker_node.dir/rule
-.PHONY : feature_tracker/CMakeFiles/feature_tracker_node.dir/rule
-
-# Convenience name for target.
-feature_tracker_node: feature_tracker/CMakeFiles/feature_tracker_node.dir/rule
-
-.PHONY : feature_tracker_node
-
-# fast build rule for target.
-feature_tracker_node/fast:
-	cd /home/tg/my_slam/build && $(MAKE) -f feature_tracker/CMakeFiles/feature_tracker_node.dir/build.make feature_tracker/CMakeFiles/feature_tracker_node.dir/build
-.PHONY : feature_tracker_node/fast
-
-# Convenience name for target.
 feature_tracker/CMakeFiles/myslam.dir/rule:
 	cd /home/tg/my_slam/build && $(MAKE) -f CMakeFiles/Makefile2 feature_tracker/CMakeFiles/myslam.dir/rule
 .PHONY : feature_tracker/CMakeFiles/myslam.dir/rule
@@ -426,32 +411,32 @@ src/feature_tracker.cpp.s:
 	cd /home/tg/my_slam/build && $(MAKE) -f feature_tracker/CMakeFiles/myslam.dir/build.make feature_tracker/CMakeFiles/myslam.dir/src/feature_tracker.cpp.s
 .PHONY : src/feature_tracker.cpp.s
 
-src/feature_tracker_node.o: src/feature_tracker_node.cpp.o
+src/feature_tracker_nodelet.o: src/feature_tracker_nodelet.cpp.o
 
-.PHONY : src/feature_tracker_node.o
+.PHONY : src/feature_tracker_nodelet.o
 
 # target to build an object file
-src/feature_tracker_node.cpp.o:
-	cd /home/tg/my_slam/build && $(MAKE) -f feature_tracker/CMakeFiles/feature_tracker_node.dir/build.make feature_tracker/CMakeFiles/feature_tracker_node.dir/src/feature_tracker_node.cpp.o
-.PHONY : src/feature_tracker_node.cpp.o
+src/feature_tracker_nodelet.cpp.o:
+	cd /home/tg/my_slam/build && $(MAKE) -f feature_tracker/CMakeFiles/myslam.dir/build.make feature_tracker/CMakeFiles/myslam.dir/src/feature_tracker_nodelet.cpp.o
+.PHONY : src/feature_tracker_nodelet.cpp.o
 
-src/feature_tracker_node.i: src/feature_tracker_node.cpp.i
+src/feature_tracker_nodelet.i: src/feature_tracker_nodelet.cpp.i
 
-.PHONY : src/feature_tracker_node.i
+.PHONY : src/feature_tracker_nodelet.i
 
 # target to preprocess a source file
-src/feature_tracker_node.cpp.i:
-	cd /home/tg/my_slam/build && $(MAKE) -f feature_tracker/CMakeFiles/feature_tracker_node.dir/build.make feature_tracker/CMakeFiles/feature_tracker_node.dir/src/feature_tracker_node.cpp.i
-.PHONY : src/feature_tracker_node.cpp.i
+src/feature_tracker_nodelet.cpp.i:
+	cd /home/tg/my_slam/build && $(MAKE) -f feature_tracker/CMakeFiles/myslam.dir/build.make feature_tracker/CMakeFiles/myslam.dir/src/feature_tracker_nodelet.cpp.i
+.PHONY : src/feature_tracker_nodelet.cpp.i
 
-src/feature_tracker_node.s: src/feature_tracker_node.cpp.s
+src/feature_tracker_nodelet.s: src/feature_tracker_nodelet.cpp.s
 
-.PHONY : src/feature_tracker_node.s
+.PHONY : src/feature_tracker_nodelet.s
 
 # target to generate assembly for a file
-src/feature_tracker_node.cpp.s:
-	cd /home/tg/my_slam/build && $(MAKE) -f feature_tracker/CMakeFiles/feature_tracker_node.dir/build.make feature_tracker/CMakeFiles/feature_tracker_node.dir/src/feature_tracker_node.cpp.s
-.PHONY : src/feature_tracker_node.cpp.s
+src/feature_tracker_nodelet.cpp.s:
+	cd /home/tg/my_slam/build && $(MAKE) -f feature_tracker/CMakeFiles/myslam.dir/build.make feature_tracker/CMakeFiles/myslam.dir/src/feature_tracker_nodelet.cpp.s
+.PHONY : src/feature_tracker_nodelet.cpp.s
 
 src/frame.o: src/frame.cpp.o
 
@@ -516,7 +501,6 @@ help:
 	@echo "... install"
 	@echo "... test"
 	@echo "... install/local"
-	@echo "... feature_tracker_node"
 	@echo "... list_install_components"
 	@echo "... install/strip"
 	@echo "... myslam"
@@ -541,9 +525,9 @@ help:
 	@echo "... src/feature_tracker.o"
 	@echo "... src/feature_tracker.i"
 	@echo "... src/feature_tracker.s"
-	@echo "... src/feature_tracker_node.o"
-	@echo "... src/feature_tracker_node.i"
-	@echo "... src/feature_tracker_node.s"
+	@echo "... src/feature_tracker_nodelet.o"
+	@echo "... src/feature_tracker_nodelet.i"
+	@echo "... src/feature_tracker_nodelet.s"
 	@echo "... src/frame.o"
 	@echo "... src/frame.i"
 	@echo "... src/frame.s"

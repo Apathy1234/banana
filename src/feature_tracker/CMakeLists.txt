@@ -7,15 +7,7 @@ project(feature_tracker)
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
-find_package(catkin REQUIRED COMPONENTS 
-  roscpp 
-  cv_bridge 
-  image_transport 
-  sensor_msgs 
-  std_msgs 
-  message_filters
-  geometry_msgs
-  )
+find_package(catkin REQUIRED COMPONENTS roscpp cv_bridge image_transport sensor_msgs std_msgs message_filters geometry_msgs nodelet)
 
 find_package(OpenCV 3 REQUIRED)
 ## System dependencies are found with CMake's conventions
@@ -108,12 +100,12 @@ find_package(OpenCV 3 REQUIRED)
 ## CATKIN_DEPENDS: catkin_packages dependent projects also need
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
-#  INCLUDE_DIRS include
-#  LIBRARIES camera_listeners
-#  CATKIN_DEPENDS other_catkin_pkg
-#  DEPENDS system_lib
+  INCLUDE_DIRS include
+  LIBRARIES feature_tracker
+  CATKIN_DEPENDS roscpp cv_bridge image_transport sensor_msgs std_msgs message_filters geometry_msgs nodelet
+  DEPENDS OpenCV
 )
-set( CMAKE_LIBRARY_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/lib )
+#set( CMAKE_LIBRARY_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/lib )
 
 ###########
 ## Build ##
@@ -128,7 +120,7 @@ include_directories(
  ${OpenCV_INCLUDE_DIRS}
 )
 
- link_directories(lib)
+ #link_directories(lib)
 
 set(LINK_LIBRARIES
   ${catkin_LIBRARIES}
@@ -142,7 +134,9 @@ add_library(myslam
    src/camera.cpp
    src/feature_tracker.cpp
    src/update_trackers.cpp
+   src/feature_tracker_nodelet.cpp
    )
+ add_dependencies(myslam  ${${PROJECT_NAME}_EXPORTED_TARGETS}  ${catkin_EXPORTED_TARGETS})
  target_link_libraries( myslam ${LINK_LIBRARIES} )
 ## Add cmake target dependencies of the library
 ## as an example, code may need to be generated before libraries
@@ -152,7 +146,7 @@ add_library(myslam
 ## Declare a C++ executable
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
- add_executable(feature_tracker_node src/feature_tracker_node.cpp)
+# add_executable(feature_tracker_node src/feature_tracker_nodelet.cpp)
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
@@ -165,10 +159,10 @@ add_library(myslam
 # add_dependencies(${PROJECT_NAME}_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 ## Specify libraries to link a library or executable target against
- target_link_libraries(feature_tracker_node
-   ${LINK_LIBRARIES}
-   myslam
- )
+# target_link_libraries(feature_tracker_node
+#   ${LINK_LIBRARIES}
+#   myslam
+# )
 
 #############
 ## Install ##
